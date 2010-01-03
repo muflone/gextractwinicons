@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=gExtractWinIcons
+Comment=Extract cursors and icons from MS Windows compatible resource files
+Type=Application
+Comment[it_IT]=Estrae cursori e icone dai files di risorsa compatibili con MS Windows
+Exec=/usr/bin/gextractwinicons
+Icon=/usr/share/gextractwinicons/data/gextractwinicons.svg
+Terminal=false
+Categories=Graphics;GTK;
+

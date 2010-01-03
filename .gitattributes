@@ -1,1 +1,15 @@
 * text=auto !eol
+data/gextractwinicons.desktop -text
+data/gextractwinicons.glade -text
+data/gextractwinicons.svg -text
+doc/README -text
+doc/changelog -text
+doc/copyright -text
+doc/translators -text
+/gextractwinicons -text
+man/gextractwinicons.1 -text
+po/en_US.po -text
+po/fr.po -text
+po/gextractwinicons.pot -text
+po/it.po -text
+/setup.py -text

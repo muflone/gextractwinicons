@@ -1,0 +1,53 @@
+.\" $Id: gextractwinicons.1 0.3 2010-01-03 16:55 muflone $
+.\"
+.\" Copyright (c) 2010 Fabio Castelli
+
+.TH GEXTRACTWINICONS "1" "January 3, 2010"
+
+.SH NAME
+.B gExtractWinIcons
+\- Extract cursors and icons from MS Windows compatible resource files
+
+.SH SYNOPSIS
+.B gextractwinicons
+\-h
+.br
+.B gextractwinicons
+[options]
+
+.SH DESCRIPTION
+.PP
+.B gExtractWinIcons
+is a GTK+ utility to extract cursors, icons and png images from MS Windows
+compatible resource files (.exe, .dll, .ocx, .cpl and many others).
+
+.PP
+To extract icons or cursors just to select a MS Windows compatible resource
+file and the contained resources will be shown. Select a destination directory
+where to save the selected resources, simply check the items to extract and
+press the save button to save them in the specified path.
+
+.SH "OPTIONS"
+This program follow the usual GNU command line syntax, with long
+options starting with two dashes (`\-').
+A summary of options is included below.
+.TP 
+.B \-h, \-\-help
+Show summary of options
+.TP 
+.B \-d, \-\-destination
+Set destination folder for extracted resources
+.TP 
+.B \-f, \-\-filename
+Set resources filename from which to extract the resources
+.TP 
+.B \-r, \-\-refresh
+Automatically refresh the resources list if \-f (\-\-filename) was specified
+
+.SH AUTHORS
+.B gExtractWinIcons
+was written by Fabio Castelli <muflone@vbsimple.net>.
+
+.SH HOMEPAGE
+http://code.google.com/p/gextractwinicons/
+
