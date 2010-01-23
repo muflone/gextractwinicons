@@ -1,8 +1,8 @@
 # gExtractWinIcons - Extract cursors and icons from MS Windows compatible
 # resource files.
-# Copyright (C) 2009 Fabio Castelli
+# Copyright (C) 2009-2010 Fabio Castelli
 # This file is distributed under the GPL v2 license (see copyright file).
-# Fabio Castelli <muflone@vbsimple.net>, 2009.
+# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
 # Italian translation for gextractwinicons package.
 #
 msgid ""

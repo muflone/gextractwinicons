@@ -9,7 +9,13 @@ doc/translators -text
 /gextractwinicons -text
 man/gextractwinicons.1 -text
 po/en_US.po -text
+po/en_US/LC_MESSAGES/gextractwinicons.mo -text
 po/fr.po -text
+po/fr/LC_MESSAGES/gextractwinicons.mo -text
+po/genpot.sh -text
 po/gextractwinicons.pot -text
+po/i18n-2.sh -text
+po/i18n-3.sh -text
 po/it.po -text
+po/it/LC_MESSAGES/gextractwinicons.mo -text
 /setup.py -text
