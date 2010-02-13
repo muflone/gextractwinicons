@@ -1,0 +1,121 @@
+# gExtractWinIcons - Extract cursors and icons from MS Windows compatible
+# resource files.
+# Copyright (C) 2009-2010 Fabio Castelli
+# This file is distributed under the GPL v2 license (see copyright file).
+# Fabio Castelli <muflone@vbsimple.net>, 2009-2010.
+# Arabic translation for gextractwinicons package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gextractwinicons 0.3\n"
+"Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
+"POT-Creation-Date: 2010-01-03 16:41+0100\n"
+"PO-Revision-Date: 2010-02-13 17:01+0100\n"
+"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"Language-Team: Arabic\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/gextractwinicons.glade.h:1
+msgid "<b>Available resources:</b>"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:2
+msgid "Deselect all"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:3
+msgid "Destination folder:"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:4
+msgid "File to open:"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:5
+msgid "Please select a file to list the available resources"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:6
+msgid "Select all"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:7
+msgid "Select only PNGs"
+msgstr ""
+
+#: ../data/gextractwinicons.glade.h:8
+msgid "Select path for saving"
+msgstr ""
+
+#: ../gextractwinicons:117
+msgid "icon"
+msgstr ""
+
+#: ../gextractwinicons:119
+msgid "cursor"
+msgstr ""
+
+#: ../gextractwinicons:139
+msgid "Preview"
+msgstr ""
+
+#: ../gextractwinicons:144
+msgid "Type"
+msgstr ""
+
+#: ../gextractwinicons:149
+msgid "Name"
+msgstr ""
+
+#: ../gextractwinicons:156
+msgid "Width"
+msgstr ""
+
+#: ../gextractwinicons:162
+msgid "Height"
+msgstr ""
+
+#: ../gextractwinicons:168
+msgid "Bits"
+msgstr ""
+
+#: ../gextractwinicons:174
+msgid "Size"
+msgstr ""
+
+#: ../gextractwinicons:179
+msgid "Extract"
+msgstr ""
+
+#: ../gextractwinicons:206
+msgid "cursors"
+msgstr ""
+
+#: ../gextractwinicons:206
+msgid "icons"
+msgstr ""
+
+#: ../gextractwinicons:327
+msgid "Extraction completed."
+msgstr ""
+
+#: ../gextractwinicons:375
+msgid ""
+"A GTK utility to extract cursors, icons and png image previews from MS "
+"Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgstr ""
+
+#: ../gextractwinicons:452
+msgid "MS Windows compatible files"
+msgstr ""
+
+#: ../gextractwinicons:454
+msgid "All files"
+msgstr ""
+
+#: ../gextractwinicons:456
+#, python-format
+msgid "%d resources found (%d resources selected)"
+msgstr ""
