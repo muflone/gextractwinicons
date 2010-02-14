@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: Fabio Castelli <muflone@vbsimple.net>\n"
 "POT-Creation-Date: 2010-01-03 16:41+0100\n"
 "PO-Revision-Date: 2010-02-13 17:01+0100\n"
-"Last-Translator: Fabio Castelli <muflone@vbsimple.net>\n"
+"Last-Translator: HsH <hsh@runtu.org>\n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,103 +21,105 @@ msgstr ""
 
 #: ../data/gextractwinicons.glade.h:1
 msgid "<b>Available resources:</b>"
-msgstr ""
+msgstr "<b>Найденные ресурсы:</b>"
 
 #: ../data/gextractwinicons.glade.h:2
 msgid "Deselect all"
-msgstr ""
+msgstr "Отменить выбор"
 
 #: ../data/gextractwinicons.glade.h:3
 msgid "Destination folder:"
-msgstr ""
+msgstr "Каталог назначения:"
 
 #: ../data/gextractwinicons.glade.h:4
 msgid "File to open:"
-msgstr ""
+msgstr "Открыть файл:"
 
 #: ../data/gextractwinicons.glade.h:5
 msgid "Please select a file to list the available resources"
-msgstr ""
+msgstr "Выберите файл для просмотра доступных ресурсов"
 
 #: ../data/gextractwinicons.glade.h:6
 msgid "Select all"
-msgstr ""
+msgstr "Выбрать всё"
 
 #: ../data/gextractwinicons.glade.h:7
 msgid "Select only PNGs"
-msgstr ""
+msgstr "Выбрать только PNG"
 
 #: ../data/gextractwinicons.glade.h:8
 msgid "Select path for saving"
-msgstr ""
+msgstr "Выбрать каталог назначения"
 
 #: ../gextractwinicons:117
 msgid "icon"
-msgstr ""
+msgstr "значок"
 
 #: ../gextractwinicons:119
 msgid "cursor"
-msgstr ""
+msgstr "курсор"
 
 #: ../gextractwinicons:139
 msgid "Preview"
-msgstr ""
+msgstr "Просмотр"
 
 #: ../gextractwinicons:144
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: ../gextractwinicons:149
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 #: ../gextractwinicons:156
 msgid "Width"
-msgstr ""
+msgstr "Ширина"
 
 #: ../gextractwinicons:162
 msgid "Height"
-msgstr ""
+msgstr "Высота"
 
 #: ../gextractwinicons:168
 msgid "Bits"
-msgstr ""
+msgstr "Бит"
 
 #: ../gextractwinicons:174
 msgid "Size"
-msgstr ""
+msgstr "Размер"
 
 #: ../gextractwinicons:179
 msgid "Extract"
-msgstr ""
+msgstr "Извлечь"
 
 #: ../gextractwinicons:206
 msgid "cursors"
-msgstr ""
+msgstr "Курсоры"
 
 #: ../gextractwinicons:206
 msgid "icons"
-msgstr ""
+msgstr "Значки"
 
 #: ../gextractwinicons:327
 msgid "Extraction completed."
-msgstr ""
+msgstr "Извлечение завершеною"
 
 #: ../gextractwinicons:375
 msgid ""
 "A GTK utility to extract cursors, icons and png image previews from MS "
 "Windows resource files (like .exe, .dll, .ocx, .cpl)."
 msgstr ""
+"Утилита для извлечения курсоров, значков и PNG-изображений из файлов "
+"ресурсов MS Windows (*.exe, *.dll, *.ocx, *.cpl)."
 
 #: ../gextractwinicons:452
 msgid "MS Windows compatible files"
-msgstr ""
+msgstr "Файлы ресурсов MS Windows"
 
 #: ../gextractwinicons:454
 msgid "All files"
-msgstr ""
+msgstr "Все файлы"
 
 #: ../gextractwinicons:456
 #, python-format
 msgid "%d resources found (%d resources selected)"
-msgstr ""
+msgstr "%d ресурсов найдено (%d ресурсов выбрано)"
