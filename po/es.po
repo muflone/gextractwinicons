@@ -100,7 +100,7 @@ msgstr "iconos"
 
 #: ../gextractwinicons:327
 msgid "Extraction completed."
-msgstr ""
+msgstr "Extracción terminada."
 
 #: ../gextractwinicons:375
 msgid ""
