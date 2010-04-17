@@ -1,4 +1,10 @@
-gespeaker (0.3) all; urgency=low
+gextractwinicons (0.3.1) all; urgency=low
+
+  * Fixed spanish translation (thanks to Federico Caiazza)
+
+ -- Fabio Castelli <muflone@vbsimple.net>  Sun, 17 Apr 2010 17:45:20 +0100
+
+gextractwinicons (0.3) all; urgency=low
 
   * Added french translation (thanks to Emmanuel)
   * Added manpage
@@ -7,7 +13,7 @@ gespeaker (0.3) all; urgency=low
 
  -- Fabio Castelli <muflone@vbsimple.net>  Sun, 03 Jan 2010 16:55:30 +0100
 
-gespeaker (0.2) all; urgency=low
+gextractwinicons (0.2) all; urgency=low
 
   * Fixed minor translation issues
   * Added filters for file opening dialog
@@ -16,7 +22,7 @@ gespeaker (0.2) all; urgency=low
 
  -- Fabio Castelli <muflone@vbsimple.net>  Fri, 29 Aug 2009 03:46:00 +0100
 
-gespeaker (0.1) all; urgency=low
+gextractwinicons (0.1) all; urgency=low
 
   * Initial release
 

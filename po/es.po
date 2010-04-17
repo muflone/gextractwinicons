@@ -48,7 +48,7 @@ msgstr "Seleccionar sólo PNGs"
 
 #: ../data/gextractwinicons.glade.h:8
 msgid "Select path for saving"
-msgstr ""
+msgstr "Selecciona dónde salvar"
 
 #: ../gextractwinicons:117
 msgid "icon"
@@ -88,7 +88,7 @@ msgstr "Tamaño"
 
 #: ../gextractwinicons:179
 msgid "Extract"
-msgstr ""
+msgstr "Extrae"
 
 #: ../gextractwinicons:206
 msgid "cursors"
@@ -106,17 +106,18 @@ msgstr ""
 msgid ""
 "A GTK utility to extract cursors, icons and png image previews from MS "
 "Windows resource files (like .exe, .dll, .ocx, .cpl)."
-msgstr ""
+msgstr "na utilidad de GTK para extraer cursores, iconos y vistas previas de imagenes png de MS"
+"Archivos de recursos de Windows (como .exe, .dll, .ocx, .cpl)."
 
 #: ../gextractwinicons:452
 msgid "MS Windows compatible files"
-msgstr ""
+msgstr "Archivos compatibles con MS Windows"
 
 #: ../gextractwinicons:454
 msgid "All files"
-msgstr ""
+msgstr "Todo los archivos"
 
 #: ../gextractwinicons:456
 #, python-format
 msgid "%d resources found (%d resources selected)"
-msgstr ""
+msgstr "%d Recursos encontrados (%d recursos seleccionados)"
