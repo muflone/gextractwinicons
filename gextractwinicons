@@ -36,7 +36,7 @@ from optparse import OptionParser
 __file_path__ = os.path.dirname(os.path.abspath(__file__))
 APP_NAME = 'gextractwinicons'
 APP_TITLE = 'gExtractWinIcons'
-APP_VERSION = '0.3'
+APP_VERSION = '0.3.1'
 PATHS = {
   'locale': [
     '%s/po' % __file_path__,
@@ -194,6 +194,7 @@ def on_btnRefresh_clicked(widget, data=None):
   global isLoading
   global intTotalResources
   global intSelectedResources
+  btnFilePath.set_sensitive(isLoading)
   if not isLoading:
     # Start loading
     btnRefresh.set_label('gtk-stop')
@@ -298,6 +299,7 @@ def on_btnRefresh_clicked(widget, data=None):
   # Hide progressbar and update treeview
   progLoading.hide()
   btnSaveResources.show()
+  btnFilePath.set_sensitive(True)
   tvwResources.set_model(modelResources)
   tvwResources.thaw_child_notify()
   tvwResources.expand_all()
@@ -312,7 +314,7 @@ def on_btnSaveResources_clicked(widget, data=None):
   for iter in modelResources:
     tmpFile = os.path.join(tempdir, '%s_%s_%s_%s.%s' % (
       os.path.basename(btnFilePath.get_filename()), 
-      iter[1], iter[3], iter[4], iter[1] == '12' and 'cur' or 'ico'
+      iter[1], iter[3], iter[4], iter[1] == 12 and 'cur' or 'ico'
     ))
     if iter[0]:
       # Copy ico/cur file

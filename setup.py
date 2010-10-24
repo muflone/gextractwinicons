@@ -64,7 +64,7 @@ class InstallData(install_data):
 
 
 setup(name='gExtractWinIcons',
-      version='0.3',
+      version='0.3.1',
       description='Extract cursors and icons from MS Windows compatible resource files',
       author='Fabio Castelli',
       author_email='muflone@vbsimple.net',
