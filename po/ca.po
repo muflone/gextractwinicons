@@ -1,0 +1,124 @@
+# gExtractWinIcons - Extract cursors and icons from MS Windows compatible
+# resource files.
+# Copyright (C) 2009-2013 Fabio Castelli <webreg@vbsimple.net>
+# This file is distributed under the GPL v2 license (see copyright file).
+# Catalan translation for gextractwinicons package.
+# 
+# Translators:
+# Adolfo Jayme Barrientos <fitoschido@ubuntu.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: gExtractWinIcons\n"
+"Report-Msgid-Bugs-To: http://code.google.com/p/gextractwinicons/issues/list\n"
+"POT-Creation-Date: 2010-01-03 16:41+0100\n"
+"PO-Revision-Date: 2012-12-21 17:33+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@ubuntu.com>\n"
+"Language-Team: Catalan (http://www.transifex.com/projects/p/gextractwinicons/language/ca/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/gextractwinicons.glade.h:1
+msgid "<b>Available resources:</b>"
+msgstr "<b>Recursos disponibles:</b>"
+
+#: ../data/gextractwinicons.glade.h:2
+msgid "Deselect all"
+msgstr "Deselecciona tot"
+
+#: ../data/gextractwinicons.glade.h:3
+msgid "Destination folder:"
+msgstr "Carpeta de destinació:"
+
+#: ../data/gextractwinicons.glade.h:4
+msgid "File to open:"
+msgstr "Fitxer a obrir:"
+
+#: ../data/gextractwinicons.glade.h:5
+msgid "Please select a file to list the available resources"
+msgstr "Seleccioneu un fitxer per llistar els recursos disponibles"
+
+#: ../data/gextractwinicons.glade.h:6
+msgid "Select all"
+msgstr "Selecciona tot"
+
+#: ../data/gextractwinicons.glade.h:7
+msgid "Select only PNGs"
+msgstr "Selecciona només PNG"
+
+#: ../data/gextractwinicons.glade.h:8
+msgid "Select path for saving"
+msgstr "Seleccioneu la ruta per desar"
+
+#: ../gextractwinicons:117
+msgid "icon"
+msgstr "icona"
+
+#: ../gextractwinicons:119
+msgid "cursor"
+msgstr "cursor"
+
+#: ../gextractwinicons:139
+msgid "Preview"
+msgstr "Previsualitzar"
+
+#: ../gextractwinicons:144
+msgid "Type"
+msgstr "Tipus"
+
+#: ../gextractwinicons:149
+msgid "Name"
+msgstr "Nom"
+
+#: ../gextractwinicons:156
+msgid "Width"
+msgstr "Amplada"
+
+#: ../gextractwinicons:162
+msgid "Height"
+msgstr "Alçada"
+
+#: ../gextractwinicons:168
+msgid "Bits"
+msgstr "Bits"
+
+#: ../gextractwinicons:174
+msgid "Size"
+msgstr "Mida"
+
+#: ../gextractwinicons:179
+msgid "Extract"
+msgstr "Extreu"
+
+#: ../gextractwinicons:206
+msgid "cursors"
+msgstr "cursors"
+
+#: ../gextractwinicons:206
+msgid "icons"
+msgstr "icones"
+
+#: ../gextractwinicons:327
+msgid "Extraction completed."
+msgstr "S’ha completat la extracció."
+
+#: ../gextractwinicons:375
+msgid ""
+"A GTK utility to extract cursors, icons and png image previews from MS "
+"Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgstr "Una utilitat GTK per extreure cursors, icones i previsualitzacions PNG d’fitxers de MS de recursos de Windows (como .exe, .dll, .ocx, .cpl)."
+
+#: ../gextractwinicons:452
+msgid "MS Windows compatible files"
+msgstr "Fitxers compatibles amb MS Windows"
+
+#: ../gextractwinicons:454
+msgid "All files"
+msgstr "Tots els fitxers"
+
+#: ../gextractwinicons:456
+#, python-format
+msgid "%d resources found (%d resources selected)"
+msgstr "%d recursos trobats (%d recursos seleccionats)"

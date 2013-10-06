@@ -1,3 +1,10 @@
+gextractwinicons 0.3.2
+
+  * Added Hebrew translation (thanks to GenghisKhan)
+  * Added Catalan translation (thanks to Adolfo Jayme Barrientos)
+
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 6 Oct 2010 17:01:30 +0200
+
 gextractwinicons 0.3.1
 
   * Fixed spanish translation (thanks to Federico Caiazza and Fitoschido)
