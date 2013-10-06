@@ -4,7 +4,7 @@
 ##
 #   Project: gExtractWinIcons
 #            Extract cursors and icons from MS Windows compatible resource files.
-#    Author: Fabio Castelli <muflone@vbsimple.net>
+#    Author: Fabio Castelli <webreg@vbsimple.net>
 # Copyright: 2009-2010 Fabio Castelli
 #   License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
@@ -36,7 +36,7 @@ from optparse import OptionParser
 __file_path__ = os.path.dirname(os.path.abspath(__file__))
 APP_NAME = 'gextractwinicons'
 APP_TITLE = 'gExtractWinIcons'
-APP_VERSION = '0.3.1'
+APP_VERSION = '0.3.2'
 PATHS = {
   'locale': [
     '%s/po' % __file_path__,
@@ -387,7 +387,7 @@ def on_btnInfo_clicked(widget, data=None):
   gtk.about_dialog_set_url_hook(lambda url, data=None: url)
   about.set_website('http://code.google.com/p/gextractwinicons/')
   about.set_authors([
-    'Fabio Castelli <muflone@vbsimple.net>', 
+    'Fabio Castelli <webreg@vbsimple.net>', 
     'http://www.ubuntutrucchi.it'
   ])
   about.run()

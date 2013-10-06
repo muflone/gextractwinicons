@@ -4,7 +4,7 @@ gextractwinicons 0.3.1
   * Disabled file chooser during the scan to prevent file changes
   * Fixed defect on cursors extraction (Debian bug #600015)
 
- -- Fabio Castelli <muflone@vbsimple.net>  Sun, 24 Oct 2010 18:32:13 +0200
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 24 Oct 2010 18:32:13 +0200
 
 gextractwinicons 0.3
 
@@ -13,7 +13,7 @@ gextractwinicons 0.3
   * Added commandline options
   * Minor code modifications
 
- -- Fabio Castelli <muflone@vbsimple.net>  Sun, 03 Jan 2010 16:55:30 +0100
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 03 Jan 2010 16:55:30 +0100
 
 gextractwinicons 0.2
 
@@ -22,11 +22,11 @@ gextractwinicons 0.2
   * Auto-refresh on file opening
   * Fixed missing librsvg2-common dependency
 
- -- Fabio Castelli <muflone@vbsimple.net>  Fri, 29 Aug 2009 03:46:00 +0100
+ -- Fabio Castelli <webreg@vbsimple.net>  Fri, 29 Aug 2009 03:46:00 +0100
 
 gextractwinicons 0.1
 
   * Initial release
 
- -- Fabio Castelli <muflone@vbsimple.net>  Fri, 28 Aug 2009 14:00:00 +0100
+ -- Fabio Castelli <webreg@vbsimple.net>  Fri, 28 Aug 2009 14:00:00 +0100
 
