@@ -39,7 +39,7 @@ APP_TITLE = 'gExtractWinIcons'
 APP_VERSION = '0.3.2'
 PATHS = {
   'locale': [
-    '%s/po' % __file_path__,
+    '%s/locale' % __file_path__,
     '%s/share/locale' % sys.prefix],
   'data': [
     '%s/data' % __file_path__,
