@@ -64,18 +64,18 @@ class InstallData(install_data):
 
 
 setup(name='gExtractWinIcons',
-      version='0.3.2',
-      description='Extract cursors and icons from MS Windows compatible resource files',
-      author='Fabio Castelli',
-      author_email='webreg@vbsimple.net',
-      url='http://code.google.com/p/gextractwinicons/',
-      license='GPL v2',
-      scripts=['gextractwinicons'],
-      data_files=[
-                  ('share/applications', ['data/gextractwinicons.desktop']),
-                  ('share/man/man1', ['man/gextractwinicons.1']),
-                  ('share/doc/gextractwinicons', ['doc/README', 'doc/changelog', 'doc/translators']),
-                  ('share/gextractwinicons/data', ['data/gextractwinicons.glade', 'data/gextractwinicons.svg']),
-                 ],
-      cmdclass={'install_data': InstallData}
-     )
+  version='0.3.2',
+  description='Extract cursors and icons from MS Windows compatible resource files',
+  author='Fabio Castelli',
+  author_email='webreg@vbsimple.net',
+  url='http://code.google.com/p/gextractwinicons/',
+  license='GPL v2',
+  scripts=['gextractwinicons'],
+  data_files=[
+    ('share/applications', ['data/gextractwinicons.desktop']),
+    ('share/man/man1', ['man/gextractwinicons.1']),
+    ('share/doc/gextractwinicons', ['README.md', 'LEGGIMI.txt', 'doc/changelog', 'doc/translators']),
+    ('share/gextractwinicons/data', ['data/gextractwinicons.glade', 'data/gextractwinicons.svg']),
+  ],
+  cmdclass={'install_data': InstallData}
+)
