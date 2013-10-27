@@ -1,3 +1,19 @@
+gextractwinicons 0.4
+
+  * Rewrote the whole project from scratch!
+  * Moved the project from Google Code to GitHub:
+    https://github.com/muflone/gextractwinicons
+  * Now there's also a website for the project:
+    http://gextractwinicons.muflone.com/
+  * The whole user interface now uses GTK+ 3.0 and GtkBuilder
+  * The main window is now a GtkApplicationWindow
+  * Added a GMenu to application
+  * Added the main window saving to the configuration folder
+    $XDG_CONFIG_HOME/gextractwinicons/ using XDG BaseDirectory specifications
+  * Updated translations and new languages
+
+ -- Fabio Castelli <webreg@vbsimple.net>  Sun, 27 Oct 2010 20:10:18 +0100
+
 gextractwinicons 0.3.2
 
   * Added Hebrew translation (thanks to GenghisKhan)
