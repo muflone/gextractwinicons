@@ -80,11 +80,11 @@ class Extractor(object):
     proc = subprocess.Popen(
       [
         'wrestool',
-        '-x',
-        '-t', str(resource['--type']),
-        '-n', resource['--name'],
-        '-L', resource['--language'],
-        '-o', outFilename,
+        '--extract',
+        '--type', str(resource['--type']),
+        '--name', resource['--name'],
+        '--language', resource['--language'],
+        '--output', outFilename,
         filename
       ],
       stdout=subprocess.PIPE,
@@ -131,12 +131,12 @@ class Extractor(object):
         proc = subprocess.Popen(
           [
             'icotool',
-            '-x',
-            '-i', resource['--index'],
-            '-w', resource['--width'],
-            '-h', resource['--height'],
-            '-b', resource['--bit-depth'],
-            '-o', outFilename,
+            '--extract',
+            '--index', resource['--index'],
+            '--width', resource['--width'],
+            '--height', resource['--height'],
+            '--bit-depth', resource['--bit-depth'],
+            '--output', outFilename,
             filename
           ],
           stdout=subprocess.PIPE,
