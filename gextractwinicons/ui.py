@@ -18,6 +18,7 @@
 #  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
 ##
 
+import shutil
 from gi.repository import Gtk
 from gi.repository import Gio
 from gextractwinicons.constants import *
@@ -245,7 +246,35 @@ class MainWindow(object):
     self.update_totals()
 
   def on_btnSaveResources_clicked(self, widget):
-    pass
+    "Save the selected resources"
+    destination_path = self.btnDestination.get_filename()
+    saved_count = 0
+    # Iter the first level
+    for iter in self.model.get_model():
+      if self.model.get_selected(iter.path):
+        # Copy ico/cur file
+        shutil.copy(self.model.get_file_path(iter.path), destination_path)
+        saved_count += 1
+      # Iter the children
+      for iter in iter.iterchildren():
+        if self.model.get_selected(iter.path):
+          # Copy PNG image
+          shutil.copy(self.model.get_file_path(iter.path), destination_path)
+          saved_count += 1
+    self.settings.logText('%d resources were saved to %s' % (
+      saved_count, destination_path), VERBOSE_LEVEL_NORMAL)
+    # Show the completion dialog
+    dialog = Gtk.MessageDialog(
+      parent=self.winMain,
+      flags=Gtk.DialogFlags.MODAL,
+      type=Gtk.MessageType.INFO,
+      buttons=Gtk.ButtonsType.OK,
+      message_format=_('Extraction completed.')
+    )
+    dialog.set_title(APP_NAME)
+    dialog.set_icon_from_file(FILE_ICON)
+    dialog.run()
+    dialog.destroy()
 
   def on_btnSelect_clicked(self, widget):
     "Deselect or select all the resources or only the images"
