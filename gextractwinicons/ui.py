@@ -83,6 +83,9 @@ class MainWindow(object):
     self.btnRefresh = builder.get_object('btnRefresh')
     self.lblTotals = builder.get_object('lblTotals')
     self.progLoading = builder.get_object('progLoading')
+    self.btnSelectAll = builder.get_object('btnSelectAll')
+    self.btnDeselectAll = builder.get_object('btnDeselectAll')
+    self.btnSelectPNG = builder.get_object('btnSelectPNG')
     self.btnSaveResources = builder.get_object('btnSaveResources')
     # Set various properties
     self.winMain.set_title(APP_NAME)
@@ -140,6 +143,9 @@ class MainWindow(object):
     # Hide controls during the extraction
     self.btnRefresh.set_label('gtk-stop')
     self.btnFilePath.set_sensitive(False)
+    self.btnSelectAll.set_sensitive(False)
+    self.btnDeselectAll.set_sensitive(False)
+    self.btnSelectPNG.set_sensitive(False)
     self.btnSaveResources.set_sensitive(False)
     self.settings.logText('Extraction started', VERBOSE_LEVEL_MAX)
     self.is_refreshing = True
@@ -220,6 +226,9 @@ class MainWindow(object):
     # End of resources loading
     self.progLoading.hide()
     self.btnFilePath.set_sensitive(True)
+    self.btnSelectAll.set_sensitive(True)
+    self.btnDeselectAll.set_sensitive(True)
+    self.btnSelectPNG.set_sensitive(True)
     self.btnSaveResources.set_sensitive(True)
     self.btnSaveResources.show()
     self.btnRefresh.set_label('gtk-refresh')
@@ -242,4 +251,20 @@ class MainWindow(object):
     pass
 
   def on_btnSelect_clicked(self, widget):
-    pass
+    "Deselect or select all the resources or only the images"
+    self.total_selected = 0
+    for iter in self.model.get_model():
+      # Iter the resources
+      if widget is self.btnSelectAll:
+        self.model.set_selected(iter.path, True)
+        self.total_selected += 1
+      elif widget is self.btnDeselectAll or widget is self.btnSelectPNG:
+        self.model.set_selected(iter.path, False)
+      # Iter the images
+      for iter in iter.iterchildren():
+        if (widget is self.btnSelectAll) or (widget is self.btnSelectPNG):
+          self.model.set_selected(iter.path, True)
+          self.total_selected += 1
+        elif widget is self.btnDeselectAll:
+          self.model.set_selected(iter.path, False)
+    self.update_totals()
