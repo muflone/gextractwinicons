@@ -56,6 +56,10 @@ class MainWindow(object):
       self.btnDestination.set_filename(self.settings.options.destination)
     else:
       self.btnDestination.set_filename(os.path.expanduser('~'))
+    # Save the resources totals
+    self.total_resources = 0
+    self.total_images = 0
+    self.total_selected = 0
 
   def run(self):
     "Show the UI"
@@ -77,6 +81,7 @@ class MainWindow(object):
     fileFilterAll = builder.get_object('fileFilterAll')
     self.btnDestination = builder.get_object('btnDestination')
     self.btnRefresh = builder.get_object('btnRefresh')
+    self.lblTotals = builder.get_object('lblTotals')
     self.progLoading = builder.get_object('progLoading')
     self.btnSaveResources = builder.get_object('btnSaveResources')
     # Set various properties
@@ -91,6 +96,11 @@ class MainWindow(object):
     self.btnFilePath.set_filter(fileFilterMS)
     # Connect signals from the glade file to the functions with the same name
     builder.connect_signals(self)
+
+  def update_totals(self):
+    "Update totals on the label"
+    self.lblTotals.set_label(_('%d resources found (%d resources selected)') % (
+      self.total_resources + self.total_images, self.total_selected))
 
   def on_winMain_delete_event(self, widget, event):
     "Close the application"
@@ -107,7 +117,11 @@ class MainWindow(object):
 
   def on_cellSelect_toggled(self, renderer, iter):
     "Select and deselect an item"
-    self.model.set_selected(iter, not self.model.get_selected(iter))
+    status = self.model.get_selected(iter)
+    self.model.set_selected(iter, not status)
+    # Add or subtract 1 from the total selected items count
+    self.total_selected += status and -1 or 1
+    self.update_totals()
 
   def on_btnFilePath_file_set(self, widget):
     "Activates or deactivates Refresh button if a file was set"
@@ -140,6 +154,9 @@ class MainWindow(object):
     self.extractor.clear()
     # Clear the previous items from the model
     self.model.clear()
+    self.total_resources = 0
+    self.total_images = 0
+    self.total_selected = 0
     # List all the resources from the chosen filename
     all_resources = self.extractor.list(self.btnFilePath.get_filename())
     resource_index = 0
@@ -167,6 +184,8 @@ class MainWindow(object):
             os.path.getsize(resource_filename),
             GdkPixbuf.Pixbuf.new_from_file(resource_filename)
           )
+          self.total_resources += 1
+          self.total_selected += 1
           # Extract all the images from the resource
           for image in self.extractor.extract_images(resource_filename):
             # Cancel running extraction
@@ -190,6 +209,8 @@ class MainWindow(object):
               os.path.getsize(image['path']),
               GdkPixbuf.Pixbuf.new_from_file(image['path'])
             )
+            self.total_images += 1
+            self.total_selected += 1
             # Let the interface to continue its main loop
             while Gtk.events_pending():
               Gtk.main_iteration()
@@ -201,14 +222,21 @@ class MainWindow(object):
     self.btnFilePath.set_sensitive(True)
     self.btnSaveResources.set_sensitive(True)
     self.btnSaveResources.show()
-    self.tvwResources.expand_all()
-    self.is_refreshing = False
     self.btnRefresh.set_label('gtk-refresh')
     if not self.settings.options.nofreeze:
       # Unfreeze the treeview from refresh
       self.tvwResources.set_model(self.model.get_model())
       self.tvwResources.thaw_child_notify()
-    self.settings.logText('Extraction complete.', VERBOSE_LEVEL_MAX)
+    self.tvwResources.expand_all()
+    self.settings.logText(
+      'Extraction %s (%d resources found, %d images found)' % (
+        self.is_refreshing and 'completed' or 'canceled',
+        self.total_resources,
+        self.total_images
+      ),
+      VERBOSE_LEVEL_NORMAL)
+    self.is_refreshing = False
+    self.update_totals()
 
   def on_btnSaveResources_clicked(self, widget):
     pass
