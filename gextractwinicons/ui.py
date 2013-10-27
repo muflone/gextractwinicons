@@ -139,7 +139,6 @@ class MainWindow(object):
         resource_filename = self.extractor.extract(
           self.btnFilePath.get_filename(), resource)
         if resource_filename:
-          print resource_filename
           # Add the resource to the tree and save the iter to append children
           iter_resource = self.model.add_resource(
             None,
@@ -154,7 +153,6 @@ class MainWindow(object):
           )
           # Extract all the images from the resource
           for image in self.extractor.extract_images(resource_filename):
-            print image
             if image.has_key('--icon'):
               image['--type'] = _('icon')
             elif image.has_key('--cursor'):
@@ -176,7 +174,6 @@ class MainWindow(object):
             # Let the interface to continue its main loop
             while Gtk.events_pending():
               Gtk.main_iteration()
-            print image
       # Update the ProgressBar
       resource_index += 1
       self.progLoading.set_fraction(float(resource_index) / len(all_resources))
