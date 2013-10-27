@@ -59,13 +59,13 @@ class Settings(object):
     # Determine which filename to use for settings
     self.filename = FILE_SETTINGS_NEW
     if self.filename:
-      self.logText('Loading settings from %s' % self.filename, VERBOSE_LEVEL_MAX)
+      self.logText('Loading settings from %s' % self.filename, VERBOSE_LEVEL_NORMAL)
       self.config.read(self.filename)
 
   def load(self):
     "Load window settings"
     if self.config.has_section(SECTION_MAINWIN):
-      self.logText('Retrieving window settings', VERBOSE_LEVEL_MAX)
+      self.logText('Retrieving window settings', VERBOSE_LEVEL_NORMAL)
       # Retrieve window position and size
       if self.config.has_option(SECTION_MAINWIN, 'left'):
         self.settings['left'] = self.config.getint(SECTION_MAINWIN, 'left')
@@ -82,7 +82,7 @@ class Settings(object):
   def set_sizes(self, winParent):
     "Save configuration for main window"
     # Main window settings section
-    self.logText('Saving window settings', VERBOSE_LEVEL_MAX)
+    self.logText('Saving window settings', VERBOSE_LEVEL_NORMAL)
     if not self.config.has_section(SECTION_MAINWIN):
       self.config.add_section(SECTION_MAINWIN)
     # Window position
@@ -98,7 +98,7 @@ class Settings(object):
     "Save the whole configuration"
     # Always save the settings in the new configuration file
     file_settings = open(FILE_SETTINGS_NEW, mode='w')
-    self.logText('Saving settings to %s' % FILE_SETTINGS_NEW, VERBOSE_LEVEL_MAX)
+    self.logText('Saving settings to %s' % FILE_SETTINGS_NEW, VERBOSE_LEVEL_NORMAL)
     self.config.write(file_settings)
     file_settings.close()
 
