@@ -108,3 +108,7 @@ class Settings(object):
     "Print a text with current date and time based on verbose level"
     if verbose_level <= self.options.verbose_level:
       print '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
+
+  def get_home_directory(self):
+    "Return the user home directory"
+    return os.path.expanduser('~')

@@ -54,7 +54,7 @@ class MainWindow(object):
     if self.settings.options.destination:
       self.btnDestination.set_filename(self.settings.options.destination)
     else:
-      self.btnDestination.set_filename(os.path.expanduser('~'))
+      self.btnDestination.set_filename(self.settings.get_home_directory())
     # Save the resources totals
     self.total_resources = 0
     self.total_images = 0
