@@ -27,8 +27,10 @@ from gextractwinicons.constants import *
 class Extractor(object):
   def __init__(self, settings):
     # Create a temporary directory for the extracted icons
-    self.tempdir = tempfile.mkdtemp(prefix='%s-' % APP_NAME)
     self.settings = settings
+    self.tempdir = tempfile.mkdtemp(prefix='%s-' % APP_NAME)
+    self.settings.logText('The temporary files will be extracted under %s' %
+      self.tempdir, VERBOSE_LEVEL_MAX)
 
   def clear(self):
     for f in os.listdir(self.tempdir):
