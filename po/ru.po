@@ -102,7 +102,7 @@ msgstr "Значки"
 
 #: ../gextractwinicons:327
 msgid "Extraction completed."
-msgstr "Извлечение завершеною"
+msgstr "Извлечение завершено."
 
 #: ../gextractwinicons:375
 msgid ""
