@@ -47,6 +47,8 @@ class Settings(object):
                       help='set resources filename')
     parser.add_option('-r', '--refresh', action='store_true',
                       help='automatically refresh resources list if -f specified')
+    parser.add_option('-n', '--nofreeze', action='store_true',
+                      help='do not freeze the treeview during the refresh (slower)')
     (self.options, self.arguments) = parser.parse_args()
     if self.options.refresh and not self.options.filename:
       parser.error('option -r requires filename specified with -f')

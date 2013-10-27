@@ -132,6 +132,10 @@ class MainWindow(object):
     self.btnSaveResources.hide()
     self.progLoading.set_fraction(0.0)
     self.progLoading.show()
+    if not self.settings.options.nofreeze:
+      # Freeze updates and disconnect model to load faster
+      self.tvwResources.freeze_child_notify()
+      self.tvwResources.set_model(None)
     # Clear the extractor directory
     self.extractor.clear()
     # Clear the previous items from the model
@@ -200,6 +204,10 @@ class MainWindow(object):
     self.tvwResources.expand_all()
     self.is_refreshing = False
     self.btnRefresh.set_label('gtk-refresh')
+    if not self.settings.options.nofreeze:
+      # Unfreeze the treeview from refresh
+      self.tvwResources.set_model(self.model.get_model())
+      self.tvwResources.thaw_child_notify()
     self.settings.logText('Extraction complete.', VERBOSE_LEVEL_MAX)
 
   def on_btnSaveResources_clicked(self, widget):
