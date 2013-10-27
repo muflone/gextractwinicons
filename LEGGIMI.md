@@ -1,23 +1,24 @@
 gExtractWinIcons
 ================
-Descrizione: Estrae cursori e icone da file di risorse per MS Windows
+**Descrizione:** Estrae cursori e icone da file di risorse per MS Windows
 
-Copyright: 2013 Fabio Castelli <webreg(at)vbsimple(dot)net>
+**Copyright:** 2009-2013 Fabio Castelli <webreg(at)vbsimple.net>
 
-Licenza: GPL-2+
+**Licenza:** GPL-2+
 
-Codice sorgente: https://github.com/muflone/gextractwinicons
+**Codice sorgente:** https://github.com/muflone/gextractwinicons
 
-Documentazione: http://gextractwinicons.muflone.com/
+**Documentazione:** http://gextractwinicons.muflone.com/
 
 Requisiti di sistema
 --------------------
 
-* Python 2.x
-* Libreria PyGTK 2.x per Python 2
-* Libreria Glade per Python 2
-* Libreria di supporto a SVG
-* Pacchetto IcoUtils
+* Python 2.x (sviluppato e testato per Python 2.7.5)
+* Libreria XDG per Python 2
+* Libreria GTK+3.0 per Python 2
+* Libreria GObject per Python 2
+* Libreria Distutils per Python 2 (generalmente fornita col pacchetto Python)
+* Pacchetto IcoUtils (comandi wrestool e icotool)
 
 Installazione
 -------------
@@ -41,7 +42,7 @@ Utilizzo
 Se l'applicazione non è stata installata utilizzare:
 
     cd /path/to/folder
-    python2 gextractwinicons
+    python2 gextractwinicons.py
 
 Se l'applicazione è stata installata utilizzare semplicemente il comando
 gextractwinicons.
