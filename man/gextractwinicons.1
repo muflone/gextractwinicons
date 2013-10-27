@@ -1,8 +1,8 @@
-.\" $Id: gextractwinicons.1 0.3 2010-01-11 22:05 muflone $
+.\" $Id: gextractwinicons.1 0.3 2013-10-27 19:56 muflone $
 .\"
-.\" Copyright (c) 2009-2010 Fabio Castelli
+.\" Copyright (c) 2009-2013 Fabio Castelli
 
-.TH GEXTRACTWINICONS "1" "October 25, 2013"
+.TH GEXTRACTWINICONS "1" "October 27, 2013"
 
 .SH NAME
 .B gExtractWinIcons
@@ -35,6 +35,12 @@ A summary of options is included below.
 .B \-h, \-\-help
 Show summary of options
 .TP 
+.B \-v, \-\-verbose
+Be verbose (print additional useful status messages)
+.TP 
+.B \-q, \-\-quiet
+Do not print any output to the stdout
+.TP 
 .B \-d, \-\-destination
 Set destination folder for extracted resources
 .TP 
@@ -43,6 +49,9 @@ Set resources filename from which to extract the resources
 .TP 
 .B \-r, \-\-refresh
 Automatically refresh the resources list if \-f (\-\-filename) was specified
+.TP 
+.B \-n, \-\-nofreeze
+Do not freeze the treeview during the refresh (slower)
 
 .SH REPORTING BUGS
 Report bugs to https://github.com/muflone/gextractwinicons/issues
