@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.0 on Sun Oct 27 18:49:57 2013 -->
+<interface>
+  <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkFileFilter" id="fileFilterAll">
+    <patterns>
+      <pattern>*</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileFilter" id="fileFilterMS">
+    <patterns>
+      <pattern>*.exe</pattern>
+      <pattern>*.dll</pattern>
+      <pattern>*.cpl</pattern>
+      <pattern>*.ocx</pattern>
+      <pattern>*.scr</pattern>
+    </patterns>
+  </object>
+  <object class="GtkTreeStore" id="modelResources">
+    <columns>
+      <!-- column-name colSelected -->
+      <column type="gboolean"/>
+      <!-- column-name colTypeName -->
+      <column type="gchararray"/>
+      <!-- column-name colName -->
+      <column type="gchararray"/>
+      <!-- column-name colLanguage -->
+      <column type="gchararray"/>
+      <!-- column-name colWidth -->
+      <column type="gchararray"/>
+      <!-- column-name colHeight -->
+      <column type="gchararray"/>
+      <!-- column-name colDepth -->
+      <column type="gchararray"/>
+      <!-- column-name colSize -->
+      <column type="gint"/>
+      <!-- column-name colPreview -->
+      <column type="GdkPixbuf"/>
+      <!-- column-name colFilePath -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkApplicationWindow" id="winMain">
+    <property name="can_focus">False</property>
+    <property name="default_width">600</property>
+    <property name="default_height">400</property>
+    <signal name="delete-event" handler="on_winMain_delete_event" swapped="no"/>
+    <child>
+      <object class="GtkGrid" id="gridMain">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="border_width">7</property>
+        <property name="row_spacing">3</property>
+        <property name="column_spacing">4</property>
+        <child>
+          <object class="GtkLabel" id="lblFilePath">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">File to open:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="btnFilePath">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <signal name="file-set" handler="on_btnFilePath_file_set" swapped="no"/>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="btnRefresh">
+            <property name="label">gtk-refresh</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="use_stock">True</property>
+            <accelerator key="F5" signal="clicked"/>
+            <signal name="clicked" handler="on_btnRefresh_clicked" swapped="no"/>
+          </object>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="top_attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblDestination">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Destination folder:</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">1</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFileChooserButton" id="btnDestination">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="action">select-folder</property>
+            <property name="title" translatable="yes">Select path for saving</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="top_attach">1</property>
+            <property name="width">2</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblResources">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">&lt;b&gt;Available resources:&lt;/b&gt;</property>
+            <property name="use_markup">True</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">2</property>
+            <property name="width">3</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrollResources">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="tvwResources">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">modelResources</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection1"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colPreview">
+                    <property name="title" translatable="yes">Preview</property>
+                    <child>
+                      <object class="GtkCellRendererPixbuf" id="cellPreview"/>
+                      <attributes>
+                        <attribute name="pixbuf">8</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colType">
+                    <property name="title" translatable="yes">Type</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellType"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colName">
+                    <property name="title" translatable="yes">Name</property>
+                    <property name="expand">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellName"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colWidth">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Width</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellWidth">
+                        <property name="xalign">1</property>
+                      </object>
+                      <attributes>
+                        <attribute name="text">4</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colHeigth">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Height</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellHeight"/>
+                      <attributes>
+                        <attribute name="text">5</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colDepth">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Bits</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellDepth">
+                        <property name="xalign">1</property>
+                      </object>
+                      <attributes>
+                        <attribute name="text">6</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colSize">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Size</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellSize">
+                        <property name="xalign">1</property>
+                      </object>
+                      <attributes>
+                        <attribute name="text">7</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="colSelect">
+                    <property name="title" translatable="yes">Extract</property>
+                    <child>
+                      <object class="GtkCellRendererToggle" id="cellSelect">
+                        <signal name="toggled" handler="on_cellSelect_toggled" swapped="no"/>
+                      </object>
+                      <attributes>
+                        <attribute name="active">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">3</property>
+            <property name="width">3</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lblTotals">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Please select a file to list the available resources</property>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">5</property>
+            <property name="width">3</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="boxSelect">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="spacing">4</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkButton" id="btnSelectAll">
+                <property name="label" translatable="yes">Select all</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnDeselectAll">
+                <property name="label" translatable="yes">Deselect all</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnSelectPNG">
+                <property name="label" translatable="yes">Select only PNGs</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">4</property>
+            <property name="width">3</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="boxButtons">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="spacing">4</property>
+            <child>
+              <object class="GtkProgressBar" id="progLoading">
+                <property name="can_focus">False</property>
+                <property name="no_show_all">True</property>
+                <property name="hexpand">True</property>
+                <property name="show_text">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnSaveResources">
+                <property name="label">gtk-save</property>
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="hexpand">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_btnSaveResources_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btnAbout">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_btnAbout_clicked" swapped="no"/>
+                <child>
+                  <object class="GtkImage" id="imgAbout">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="stock">gtk-about</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">0</property>
+            <property name="top_attach">6</property>
+            <property name="width">3</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
