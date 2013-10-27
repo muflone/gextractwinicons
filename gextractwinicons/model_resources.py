@@ -19,6 +19,7 @@
 ##
 
 import os.path
+from gi.repository import GdkPixbuf
 from gextractwinicons.constants import *
 from gextractwinicons.functions import *
 
@@ -32,6 +33,7 @@ class ModelResources(object):
   COL_DEPTH = 6
   COL_SIZE = 7
   COL_PREVIEW = 8
+  COL_FILEPATH = 9
   def __init__(self, model, settings):
     self.model = model
     self.settings = settings
@@ -40,15 +42,22 @@ class ModelResources(object):
     "Clear the model"
     return self.model.clear()
 
-  def add_resource(self, parent, sType, name, language, width, height, depth, size, preview):
+  def add_resource(self, parent, sType, name, language, width, height, depth, path):
     return self.model.append(parent, [True, sType, name, language, 
-      width, height, depth, size, preview])
+      width, height, depth,
+      os.path.getsize(path),
+      GdkPixbuf.Pixbuf.new_from_file(path),
+      path
+    ])
 
   def get_selected(self, iter):
     return self.model[iter][self.__class__.COL_SELECTED]
 
   def set_selected(self, iter, value):
     self.model[iter][self.__class__.COL_SELECTED] = value
+
+  def get_file_path(self, path):
+    return self.model[path][self.__class__.COL_FILEPATH]
 
   def get_model(self):
     return self.model

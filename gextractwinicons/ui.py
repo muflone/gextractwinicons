@@ -20,7 +20,6 @@
 
 from gi.repository import Gtk
 from gi.repository import Gio
-from gi.repository import GdkPixbuf
 from gextractwinicons.constants import *
 from gextractwinicons.functions import *
 from gextractwinicons.settings import Settings
@@ -187,8 +186,7 @@ class MainWindow(object):
             None,
             None,
             None,
-            os.path.getsize(resource_filename),
-            GdkPixbuf.Pixbuf.new_from_file(resource_filename)
+            resource_filename
           )
           self.total_resources += 1
           self.total_selected += 1
@@ -212,8 +210,7 @@ class MainWindow(object):
               image['--width'],
               image['--height'],
               image['--bit-depth'],
-              os.path.getsize(image['path']),
-              GdkPixbuf.Pixbuf.new_from_file(image['path'])
+              image['path']
             )
             self.total_images += 1
             self.total_selected += 1

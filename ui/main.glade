@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.0 on Sun Oct 27 18:12:53 2013 -->
+<!-- Generated with glade 3.16.0 on Sun Oct 27 18:49:57 2013 -->
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
   <object class="GtkFileFilter" id="fileFilterAll">
@@ -36,6 +36,8 @@
       <column type="gint"/>
       <!-- column-name colPreview -->
       <column type="GdkPixbuf"/>
+      <!-- column-name colFilePath -->
+      <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkApplicationWindow" id="winMain">
