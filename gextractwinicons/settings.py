@@ -41,7 +41,17 @@ class Settings(object):
     parser.add_option('-q', '--quiet', dest='verbose_level',
                       action='store_const', const=VERBOSE_LEVEL_QUIET,
                       help='hide error and information messages')
+    parser.add_option('-d', '--destination',
+                      help='set initial destination folder')
+    parser.add_option('-f', '--filename',
+                      help='set resources filename')
+    parser.add_option('-r', '--refresh', action='store_true',
+                      help='automatically refresh resources list if -f specified')
     (self.options, self.arguments) = parser.parse_args()
+    if self.options.refresh and not self.options.filename:
+      parser.error('option -r requires filename specified with -f')
+    if self.options.filename and not os.path.isfile(self.options.filename):
+      parser.error('the specified file "%s" is not valid' % self.options.filename)
     # Parse settings from the configuration file
     self.config = ConfigParser.RawConfigParser()
     # Allow saving in case sensitive (useful for machine names)

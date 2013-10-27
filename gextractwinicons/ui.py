@@ -45,10 +45,23 @@ class MainWindow(object):
     # Load the others dialogs
     self.about = AboutWindow(self.winMain, False)
     self.extractor = Extractor(self.settings)
+    # Set initial resources file
+    if self.settings.options.filename:
+      self.btnFilePath.select_filename(self.settings.options.filename)
+      # Enable the refresh button if the filename was specified
+      self.btnRefresh.set_sensitive(True)
+    # Set initial destination folder
+    if self.settings.options.destination:
+      self.btnDestination.set_filename(self.settings.options.destination)
+    else:
+      self.btnDestination.set_filename(os.path.expanduser('~'))
 
   def run(self):
     "Show the UI"
     self.winMain.show_all()
+    # Automatically refresh if the refresh setting was passed
+    if self.settings.options.refresh:
+      self.on_btnFilePath_file_set(self.btnFilePath)
 
   def loadUI(self):
     "Load the interface UI"
@@ -69,7 +82,6 @@ class MainWindow(object):
     self.winMain.set_title(APP_NAME)
     self.winMain.set_icon_from_file(FILE_ICON)
     self.winMain.set_application(self.application)
-    self.btnDestination.set_filename(os.path.expanduser('~'))
     # Add the filters for file selection button
     fileFilterMS.set_name(_('MS Windows compatible files'))
     self.btnFilePath.add_filter(fileFilterMS)
