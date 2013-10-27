@@ -43,3 +43,9 @@ class ModelResources(object):
   def add_resource(self, parent, sType, name, language, width, height, depth, size, preview):
     return self.model.append(parent, [True, sType, name, language, 
       width, height, depth, size, preview])
+
+  def get_selected(self, iter):
+    return self.model[iter][self.__class__.COL_SELECTED]
+
+  def set_selected(self, iter, value):
+    self.model[iter][self.__class__.COL_SELECTED] = value

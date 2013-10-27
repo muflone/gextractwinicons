@@ -104,10 +104,9 @@ class MainWindow(object):
     "Show the about dialog"
     self.about.show()
 
-  def on_cellMachinesSelected_toggled(self, renderer, treeIter, data=None):
-    "Select or deselect an item"
-    self.model.set_selected(treeIter,
-      not self.model.get_selected(treeIter))
+  def on_cellSelect_toggled(self, renderer, iter):
+    "Select and deselect an item"
+    self.model.set_selected(iter, not self.model.get_selected(iter))
 
   def on_btnFilePath_file_set(self, widget):
     "Activates or deactivates Refresh button if a file was set"

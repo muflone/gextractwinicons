@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.16.0 on Sun Oct 27 13:11:53 2013 -->
+<!-- Generated with glade 3.16.0 on Sun Oct 27 16:46:52 2013 -->
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
   <object class="GtkFileFilter" id="fileFilterAll">
@@ -246,7 +246,9 @@
                   <object class="GtkTreeViewColumn" id="colSelect">
                     <property name="title" translatable="yes">Extract</property>
                     <child>
-                      <object class="GtkCellRendererToggle" id="cellSelect"/>
+                      <object class="GtkCellRendererToggle" id="cellSelect">
+                        <signal name="toggled" handler="on_cellSelect_toggled" swapped="no"/>
+                      </object>
                       <attributes>
                         <attribute name="active">0</attribute>
                       </attributes>
