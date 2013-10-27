@@ -50,11 +50,11 @@ class ModelResources(object):
       path
     ])
 
-  def get_selected(self, iter):
-    return self.model[iter][self.__class__.COL_SELECTED]
+  def get_selected(self, path):
+    return self.model[path][self.__class__.COL_SELECTED]
 
-  def set_selected(self, iter, value):
-    self.model[iter][self.__class__.COL_SELECTED] = value
+  def set_selected(self, path, value):
+    self.model[path][self.__class__.COL_SELECTED] = value
 
   def get_file_path(self, path):
     return self.model[path][self.__class__.COL_FILEPATH]

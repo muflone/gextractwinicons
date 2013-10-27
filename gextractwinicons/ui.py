@@ -117,10 +117,10 @@ class MainWindow(object):
     "Show the about dialog"
     self.about.show()
 
-  def on_cellSelect_toggled(self, renderer, iter):
+  def on_cellSelect_toggled(self, renderer, path):
     "Select and deselect an item"
-    status = self.model.get_selected(iter)
-    self.model.set_selected(iter, not status)
+    status = self.model.get_selected(path)
+    self.model.set_selected(path, not status)
     # Add or subtract 1 from the total selected items count
     self.total_selected += status and -1 or 1
     self.update_totals()
