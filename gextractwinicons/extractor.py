@@ -48,8 +48,8 @@ class Extractor(object):
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE)
     stdout, stderr = proc.communicate()
-    if stderr and self.settings.options.verbose_level == VERBOSE_LEVEL_MAX:
-      print 'wrestool --list error: %s' % stderr
+    if stderr:
+      self.settings.logText('wrestool --list error: %s' % stderr, VERBOSE_LEVEL_MAX)
     # Remove weird characters
     stdout = stdout.replace('[', '')
     stdout = stdout.replace(']', '')
@@ -90,8 +90,8 @@ class Extractor(object):
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE)
     stdout, stderr = proc.communicate()
-    if stderr and self.settings.options.verbose_level == VERBOSE_LEVEL_MAX:
-      print 'wrestool -x error: %s' % stderr
+    if stderr:
+      self.settings.logText('wrestool --extract error: %s' % stderr, VERBOSE_LEVEL_MAX)
     # Check if the resource was extracted successfully (cannot be sure)
     if os.path.isfile(outFilename):
       return outFilename
@@ -105,8 +105,8 @@ class Extractor(object):
       stdout=subprocess.PIPE,
       stderr=subprocess.PIPE)
     stdout, stderr = proc.communicate()
-    if stderr and self.settings.options.verbose_level == VERBOSE_LEVEL_MAX:
-      print 'icotool --list error: %s' % stderr
+    if stderr:
+      self.settings.logText('icotool --list error: %s' % stderr, VERBOSE_LEVEL_MAX)
 
     # Split line in fields
     for line in stdout.split('\n'):
@@ -142,8 +142,8 @@ class Extractor(object):
           stdout=subprocess.PIPE,
           stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
-        if stderr and self.settings.options.verbose_level == VERBOSE_LEVEL_MAX:
-          print 'icotool -x error: %s' % stderr
+        if stderr:
+          self.settings.logText('icotool --extract error: %s' % stderr, VERBOSE_LEVEL_MAX)
         # Check if the image was extracted successfully (cannot be sure)
         if os.path.isfile(outFilename):
           resource['path'] = outFilename

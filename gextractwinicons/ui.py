@@ -108,6 +108,7 @@ class MainWindow(object):
     "Extract the cursors and icons from the chosen filename"
     # Hide save button and show the ProgressBar
     self.btnFilePath.set_sensitive(False)
+    self.settings.logText('Extraction started', VERBOSE_LEVEL_MAX)
     self.btnSaveResources.hide()
     self.progLoading.set_fraction(0.0)
     self.progLoading.show()
@@ -122,7 +123,7 @@ class MainWindow(object):
       # Only cursors and icon groups are well supported by wrestool
       if resource['--type'] in (
         RESOURCE_TYPE_GROUP_CURSOR, RESOURCE_TYPE_GROUP_ICON):
-        print resource
+        self.settings.logText("Resource found:%s" % resource, VERBOSE_LEVEL_MAX)
         # Extract the resource from the chosen filename
         resource_filename = self.extractor.extract(
           self.btnFilePath.get_filename(), resource)
@@ -168,10 +169,11 @@ class MainWindow(object):
       # Update the ProgressBar
       resource_index += 1
       self.progLoading.set_fraction(float(resource_index) / len(all_resources))
-    # Hide progressbar and update treeview
+    # End of resources loading
     self.progLoading.hide()
     self.btnSaveResources.show()
     self.btnFilePath.set_sensitive(True)
+    self.settings.logText('Extraction complete.', VERBOSE_LEVEL_MAX)
 
   def on_btnSaveResources_clicked(self, widget):
     pass
