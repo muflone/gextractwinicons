@@ -32,6 +32,7 @@ class MainWindow(object):
   def __init__(self, application, settings):
     self.application = application
     self.settings = settings
+    self.is_refreshing = False
     self.loadUI()
     # Restore the saved size and position
     if self.settings.get_value('width', 0) and self.settings.get_value('height', 0):
@@ -118,8 +119,16 @@ class MainWindow(object):
   def on_btnRefresh_clicked(self, widget):
     "Extract the cursors and icons from the chosen filename"
     # Hide save button and show the ProgressBar
+    if self.is_refreshing:
+      self.settings.logText('Running extraction cancelled', VERBOSE_LEVEL_MAX)
+      self.is_refreshing = False
+      return
+    # Hide controls during the extraction
+    self.btnRefresh.set_label('gtk-stop')
     self.btnFilePath.set_sensitive(False)
+    self.btnSaveResources.set_sensitive(False)
     self.settings.logText('Extraction started', VERBOSE_LEVEL_MAX)
+    self.is_refreshing = True
     self.btnSaveResources.hide()
     self.progLoading.set_fraction(0.0)
     self.progLoading.show()
@@ -131,6 +140,9 @@ class MainWindow(object):
     all_resources = self.extractor.list(self.btnFilePath.get_filename())
     resource_index = 0
     for resource in all_resources:
+      # Cancel running extraction
+      if not self.is_refreshing:
+        break
       # Only cursors and icon groups are well supported by wrestool
       if resource['--type'] in (
         RESOURCE_TYPE_GROUP_CURSOR, RESOURCE_TYPE_GROUP_ICON):
@@ -153,6 +165,9 @@ class MainWindow(object):
           )
           # Extract all the images from the resource
           for image in self.extractor.extract_images(resource_filename):
+            # Cancel running extraction
+            if not self.is_refreshing:
+              break
             if image.has_key('--icon'):
               image['--type'] = _('icon')
             elif image.has_key('--cursor'):
@@ -179,8 +194,12 @@ class MainWindow(object):
       self.progLoading.set_fraction(float(resource_index) / len(all_resources))
     # End of resources loading
     self.progLoading.hide()
-    self.btnSaveResources.show()
     self.btnFilePath.set_sensitive(True)
+    self.btnSaveResources.set_sensitive(True)
+    self.btnSaveResources.show()
+    self.tvwResources.expand_all()
+    self.is_refreshing = False
+    self.btnRefresh.set_label('gtk-refresh')
     self.settings.logText('Extraction complete.', VERBOSE_LEVEL_MAX)
 
   def on_btnSaveResources_clicked(self, widget):

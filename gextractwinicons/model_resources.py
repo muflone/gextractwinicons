@@ -49,3 +49,6 @@ class ModelResources(object):
 
   def set_selected(self, iter, value):
     self.model[iter][self.__class__.COL_SELECTED] = value
+
+  def get_model(self):
+    return self.model
