@@ -24,10 +24,10 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gExtractWinIcons'
-APP_VERSION = '0.4'
+APP_VERSION = '0.4.1'
 APP_DESCRIPTION = 'Extract cursors and icons from MS Windows compatible resource files.'
 APP_ID = 'gextractwinicons.muflone.com'
-APP_URL = 'http://gextractwinicons.muflone.com/'
+APP_URL = 'http://url.muflone.com/gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
 APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
