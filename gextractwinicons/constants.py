@@ -2,7 +2,7 @@
 #     Project: gExtractWinIcons
 # Description: Extract cursors and icons from MS Windows compatible resource files.
 #      Author: Fabio Castelli (Muflone) <webreg@vbsimple.net>
-#   Copyright: 2009-2013 Fabio Castelli
+#   Copyright: 2009-2014 Fabio Castelli
 #     License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it
 #  under the terms of the GNU General Public License as published by the Free
@@ -30,7 +30,7 @@ APP_ID = 'gextractwinicons.muflone.com'
 APP_URL = 'http://url.muflone.com/gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'webreg@vbsimple.net'
-APP_COPYRIGHT = 'Copyright 2009-2013 %s' % APP_AUTHOR
+APP_COPYRIGHT = 'Copyright 2009-2014 %s' % APP_AUTHOR
 # Other constants
 DOMAIN_NAME = 'gextractwinicons'
 VERBOSE_LEVEL_QUIET = 0
