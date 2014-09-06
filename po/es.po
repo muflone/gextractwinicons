@@ -1,22 +1,26 @@
 # gExtractWinIcons
 # Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2013 Fabio Castelli <webreg(at)vbsimple.net>
-# This file is distributed under the GPL v2 license (see copyright file).
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+# Website: http://www.muflone.com/gextractwinicons/
+# This file is distributed under the same license of gExtractWinIcons.
 # Spanish translation for gExtractWinIcons.
 #
 # Translators:
-# Adolfo Jayme Barrientos <fitoschido(at)gmail.com>, 2010
+# pepeleproso <joserostagno(at)hotmail.com>
+# Federico Caiazza <federico.caiazza(at)gmail.com>
+# Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <webreg(at)vbsimple.net>\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
 "POT-Creation-Date: 2010-01-03 16:41+0100\n"
-"PO-Revision-Date: 2010-02-13 17:01+0100\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido(at)gmail.com>\n"
-"Language-Team: Spanish\n"
+"PO-Revision-Date: 2013-11-20 09:50+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido(at)ubuntu.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/projects/p/gextractwinicons/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/gextractwinicons.glade.h:1
@@ -29,7 +33,7 @@ msgstr "Deseleccionar todos"
 
 #: ../data/gextractwinicons.glade.h:3
 msgid "Destination folder:"
-msgstr "Carpeta Destino:"
+msgstr "Carpeta de destino:"
 
 #: ../data/gextractwinicons.glade.h:4
 msgid "File to open:"
@@ -37,7 +41,7 @@ msgstr "Archivo a abrir:"
 
 #: ../data/gextractwinicons.glade.h:5
 msgid "Please select a file to list the available resources"
-msgstr "Por favor, seleccione un archivo para listar los recursos disponibles"
+msgstr "Seleccione un archivo para listar los recursos disponibles"
 
 #: ../data/gextractwinicons.glade.h:6
 msgid "Select all"
@@ -45,11 +49,11 @@ msgstr "Seleccionar todo"
 
 #: ../data/gextractwinicons.glade.h:7
 msgid "Select only PNGs"
-msgstr "Seleccionar sólo PNGs"
+msgstr "Seleccionar solo PNG"
 
 #: ../data/gextractwinicons.glade.h:8
 msgid "Select path for saving"
-msgstr "Seleccione una ruta dónde salvar"
+msgstr "Seleccione una ruta donde guardar"
 
 #: ../gextractwinicons:117
 msgid "icon"
@@ -73,7 +77,7 @@ msgstr "Nombre"
 
 #: ../gextractwinicons:156
 msgid "Width"
-msgstr "Ancho"
+msgstr "Anchura"
 
 #: ../gextractwinicons:162
 msgid "Height"
@@ -89,7 +93,7 @@ msgstr "Tamaño"
 
 #: ../gextractwinicons:179
 msgid "Extract"
-msgstr "Extrae"
+msgstr "Extraer"
 
 #: ../gextractwinicons:206
 msgid "cursors"
@@ -104,11 +108,8 @@ msgid "Extraction completed."
 msgstr "Extracción terminada."
 
 #: ../gextractwinicons:375
-msgid ""
-"A GTK utility to extract cursors, icons and png image previews from MS "
-"Windows resource files (like .exe, .dll, .ocx, .cpl)."
-msgstr "Una utilidad GTK para extraer cursores, iconos e imágenes PNG de"
-"archivos de recursos de Windows (como .exe, .dll, .ocx, cpl)."
+msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgstr "Una utilidad GTK para extraer cursores, iconos e imágenes PNG de archivos de recursos de Windows (como .exe, .dll, .ocx, cpl)."
 
 #: ../gextractwinicons:452
 msgid "MS Windows compatible files"
@@ -116,9 +117,9 @@ msgstr "Archivos compatibles con MS Windows"
 
 #: ../gextractwinicons:454
 msgid "All files"
-msgstr "Todo los archivos"
+msgstr "Todos los archivos"
 
 #: ../gextractwinicons:456
 #, python-format
 msgid "%d resources found (%d resources selected)"
-msgstr "%d Recursos encontrados (%d recursos seleccionados)"
+msgstr "%d recursos encontrados (%d recursos seleccionados)"

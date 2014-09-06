@@ -1,13 +1,15 @@
 # gExtractWinIcons
 # Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2013 Fabio Castelli <webreg(at)vbsimple.net>
-# This file is distributed under the GPL v2 license (see copyright file).
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+# Website: http://www.muflone.com/gextractwinicons/
+# This file is distributed under the same license of gExtractWinIcons.
 # X translation for gExtractWinIcons.
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <webreg(at)vbsimple.net>\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
 "POT-Creation-Date: 2010-01-03 16:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -101,9 +103,7 @@ msgid "Extraction completed."
 msgstr ""
 
 #: ../gextractwinicons:375
-msgid ""
-"A GTK utility to extract cursors, icons and png image previews from MS "
-"Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
 msgstr ""
 
 #: ../gextractwinicons:452

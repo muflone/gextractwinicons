@@ -1,22 +1,24 @@
 # gExtractWinIcons
 # Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2013 Fabio Castelli <webreg(at)vbsimple.net>
-# This file is distributed under the GPL v2 license (see copyright file).
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+# Website: http://www.muflone.com/gextractwinicons/
+# This file is distributed under the same license of gExtractWinIcons.
 # Italian translation for gExtractWinIcons.
 #
 # Translators:
-# Fabio Castelli <webreg(at)vbsimple.net>, 2010
+# Fabio Castelli (Muflone) <webreg(at)vbsimple.net>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
-"Report-Msgid-Bugs-To: Fabio Castelli <webreg(at)vbsimple.net>\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
 "POT-Creation-Date: 2010-01-03 16:41+0100\n"
-"PO-Revision-Date: 2010-01-03 16:44+0100\n"
-"Last-Translator: Fabio Castelli <webreg(at)vbsimple.net>\n"
-"Language-Team: Italian\n"
+"PO-Revision-Date: 2010-11-30 07:51+0000\n"
+"Last-Translator: Fabio Castelli (Muflone) <webreg(at)vbsimple.net>\n"
+"Language-Team: Italian (http://www.transifex.com/projects/p/gextractwinicons/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/gextractwinicons.glade.h:1
@@ -104,11 +106,8 @@ msgid "Extraction completed."
 msgstr "Estrazione completata."
 
 #: ../gextractwinicons:375
-msgid ""
-"A GTK utility to extract cursors, icons and png image previews from MS "
-"Windows resource files (like .exe, .dll, .ocx, .cpl)."
-msgstr "Un'utilità GTK per estrarre cursori, icone e anteprime delle immagini "
-"png dai files di risorse per MS Windows (come .exe, .dll, .ocx, .cpl)."
+msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgstr "Un'utilità GTK per estrarre cursori, icone e anteprime delle immagini png dai files di risorse per MS Windows (come .exe, .dll, .ocx, .cpl)."
 
 #: ../gextractwinicons:452
 msgid "MS Windows compatible files"
