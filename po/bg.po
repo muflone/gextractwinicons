@@ -1,0 +1,123 @@
+# gExtractWinIcons
+# Extract cursors and icons from MS Windows compatible resource files.
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <webreg(at)vbsimple.net>
+# Website: http://www.muflone.com/gextractwinicons/
+# This file is distributed under the same license of gExtractWinIcons.
+# Bulgarian translation for gExtractWinIcons.
+#
+# Translators:
+# sahwar <ve4ernik(at)gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: gExtractWinIcons\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
+"POT-Creation-Date: 2010-01-03 16:41+0100\n"
+"PO-Revision-Date: 2014-08-31 00:28+0000\n"
+"Last-Translator: sahwar <ve4ernik(at)gmail.com>\n"
+"Language-Team: Bulgarian (http://www.transifex.com/projects/p/gextractwinicons/language/bg/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/gextractwinicons.glade.h:1
+msgid "<b>Available resources:</b>"
+msgstr "<b>Ресурси на разположение:</b>"
+
+#: ../data/gextractwinicons.glade.h:2
+msgid "Deselect all"
+msgstr "Отмаркирване на всичко"
+
+#: ../data/gextractwinicons.glade.h:3
+msgid "Destination folder:"
+msgstr "Целева папка:"
+
+#: ../data/gextractwinicons.glade.h:4
+msgid "File to open:"
+msgstr "Файл за отваряне:"
+
+#: ../data/gextractwinicons.glade.h:5
+msgid "Please select a file to list the available resources"
+msgstr "Моля, изберете файл, за да се покаже списък с ресурсите на разположение"
+
+#: ../data/gextractwinicons.glade.h:6
+msgid "Select all"
+msgstr "Избиране на всичко"
+
+#: ../data/gextractwinicons.glade.h:7
+msgid "Select only PNGs"
+msgstr "Избиране само на PNG изображения"
+
+#: ../data/gextractwinicons.glade.h:8
+msgid "Select path for saving"
+msgstr "Избор на пътека за запис"
+
+#: ../gextractwinicons:117
+msgid "icon"
+msgstr "икона"
+
+#: ../gextractwinicons:119
+msgid "cursor"
+msgstr "курсор"
+
+#: ../gextractwinicons:139
+msgid "Preview"
+msgstr "Предварителен преглед"
+
+#: ../gextractwinicons:144
+msgid "Type"
+msgstr "Тип"
+
+#: ../gextractwinicons:149
+msgid "Name"
+msgstr "Име"
+
+#: ../gextractwinicons:156
+msgid "Width"
+msgstr "Ширина"
+
+#: ../gextractwinicons:162
+msgid "Height"
+msgstr "Дължина"
+
+#: ../gextractwinicons:168
+msgid "Bits"
+msgstr "Бита"
+
+#: ../gextractwinicons:174
+msgid "Size"
+msgstr "Размери"
+
+#: ../gextractwinicons:179
+msgid "Extract"
+msgstr "Извличане"
+
+#: ../gextractwinicons:206
+msgid "cursors"
+msgstr "курсори"
+
+#: ../gextractwinicons:206
+msgid "icons"
+msgstr "икони"
+
+#: ../gextractwinicons:327
+msgid "Extraction completed."
+msgstr "Извличането е завършено."
+
+#: ../gextractwinicons:375
+msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgstr "GTK приложение за извличане на курсори, икони и изображения-предварителни прегледи във формат PNG от ресурсни файлове на MS Windows (като .exe, .dll, .ocx, .cpl)."
+
+#: ../gextractwinicons:452
+msgid "MS Windows compatible files"
+msgstr "MS Windows-съвместими файлове"
+
+#: ../gextractwinicons:454
+msgid "All files"
+msgstr "Всички файлове"
+
+#: ../gextractwinicons:456
+#, python-format
+msgid "%d resources found (%d resources selected)"
+msgstr "%d ресурс(а) (%d ресурс(а) избран(и))"
