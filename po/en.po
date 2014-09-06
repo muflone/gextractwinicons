@@ -106,9 +106,7 @@ msgid "Extraction completed."
 msgstr "Extraction completed."
 
 #: ../gextractwinicons:375
-msgid ""
-"A GTK utility to extract cursors, icons and png image previews from MS "
-"Windows resource files (like .exe, .dll, .ocx, .cpl)."
+msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
 msgstr "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
 
 #: ../gextractwinicons:452
