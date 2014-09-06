@@ -2,7 +2,7 @@ gExtractWinIcons
 ================
 **Descrizione:** Estrae cursori e icone da file di risorse per MS Windows
 
-**Copyright:** 2009-2014 Fabio Castelli <webreg(at)vbsimple.net>
+**Copyright:** 2009-2014 Fabio Castelli <muflone(at)vbsimple.net>
 
 **Licenza:** GPL-2+
 
