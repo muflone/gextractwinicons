@@ -24,7 +24,7 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gExtractWinIcons'
-APP_VERSION = '0.4.1'
+APP_VERSION = '0.4.2'
 APP_DESCRIPTION = 'Extract cursors and icons from MS Windows compatible resource files.'
 APP_ID = 'gextractwinicons.muflone.com'
 APP_URL = 'http://www.muflone.com/gextractwinicons'
