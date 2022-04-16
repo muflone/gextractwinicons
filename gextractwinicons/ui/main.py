@@ -158,10 +158,10 @@ class UIMain(UIBase):
         self.ui.button_select_all.set_sensitive(False)
         self.ui.button_deselect_all.set_sensitive(False)
         self.ui.button_select_png.set_sensitive(False)
-        self.ui.button_save_resources.set_sensitive(False)
+        self.ui.action_save.set_sensitive(False)
         logging.debug('Extraction started')
         self.is_refreshing = True
-        self.ui.button_save_resources.hide()
+        self.ui.action_save.set_visible(False)
         self.ui.progress_loader.set_fraction(0.0)
         self.ui.progress_loader.show()
         if not self.options.nofreeze:
@@ -242,8 +242,8 @@ class UIMain(UIBase):
         self.ui.button_select_all.set_sensitive(True)
         self.ui.button_deselect_all.set_sensitive(True)
         self.ui.button_select_png.set_sensitive(True)
-        self.ui.button_save_resources.set_sensitive(True)
-        self.ui.button_save_resources.show()
+        self.ui.action_save.set_sensitive(True)
+        self.ui.action_save.set_visible(True)
         self.ui.button_refresh.set_related_action(self.ui.action_refresh)
         if not self.options.nofreeze:
             # Unfreeze the treeview from refresh
@@ -259,7 +259,7 @@ class UIMain(UIBase):
         self.ui.action_stop.set_sensitive(False)
         self.update_totals()
 
-    def on_button_save_resources_clicked(self, widget):
+    def on_action_save_activate(self, widget):
         "Save the selected resources"
         destination_path = self.ui.button_destination.get_filename()
         saved_count = 0
