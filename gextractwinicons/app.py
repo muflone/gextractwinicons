@@ -22,7 +22,7 @@ from gi.repository import Gio
 from gi.repository import Gtk
 
 from gextractwinicons.constants import APP_ID
-from gextractwinicons.ui import MainWindow
+from gextractwinicons.ui.main import UIMain
 
 
 class Application(Gtk.Application):
@@ -34,7 +34,7 @@ class Application(Gtk.Application):
 
     def startup(self, application):
         "Configure the application during the startup"
-        self.ui = MainWindow(self, self.settings)
+        self.ui = UIMain(self, self.settings)
         # Add the actions related to the app menu
         action = Gio.SimpleAction(name="about")
         action.connect("activate", self.on_app_about_activate)

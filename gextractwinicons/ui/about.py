@@ -18,7 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gi.repository import Gtk
 from gi.repository.GdkPixbuf import Pixbuf
 
 from gextractwinicons.constants import (APP_AUTHOR,
@@ -31,13 +30,15 @@ from gextractwinicons.constants import (APP_AUTHOR,
                                         FILE_ICON,
                                         FILE_LICENSE,
                                         FILE_RESOURCES,
-                                        FILE_TRANSLATORS,
-                                        FILE_UI_ABOUT)
+                                        FILE_TRANSLATORS)
 from gextractwinicons.functions import readlines
+from gextractwinicons.ui.base import UIBase
 
 
-class AboutWindow(object):
+class UIAbout(UIBase):
     def __init__(self, winParent, show=False):
+        """Prepare the about dialog"""
+        super().__init__(filename='about.glade')
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):
@@ -46,38 +47,34 @@ class AboutWindow(object):
             line = line.replace('(at)', '@').strip()
             if line not in translators:
                 translators.append(line)
-        # Load the user interface
-        builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_ABOUT)
-        # Obtain widget references
-        self.dialog = builder.get_object("dialog")
         # Set various properties
-        self.dialog.set_program_name(APP_NAME)
-        self.dialog.set_version('Version %s' % APP_VERSION)
-        self.dialog.set_comments(APP_DESCRIPTION)
-        self.dialog.set_website(APP_URL)
-        self.dialog.set_copyright(APP_COPYRIGHT)
-        self.dialog.set_authors(['%s <%s>' % (APP_AUTHOR, APP_AUTHOR_EMAIL)])
+        self.ui.dialog.set_program_name(APP_NAME)
+        self.ui.dialog.set_version('Version %s' % APP_VERSION)
+        self.ui.dialog.set_comments(APP_DESCRIPTION)
+        self.ui.dialog.set_website(APP_URL)
+        self.ui.dialog.set_copyright(APP_COPYRIGHT)
+        self.ui.dialog.set_authors(['%s <%s>' % (APP_AUTHOR,
+                                                 APP_AUTHOR_EMAIL)])
         # self.dialog.set_license_type(Gtk.License.GPL_2_0)
-        self.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
-        self.dialog.set_translator_credits('\n'.join(translators))
+        self.ui.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
+        self.ui.dialog.set_translator_credits('\n'.join(translators))
         # Retrieve the external resources links
         for line in readlines(FILE_RESOURCES, False):
             resource_type, resource_url = line.split(':', 1)
-            self.dialog.add_credit_section(resource_type, (resource_url,))
-        icon_logo = Pixbuf.new_from_file(FILE_ICON)
-        self.dialog.set_logo(icon_logo)
-        self.dialog.set_transient_for(winParent)
+            self.ui.dialog.add_credit_section(resource_type, (resource_url,))
+        icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
+        self.ui.dialog.set_logo(icon_logo)
+        self.ui.dialog.set_transient_for(winParent)
         # Optionally show the dialog
         if show:
             self.show()
 
     def show(self):
         "Show the About dialog"
-        self.dialog.run()
-        self.dialog.hide()
+        self.ui.dialog.run()
+        self.ui.dialog.hide()
 
     def destroy(self):
         "Destroy the About dialog"
-        self.dialog.destroy()
-        self.dialog = None
+        self.ui.dialog.destroy()
+        self.ui.dialog = None

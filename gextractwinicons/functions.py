@@ -18,7 +18,16 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gettext import gettext as _
+from gettext import gettext, dgettext
+
+from gextractwinicons.constants import DIR_UI
+
+localized_messages = {}
+
+
+def get_ui_file(filename):
+    """Return the full path of a Glade/UI file"""
+    return str(DIR_UI / filename)
 
 
 def readlines(filename, empty_lines=False):
@@ -32,7 +41,26 @@ def readlines(filename, empty_lines=False):
     return result
 
 
-__all__ = [
-    'readlines',
-    '_'
-]
+def text(message, gtk30=False, context=None):
+    """Return a translated message and cache it for reuse"""
+    if message not in localized_messages:
+        if gtk30:
+            # Get a message translated from GTK+ 3 domain
+            full_message = message if not context else f'{context}\04{message}'
+            localized_messages[message] = dgettext('gtk30', full_message)
+            # Fix for untranslated messages with context
+            if context and localized_messages[message] == full_message:
+                localized_messages[message] = dgettext('gtk30', message)
+        else:
+            localized_messages[message] = gettext(message)
+    return localized_messages[message]
+
+
+def text_gtk30(message, context=None):
+    """Return a translated text from GTK+ 3.0"""
+    return text(message=message, gtk30=True, context=context)
+
+
+# This special alias is used to track localization requests to catch
+# by xgettext. The text() calls aren't tracked by xgettext
+_ = text

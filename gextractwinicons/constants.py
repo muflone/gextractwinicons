@@ -94,9 +94,6 @@ try:
 except Exception:
     # Get the settings path without actually creating it
     DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / DOMAIN_NAME
-# Set the paths for the UI files
-FILE_UI_MAIN = DIR_UI / 'main.glade'
-FILE_UI_ABOUT = DIR_UI / 'about.glade'
 # Set the paths for the data files
 FILE_ICON = DIR_DATA / 'gextractwinicons.png'
 FILE_TRANSLATORS = DIR_DOCS / 'translators'
