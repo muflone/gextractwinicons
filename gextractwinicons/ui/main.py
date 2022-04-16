@@ -81,6 +81,7 @@ class UIMain(UIBase):
         self.model = ModelResources(model=self.ui.store_resources,
                                     settings=self.settings)
         # Initialize translations
+        self.ui.action_about.set_label(text_gtk30('About'))
         self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
         # Initialize titles and tooltips
         self.set_titles()
