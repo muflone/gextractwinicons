@@ -45,6 +45,7 @@
         <property name="icon-name">process-stop-symbolic</property>
         <signal name="activate" handler="on_action_stop_activate" swapped="no"/>
       </object>
+      <accelerator key="Escape"/>
     </child>
     <child>
       <object class="GtkAction" id="action_save">
