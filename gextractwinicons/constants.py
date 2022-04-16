@@ -84,4 +84,4 @@ FILE_TRANSLATORS = os.path.join(DIR_DOCS, 'translators')
 FILE_LICENSE = os.path.join(DIR_DOCS, 'license')
 FILE_RESOURCES = os.path.join(DIR_DOCS, 'resources')
 # Set the paths for configuration files
-FILE_SETTINGS_NEW = os.path.join(DIR_SETTINGS, 'settings.conf')
+FILE_SETTINGS = os.path.join(DIR_SETTINGS, 'settings.conf')

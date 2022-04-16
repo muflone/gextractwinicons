@@ -24,7 +24,7 @@ import os
 import os.path
 import time
 
-from gextractwinicons.constants import (FILE_SETTINGS_NEW,
+from gextractwinicons.constants import (FILE_SETTINGS,
                                         VERBOSE_LEVEL_MAX,
                                         VERBOSE_LEVEL_NORMAL,
                                         VERBOSE_LEVEL_QUIET)
@@ -66,11 +66,9 @@ class Settings(object):
         # Allow saving in case sensitive (useful for machine names)
         self.config.optionxform = str
         # Determine which filename to use for settings
-        self.filename = FILE_SETTINGS_NEW
-        if self.filename:
-            self.logText('Loading settings from %s' % self.filename,
-                         VERBOSE_LEVEL_NORMAL)
-            self.config.read(self.filename)
+        self.logText('Loading settings from %s' % FILE_SETTINGS,
+                     VERBOSE_LEVEL_NORMAL)
+        self.config.read(FILE_SETTINGS)
 
     def load(self):
         "Load window settings"
@@ -111,8 +109,8 @@ class Settings(object):
     def save(self):
         "Save the whole configuration"
         # Always save the settings in the new configuration file
-        file_settings = open(FILE_SETTINGS_NEW, mode='w')
-        self.logText('Saving settings to %s' % FILE_SETTINGS_NEW,
+        file_settings = open(FILE_SETTINGS, mode='w')
+        self.logText('Saving settings to %s' % FILE_SETTINGS,
                      VERBOSE_LEVEL_NORMAL)
         self.config.write(file_settings)
         file_settings.close()
