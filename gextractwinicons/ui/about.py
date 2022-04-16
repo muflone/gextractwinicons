@@ -38,7 +38,7 @@ from gextractwinicons.ui.base import UIBase
 class UIAbout(UIBase):
     def __init__(self, winParent, show=False):
         """Prepare the about dialog"""
-        super().__init__(filename='about.glade')
+        super().__init__(filename='about.ui')
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):

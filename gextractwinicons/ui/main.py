@@ -37,7 +37,7 @@ from gextractwinicons.ui.base import UIBase
 
 class UIMain(UIBase):
     def __init__(self, application, settings):
-        super().__init__(filename='main.glade')
+        super().__init__(filename='main.ui')
         self.application = application
         self.settings = settings
         self.is_refreshing = False
