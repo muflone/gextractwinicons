@@ -53,9 +53,31 @@
       <object class="GtkAction" id="action_save">
         <property name="label" context="gtk30">Save</property>
         <property name="icon-name">document-save-symbolic</property>
+        <property name="sensitive">False</property>
         <signal name="activate" handler="on_action_save_activate" swapped="no"/>
       </object>
       <accelerator key="s" modifiers="GDK_CONTROL_MASK"/>
+    </child>
+    <child>
+      <object class="GtkAction" id="action_select_all">
+        <property name="label" translatable="yes">Select all</property>
+        <signal name="activate" handler="on_action_select_activate" swapped="no"/>
+      </object>
+      <accelerator key="a" modifiers="GDK_CONTROL_MASK"/>
+    </child>
+    <child>
+      <object class="GtkAction" id="action_select_none">
+        <property name="label" translatable="yes">Deselect all</property>
+        <signal name="activate" handler="on_action_select_activate" swapped="no"/>
+      </object>
+      <accelerator key="a" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK"/>
+    </child>
+    <child>
+      <object class="GtkAction" id="action_select_png">
+        <property name="label" translatable="yes">Select only PNGs</property>
+        <signal name="activate" handler="on_action_select_activate" swapped="no"/>
+      </object>
+      <accelerator key="p" modifiers="GDK_CONTROL_MASK"/>
     </child>
   </object>
   <object class="GtkFileFilter" id="file_filter_all">
@@ -199,7 +221,7 @@
             <property name="vexpand">True</property>
             <property name="shadow-type">in</property>
             <child>
-              <object class="GtkTreeView" id="tvwResources">
+              <object class="GtkTreeView" id="treeview_resources">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="model">store_resources</property>
@@ -207,10 +229,10 @@
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colPreview">
+                  <object class="GtkTreeViewColumn" id="column_preview">
                     <property name="title" translatable="yes">Preview</property>
                     <child>
-                      <object class="GtkCellRendererPixbuf" id="cellPreview"/>
+                      <object class="GtkCellRendererPixbuf" id="cell_preview"/>
                       <attributes>
                         <attribute name="pixbuf">8</attribute>
                       </attributes>
@@ -218,10 +240,10 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colType">
+                  <object class="GtkTreeViewColumn" id="column_type">
                     <property name="title" translatable="yes">Type</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellType"/>
+                      <object class="GtkCellRendererText" id="cell_type"/>
                       <attributes>
                         <attribute name="text">1</attribute>
                       </attributes>
@@ -229,11 +251,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colName">
+                  <object class="GtkTreeViewColumn" id="column_name">
                     <property name="title" translatable="yes">Name</property>
                     <property name="expand">True</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellName"/>
+                      <object class="GtkCellRendererText" id="cell_name"/>
                       <attributes>
                         <attribute name="text">2</attribute>
                       </attributes>
@@ -241,11 +263,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colWidth">
+                  <object class="GtkTreeViewColumn" id="column_width">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Width</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellWidth">
+                      <object class="GtkCellRendererText" id="cell_width">
                         <property name="xalign">1</property>
                       </object>
                       <attributes>
@@ -255,11 +277,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colHeigth">
+                  <object class="GtkTreeViewColumn" id="column_heigth">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Height</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellHeight"/>
+                      <object class="GtkCellRendererText" id="cell_height"/>
                       <attributes>
                         <attribute name="text">5</attribute>
                       </attributes>
@@ -267,11 +289,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colDepth">
+                  <object class="GtkTreeViewColumn" id="column_depth">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Bits</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellDepth">
+                      <object class="GtkCellRendererText" id="cell_depth">
                         <property name="xalign">1</property>
                       </object>
                       <attributes>
@@ -281,11 +303,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colSize">
+                  <object class="GtkTreeViewColumn" id="column_size">
                     <property name="resizable">True</property>
                     <property name="title" translatable="yes">Size</property>
                     <child>
-                      <object class="GtkCellRendererText" id="cellSize">
+                      <object class="GtkCellRendererText" id="cell_size">
                         <property name="xalign">1</property>
                       </object>
                       <attributes>
@@ -295,11 +317,11 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="colSelect">
+                  <object class="GtkTreeViewColumn" id="column_select">
                     <property name="title" translatable="yes">Extract</property>
                     <child>
-                      <object class="GtkCellRendererToggle" id="cellSelect">
-                        <signal name="toggled" handler="on_cellSelect_toggled" swapped="no"/>
+                      <object class="GtkCellRendererToggle" id="cell_select">
+                        <signal name="toggled" handler="on_cell_select_toggled" swapped="no"/>
                       </object>
                       <attributes>
                         <attribute name="active">0</attribute>
@@ -337,11 +359,11 @@
             <child>
               <object class="GtkButton" id="button_select_all">
                 <property name="label" translatable="yes">Select all</property>
+                <property name="related-action">action_select_all</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -352,11 +374,11 @@
             <child>
               <object class="GtkButton" id="button_deselect_all">
                 <property name="label" translatable="yes">Deselect all</property>
+                <property name="related-action">action_select_none</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -367,11 +389,11 @@
             <child>
               <object class="GtkButton" id="button_select_png">
                 <property name="label" translatable="yes">Select only PNGs</property>
+                <property name="related-action">action_select_png</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

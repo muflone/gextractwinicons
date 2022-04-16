@@ -64,6 +64,27 @@
                 <property name="title" translatable="yes">Save</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="shortcut_select_all">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;A</property>
+                <property name="title" translatable="yes">Select all</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="shortcut_select_none">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;&lt;shift&gt;A</property>
+                <property name="title" translatable="yes">Deselect all</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="shortcut_select_png">
+                <property name="visible">1</property>
+                <property name="accelerator">&lt;ctrl&gt;P</property>
+                <property name="title" translatable="yes">Select only PNGs</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
