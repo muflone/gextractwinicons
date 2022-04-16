@@ -21,7 +21,7 @@
 from gi.repository import Gio
 from gi.repository import Gtk
 
-from gextractwinicons.constants import APP_ID, FILE_UI_APPMENU
+from gextractwinicons.constants import APP_ID
 from gextractwinicons.ui import MainWindow
 
 
@@ -43,11 +43,6 @@ class Application(Gtk.Application):
         action = Gio.SimpleAction(name="quit")
         action.connect("activate", self.on_app_quit_activate)
         self.add_action(action)
-        # Add the app menu
-        builder = Gtk.Builder()
-        builder.add_from_file(FILE_UI_APPMENU)
-        menubar = builder.get_object('app-menu')
-        self.set_app_menu(menubar)
 
     def activate(self, application):
         "Execute the application"
