@@ -24,7 +24,6 @@ import shutil
 
 from gi.repository import Gtk
 
-from gextractwinicons.ui.about import UIAbout
 from gextractwinicons.constants import (APP_NAME,
                                         FILE_ICON,
                                         FILE_SETTINGS,
@@ -34,6 +33,7 @@ from gextractwinicons.extractor import Extractor
 from gextractwinicons.functions import process_events, _
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
+from gextractwinicons.ui.about import UIAbout
 from gextractwinicons.ui.base import UIBase
 
 SECTION_WINDOW_NAME = 'main window'
