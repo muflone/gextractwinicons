@@ -8,7 +8,7 @@ gExtractWinIcons
 
 **Source code:** https://github.com/muflone/gextractwinicons
 
-**Documentation:** http://www.muflone.com/gextractwinicons
+**Documentation:** https://www.muflone.com/gextractwinicons
 
 System Requirements
 -------------------
