@@ -18,14 +18,14 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
 import os
 import os.path
 import subprocess
 import tempfile
 
-from gextractwinicons.constants import (APP_NAME,
-                                        RESOURCE_TYPE_GROUP_CURSOR,
-                                        VERBOSE_LEVEL_MAX)
+from gextractwinicons.constants import APP_NAME, RESOURCE_TYPE_GROUP_CURSOR
+from gextractwinicons.functions import bin_string_utf8
 
 
 class Extractor(object):
@@ -33,8 +33,8 @@ class Extractor(object):
         # Create a temporary directory for the extracted icons
         self.settings = settings
         self.tempdir = tempfile.mkdtemp(prefix='%s-' % APP_NAME)
-        self.settings.logText('The temporary files will be extracted '
-                              'under %s' % self.tempdir, VERBOSE_LEVEL_MAX)
+        logging.debug('The temporary files will be extracted '
+                      f'under {self.tempdir}')
 
     def clear(self):
         for f in os.listdir(self.tempdir):
@@ -55,8 +55,8 @@ class Extractor(object):
             stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
         if stderr:
-            self.settings.logText('wrestool --list error: %s' % stderr,
-                                  VERBOSE_LEVEL_MAX)
+            logging.debug('wrestool --list '
+                          f'error: {bin_string_utf8(stderr).strip()}')
         # Remove weird characters
         stdout = stdout.decode('utf-8').replace('[', '')
         stdout = stdout.replace(']', '')
@@ -98,8 +98,8 @@ class Extractor(object):
             stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
         if stderr:
-            self.settings.logText('wrestool --extract error: %s' % stderr,
-                                  VERBOSE_LEVEL_MAX)
+            logging.debug('wrestool --extract '
+                          f'error: {bin_string_utf8(stderr).strip()}')
         # Check if the resource was extracted successfully (cannot be sure)
         if os.path.isfile(outFilename):
             return outFilename
@@ -114,8 +114,8 @@ class Extractor(object):
             stderr=subprocess.PIPE)
         stdout, stderr = proc.communicate()
         if stderr:
-            self.settings.logText('icotool --list error: %s' % stderr,
-                                  VERBOSE_LEVEL_MAX)
+            logging.debug('icotool --list '
+                          f'error: {bin_string_utf8(stderr).strip()}')
 
         # Split line in fields
         for line in stdout.decode('utf-8').split('\n'):
@@ -154,9 +154,8 @@ class Extractor(object):
                     stderr=subprocess.PIPE)
                 stdout, stderr = proc.communicate()
                 if stderr:
-                    self.settings.logText(
-                        'icotool --extract error: %s' % stderr,
-                        VERBOSE_LEVEL_MAX)
+                    logging.debug('icotool --extract '
+                                  f'error: {bin_string_utf8(stderr).strip()}')
                 # Check if the image was extracted successfully
                 if os.path.isfile(outFilename):
                     resource['path'] = outFilename

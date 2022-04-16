@@ -18,7 +18,6 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gi.repository import Gio
 from gi.repository import Gtk
 
 from gextractwinicons.constants import APP_ID
@@ -26,32 +25,17 @@ from gextractwinicons.ui.main import UIMain
 
 
 class Application(Gtk.Application):
-    def __init__(self, settings):
+    def __init__(self, options):
+        """Prepare the GtkApplication"""
         super(self.__class__, self).__init__(application_id=APP_ID)
-        self.settings = settings
+        self.options = options
         self.connect("activate", self.activate)
         self.connect('startup', self.startup)
 
     def startup(self, application):
         "Configure the application during the startup"
-        self.ui = UIMain(self, self.settings)
-        # Add the actions related to the app menu
-        action = Gio.SimpleAction(name="about")
-        action.connect("activate", self.on_app_about_activate)
-        self.add_action(action)
-
-        action = Gio.SimpleAction(name="quit")
-        action.connect("activate", self.on_app_quit_activate)
-        self.add_action(action)
+        self.ui = UIMain(self, self.options)
 
     def activate(self, application):
         "Execute the application"
         self.ui.run()
-
-    def on_app_about_activate(self, action, data):
-        "Show the about dialog from the app menu"
-        self.ui.on_btnAbout_clicked(self)
-
-    def on_app_quit_activate(self, action, data):
-        "Quit the application from the app menu"
-        self.ui.on_window_delete_event(self, None)

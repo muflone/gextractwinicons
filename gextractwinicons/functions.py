@@ -25,6 +25,16 @@ from gextractwinicons.constants import DIR_UI
 localized_messages = {}
 
 
+def bin_string_ascii(text: str) -> str:
+    """Convert a binary string to string using ASCII codec"""
+    return text.decode('ascii')
+
+
+def bin_string_utf8(text: str) -> str:
+    """Convert a binary string to string using UTF-8 codec"""
+    return text.decode('utf-8')
+
+
 def get_ui_file(filename):
     """Return the full path of a Glade/UI file"""
     return str(DIR_UI / filename)

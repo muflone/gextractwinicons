@@ -19,108 +19,126 @@
 ##
 
 import configparser
-import optparse
-import os
-import os.path
-import time
+import logging
 
-from gextractwinicons.constants import (FILE_SETTINGS,
-                                        VERBOSE_LEVEL_MAX,
-                                        VERBOSE_LEVEL_NORMAL,
-                                        VERBOSE_LEVEL_QUIET)
-
-SECTION_MAINWIN = 'main window'
+POSITION_LEFT = 'left'
+POSITION_TOP = 'top'
+SIZE_WIDTH = 'width'
+SIZE_HEIGHT = 'height'
 
 
 class Settings(object):
-    def __init__(self):
-        self.settings = {}
-
-        # Command line options and arguments
-        parser = optparse.OptionParser(usage='usage: %prog [options]')
-        parser.set_defaults(verbose_level=VERBOSE_LEVEL_NORMAL)
-        parser.add_option('-v', '--verbose', dest='verbose_level',
-                          action='store_const', const=VERBOSE_LEVEL_MAX,
-                          help='show error and information messages')
-        parser.add_option('-q', '--quiet', dest='verbose_level',
-                          action='store_const', const=VERBOSE_LEVEL_QUIET,
-                          help='hide error and information messages')
-        parser.add_option('-d', '--destination',
-                          help='set initial destination folder')
-        parser.add_option('-f', '--filename',
-                          help='set resources filename')
-        parser.add_option('-r', '--refresh', action='store_true',
-                          help='automatically refresh resources list '
-                               'if -f specified')
-        parser.add_option('-n', '--nofreeze', action='store_true',
-                          help='do not freeze the treeview during '
-                               'the refresh (slower)')
-        (self.options, self.arguments) = parser.parse_args()
-        if self.options.refresh and not self.options.filename:
-            parser.error('option -r requires filename specified with -f')
-        if self.options.filename and not os.path.isfile(self.options.filename):
-            parser.error(
-                'the specified file "%s" is not valid' % self.options.filename)
+    def __init__(self, filename, case_sensitive):
+        """Initialize settings"""
+        self.model = None
         # Parse settings from the configuration file
         self.config = configparser.RawConfigParser()
-        # Allow saving in case sensitive (useful for machine names)
-        self.config.optionxform = str
+        # Set case sensitiveness if requested
+        if case_sensitive:
+            self.config.optionxform = str
         # Determine which filename to use for settings
-        self.logText('Loading settings from %s' % FILE_SETTINGS,
-                     VERBOSE_LEVEL_NORMAL)
-        self.config.read(FILE_SETTINGS)
+        self.filename = filename
+        logging.debug(f'Loading settings from {self.filename}')
+        self.config.read(self.filename)
 
-    def load(self):
-        "Load window settings"
-        if self.config.has_section(SECTION_MAINWIN):
-            self.logText('Retrieving window settings', VERBOSE_LEVEL_NORMAL)
-            # Retrieve window position and size
-            if self.config.has_option(SECTION_MAINWIN, 'left'):
-                self.settings['left'] = self.config.getint(SECTION_MAINWIN,
-                                                           'left')
-            if self.config.has_option(SECTION_MAINWIN, 'top'):
-                self.settings['top'] = self.config.getint(SECTION_MAINWIN,
-                                                          'top')
-            if self.config.has_option(SECTION_MAINWIN, 'width'):
-                self.settings['width'] = self.config.getint(SECTION_MAINWIN,
-                                                            'width')
-            if self.config.has_option(SECTION_MAINWIN, 'height'):
-                self.settings['height'] = self.config.getint(SECTION_MAINWIN,
-                                                             'height')
+    def get(self, section, option, default=None):
+        """Get an option from a specific section"""
+        if (self.config.has_section(section) and
+                self.config.has_option(section, option)):
+            return self.config.get(section, option)
+        else:
+            return default
 
-    def get_value(self, name, default=None):
-        return self.settings.get(name, default)
+    def set(self, section, option, value):
+        """Save an option in a specific section"""
+        if not self.config.has_section(section):
+            self.config.add_section(section)
+        self.config.set(section, option, value)
 
-    def set_sizes(self, winParent):
-        "Save configuration for main window"
-        # Main window settings section
-        self.logText('Saving window settings', VERBOSE_LEVEL_NORMAL)
-        if not self.config.has_section(SECTION_MAINWIN):
-            self.config.add_section(SECTION_MAINWIN)
-        # Window position
-        position = winParent.get_position()
-        self.config.set(SECTION_MAINWIN, 'left', position[0])
-        self.config.set(SECTION_MAINWIN, 'top', position[1])
-        # Window size
-        size = winParent.get_size()
-        self.config.set(SECTION_MAINWIN, 'width', size[0])
-        self.config.set(SECTION_MAINWIN, 'height', size[1])
+    def get_boolean(self, section, option, default=None):
+        """Get a boolean option from a specific section"""
+        return self.get(section, option, default) == '1'
+
+    def set_boolean(self, section, option, value):
+        """Save a boolean option in a specific section"""
+        self.set(section, option, '1' if value else '0')
+
+    def get_int(self, section, option, default=0):
+        """Get an integer option from a specific section"""
+        return int(self.get(section, option, default))
+
+    def get_list(self, section, option, separator=','):
+        """Get an option list from a specific section"""
+        value = self.get(section, option, '')
+        if len(value):
+            return [v.strip() for v in value.split(separator)]
+
+    def set_int(self, section, option, value):
+        """Set an integer option from a specific section"""
+        self.set(section, option, int(value))
+
+    def get_setting(self, setting, default=None):
+        """Get the specified setting with a fallback value"""
+        section, option, option_type = setting
+        if option_type is int:
+            return self.get_int(section, option, default or 0)
+        elif option_type is bool:
+            return self.get_boolean(section, option, default or False)
+        else:
+            return self.get(section, option, default)
+
+    def set_setting(self, setting, value):
+        """Set the specified setting"""
+        section, option, option_type = setting
+        if option_type is int:
+            return self.set_int(section, option, value)
+        elif option_type is bool:
+            return self.set_boolean(section, option, value)
+        else:
+            return self.set(section, option, value)
 
     def save(self):
-        "Save the whole configuration"
-        # Always save the settings in the new configuration file
-        file_settings = open(FILE_SETTINGS, mode='w')
-        self.logText('Saving settings to %s' % FILE_SETTINGS,
-                     VERBOSE_LEVEL_NORMAL)
+        """Save the whole configuration"""
+        file_settings = open(self.filename, mode='w')
+        logging.debug(f'Saving settings to {self.filename}')
         self.config.write(file_settings)
         file_settings.close()
 
-    def logText(self, text, verbose_level=VERBOSE_LEVEL_NORMAL):
-        "Print a text with current date and time based on verbose level"
-        if verbose_level <= self.options.verbose_level:
-            print
-            '[%s] %s' % (time.strftime('%Y/%m/%d %H:%M:%S'), text)
+    def get_sections(self):
+        """Return the list of the sections"""
+        return self.config.sections()
 
-    def get_home_directory(self):
-        "Return the user home directory"
-        return os.path.expanduser('~')
+    def get_options(self, section):
+        """Return the list of the options in a section"""
+        return self.config.options(section)
+
+    def unset_option(self, section, option):
+        """Remove an option from a section"""
+        return self.config.remove_option(section, option)
+
+    def clear(self):
+        """Remove every data in the settings"""
+        for section in self.get_sections():
+            self.config.remove_section(section)
+
+    def restore_window_position(self, window, section):
+        """Restore the saved window size and position"""
+        if (self.get_int(section, SIZE_WIDTH) and
+                self.get_int(section, SIZE_HEIGHT)):
+            window.set_default_size(
+                self.get_int(section, SIZE_WIDTH, -1),
+                self.get_int(section, SIZE_HEIGHT, -1))
+        if (self.get_int(section, POSITION_LEFT) and
+                self.get_int(section, POSITION_TOP)):
+            window.move(
+                self.get_int(section, POSITION_LEFT),
+                self.get_int(section, POSITION_TOP))
+
+    def save_window_position(self, window, section):
+        """Save the window size and position"""
+        position = window.get_position()
+        self.set_int(section, POSITION_LEFT, position[0])
+        self.set_int(section, POSITION_TOP, position[1])
+        size = window.get_size()
+        self.set_int(section, SIZE_WIDTH, size[0])
+        self.set_int(section, SIZE_HEIGHT, size[1])

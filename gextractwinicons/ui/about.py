@@ -23,7 +23,6 @@ from gi.repository.GdkPixbuf import Pixbuf
 from gextractwinicons.constants import (APP_AUTHOR,
                                         APP_AUTHOR_EMAIL,
                                         APP_COPYRIGHT,
-                                        APP_DESCRIPTION,
                                         APP_NAME,
                                         APP_URL,
                                         APP_VERSION,
@@ -31,14 +30,16 @@ from gextractwinicons.constants import (APP_AUTHOR,
                                         FILE_LICENSE,
                                         FILE_RESOURCES,
                                         FILE_TRANSLATORS)
-from gextractwinicons.functions import readlines
+from gextractwinicons.functions import readlines, _
 from gextractwinicons.ui.base import UIBase
 
 
 class UIAbout(UIBase):
-    def __init__(self, winParent, show=False):
+    def __init__(self, parent, settings, options):
         """Prepare the about dialog"""
         super().__init__(filename='about.ui')
+        self.settings = settings
+        self.options = options
         # Retrieve the translators list
         translators = []
         for line in readlines(FILE_TRANSLATORS, False):
@@ -49,25 +50,27 @@ class UIAbout(UIBase):
                 translators.append(line)
         # Set various properties
         self.ui.dialog.set_program_name(APP_NAME)
-        self.ui.dialog.set_version('Version %s' % APP_VERSION)
-        self.ui.dialog.set_comments(APP_DESCRIPTION)
+        self.ui.dialog.set_version(_('Version {VERSION}').format(
+            VERSION=APP_VERSION))
+        self.ui.dialog.set_comments(_('Extract cursors and icons from '
+                                      'MS Windows resource files.'))
         self.ui.dialog.set_website(APP_URL)
         self.ui.dialog.set_copyright(APP_COPYRIGHT)
         self.ui.dialog.set_authors(['%s <%s>' % (APP_AUTHOR,
                                                  APP_AUTHOR_EMAIL)])
-        # self.dialog.set_license_type(Gtk.License.GPL_2_0)
-        self.ui.dialog.set_license('\n'.join(readlines(FILE_LICENSE, True)))
+        self.ui.dialog.set_license(
+            '\n'.join(readlines(FILE_LICENSE, True)))
         self.ui.dialog.set_translator_credits('\n'.join(translators))
         # Retrieve the external resources links
         for line in readlines(FILE_RESOURCES, False):
             resource_type, resource_url = line.split(':', 1)
-            self.ui.dialog.add_credit_section(resource_type, (resource_url,))
+            self.ui.dialog.add_credit_section(
+                resource_type, (resource_url,))
         icon_logo = Pixbuf.new_from_file(str(FILE_ICON))
         self.ui.dialog.set_logo(icon_logo)
-        self.ui.dialog.set_transient_for(winParent)
-        # Optionally show the dialog
-        if show:
-            self.show()
+        self.ui.dialog.set_transient_for(parent)
+        # Connect signals from the UI file to the functions with the same name
+        self.ui.connect_signals(self)
 
     def show(self):
         "Show the About dialog"

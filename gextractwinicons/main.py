@@ -18,25 +18,34 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-import gettext
-
-import locale
+import logging
 
 from gextractwinicons.app import Application
-from gextractwinicons.constants import DIR_LOCALE, DOMAIN_NAME
-from gextractwinicons.settings import Settings
+from gextractwinicons.command_line_options import CommandLineOptions
+from gextractwinicons.constants import (DIR_DATA,
+                                        DIR_DOCS,
+                                        DIR_LOCALE,
+                                        DIR_PREFIX,
+                                        DIR_SETTINGS,
+                                        DIR_UI)
 
 
 def main():
-    # Load domain for translation
-    for module in (gettext, locale):
-        module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
-        module.textdomain(DOMAIN_NAME)
-
-    # Load the settings from the configuration file
-    settings = Settings()
-    settings.load()
-
+    command_line_options = CommandLineOptions()
+    options = command_line_options.parse_options()
+    # Set logging level
+    verbose_levels = {0: logging.ERROR,
+                      1: logging.INFO,
+                      2: logging.DEBUG}
+    logging.getLogger().setLevel(verbose_levels[options.verbose_level])
+    # Log paths for debug purposes
+    # Not using {VARIABLE=} as it's not compatible with Python 3.6
+    logging.debug(f'DIR_PREFIX={str(DIR_PREFIX)}')
+    logging.debug(f'DIR_LOCALE={str(DIR_LOCALE)}')
+    logging.debug(f'DIR_DOCS={str(DIR_DOCS)}')
+    logging.debug(f'DIR_DATA={str(DIR_DATA)}')
+    logging.debug(f'DIR_UI={str(DIR_UI)}')
+    logging.debug(f'DIR_SETTINGS={str(DIR_SETTINGS)}')
     # Start the application
-    app = Application(settings)
+    app = Application(options)
     app.run(None)

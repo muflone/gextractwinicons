@@ -18,6 +18,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
+import logging
+import os.path
 import shutil
 
 from gi.repository import Gtk
@@ -25,49 +27,41 @@ from gi.repository import Gtk
 from gextractwinicons.ui.about import UIAbout
 from gextractwinicons.constants import (APP_NAME,
                                         FILE_ICON,
+                                        FILE_SETTINGS,
                                         RESOURCE_TYPE_GROUP_CURSOR,
-                                        RESOURCE_TYPE_GROUP_ICON,
-                                        VERBOSE_LEVEL_NORMAL,
-                                        VERBOSE_LEVEL_MAX)
+                                        RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
 from gextractwinicons.functions import _
 from gextractwinicons.model_resources import ModelResources
+from gextractwinicons.settings import Settings
 from gextractwinicons.ui.base import UIBase
+
+SECTION_WINDOW_NAME = 'main window'
 
 
 class UIMain(UIBase):
-    def __init__(self, application, settings):
+    def __init__(self, application, options):
         super().__init__(filename='main.ui')
         self.application = application
-        self.settings = settings
+        self.options = options
+        self.settings = Settings(FILE_SETTINGS, True)
+        self.load_ui()
+        self.settings.restore_window_position(window=self.ui.window,
+                                              section=SECTION_WINDOW_NAME)
         self.is_refreshing = False
-        self.loadUI()
-        # Restore the saved size and position
-        if self.settings.get_value('width', 0) and self.settings.get_value(
-                'height', 0):
-            self.ui.window.set_default_size(
-                self.settings.get_value('width', -1),
-                self.settings.get_value('height', -1))
-        if (self.settings.get_value('left', 0) and
-                self.settings.get_value('top', 0)):
-            self.ui.window.move(
-                self.settings.get_value('left', 0),
-                self.settings.get_value('top', 0))
         # Load the others dialogs
-        self.about = UIAbout(self.ui.window, False)
         self.extractor = Extractor(self.settings)
         # Set initial resources file
-        if self.settings.options.filename:
-            self.ui.btnFilePath.select_filename(self.settings.options.filename)
+        if self.options.filename:
+            self.ui.btnFilePath.select_filename(self.options.filename)
             # Enable the refresh button if the filename was specified
             self.ui.btnRefresh.set_sensitive(True)
         # Set initial destination folder
-        if self.settings.options.destination:
+        if self.options.destination:
             self.ui.btnDestination.set_filename(
-                self.settings.options.destination)
+                self.options.destination)
         else:
-            self.ui.btnDestination.set_filename(
-                self.settings.get_home_directory())
+            self.ui.btnDestination.set_filename(os.path.expanduser('~'))
         # Save the resources totals
         self.total_resources = 0
         self.total_images = 0
@@ -77,10 +71,10 @@ class UIMain(UIBase):
         "Show the UI"
         self.ui.window.show_all()
         # Automatically refresh if the refresh setting was passed
-        if self.settings.options.refresh:
+        if self.options.refresh:
             self.on_btnFilePath_file_set(self.ui.btnFilePath)
 
-    def loadUI(self):
+    def load_ui(self):
         "Load the interface UI"
         # Obtain widget references
         self.model = ModelResources(self.ui.modelResources,
@@ -109,15 +103,18 @@ class UIMain(UIBase):
     def on_window_delete_event(self, widget, event):
         "Close the application"
         self.extractor.destroy()
-        self.about.destroy()
-        self.settings.set_sizes(self.ui.window)
+        self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
         self.settings.save()
         self.ui.window.destroy()
         self.application.quit()
 
     def on_btnAbout_clicked(self, widget):
-        "Show the about dialog"
-        self.about.show()
+        """Show the about dialog"""
+        about = UIAbout(parent=self.ui.window,
+                        settings=self.settings,
+                        options=self.options)
+        about.show()
+        about.destroy()
 
     def on_cellSelect_toggled(self, renderer, path):
         "Select and deselect an item"
@@ -139,8 +136,7 @@ class UIMain(UIBase):
         "Extract the cursors and icons from the chosen filename"
         # Hide save button and show the ProgressBar
         if self.is_refreshing:
-            self.settings.logText('Running extraction cancelled',
-                                  VERBOSE_LEVEL_MAX)
+            logging.debug('Running extraction cancelled')
             self.is_refreshing = False
             return
         # Hide controls during the extraction
@@ -150,12 +146,12 @@ class UIMain(UIBase):
         self.ui.btnDeselectAll.set_sensitive(False)
         self.ui.btnSelectPNG.set_sensitive(False)
         self.ui.btnSaveResources.set_sensitive(False)
-        self.settings.logText('Extraction started', VERBOSE_LEVEL_MAX)
+        logging.debug('Extraction started')
         self.is_refreshing = True
         self.ui.btnSaveResources.hide()
         self.ui.progLoading.set_fraction(0.0)
         self.ui.progLoading.show()
-        if not self.settings.options.nofreeze:
+        if not self.options.nofreeze:
             # Freeze updates and disconnect model to load faster
             self.ui.tvwResources.freeze_child_notify()
             self.ui.tvwResources.set_model(None)
@@ -176,8 +172,7 @@ class UIMain(UIBase):
             # Only cursors and icon groups are well supported by wrestool
             if resource['--type'] in (
                     RESOURCE_TYPE_GROUP_CURSOR, RESOURCE_TYPE_GROUP_ICON):
-                self.settings.logText("Resource found:%s" % resource,
-                                      VERBOSE_LEVEL_MAX)
+                logging.debug(f'Resource found: {resource}')
                 # Extract the resource from the chosen filename
                 resource_filename = self.extractor.extract(
                     self.ui.btnFilePath.get_filename(), resource)
@@ -237,18 +232,15 @@ class UIMain(UIBase):
         self.ui.btnSaveResources.set_sensitive(True)
         self.ui.btnSaveResources.show()
         self.ui.btnRefresh.set_label('gtk-refresh')
-        if not self.settings.options.nofreeze:
+        if not self.options.nofreeze:
             # Unfreeze the treeview from refresh
             self.ui.tvwResources.set_model(self.model.get_model())
             self.ui.tvwResources.thaw_child_notify()
         self.ui.tvwResources.expand_all()
-        self.settings.logText(
-            'Extraction %s (%d resources found, %d images found)' % (
-                self.is_refreshing and 'completed' or 'canceled',
-                self.total_resources,
-                self.total_images
-            ),
-            VERBOSE_LEVEL_NORMAL)
+        status = 'completed' if self.is_refreshing else 'canceled'
+        logging.info(f'Extraction {status} '
+                     f'({self.total_resources} resources found, '
+                     f'{self.total_images} images found)')
         self.is_refreshing = False
         self.update_totals()
 
@@ -270,8 +262,8 @@ class UIMain(UIBase):
                     shutil.copy(self.model.get_file_path(iter.path),
                                 destination_path)
                     saved_count += 1
-        self.settings.logText('%d resources were saved to %s' % (
-            saved_count, destination_path), VERBOSE_LEVEL_NORMAL)
+        logging.info(f'{saved_count} resources were saved '
+                     f'to {destination_path}')
         # Show the completion dialog
         dialog = Gtk.MessageDialog(
             parent=self.ui.window,
