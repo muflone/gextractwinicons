@@ -20,6 +20,8 @@
 
 from gettext import gettext, dgettext
 
+from gi.repository import Gtk
+
 from gextractwinicons.constants import DIR_UI
 
 localized_messages = {}
@@ -38,6 +40,12 @@ def bin_string_utf8(text: str) -> str:
 def get_ui_file(filename):
     """Return the full path of a Glade/UI file"""
     return str(DIR_UI / filename)
+
+
+def process_events():
+    """Process every pending GTK+ event"""
+    while Gtk.events_pending():
+        Gtk.main_iteration()
 
 
 def readlines(filename, empty_lines=False):

@@ -31,7 +31,7 @@ from gextractwinicons.constants import (APP_NAME,
                                         RESOURCE_TYPE_GROUP_CURSOR,
                                         RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
-from gextractwinicons.functions import _
+from gextractwinicons.functions import process_events, _
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
 from gextractwinicons.ui.base import UIBase
@@ -217,8 +217,7 @@ class UIMain(UIBase):
                         self.total_images += 1
                         self.total_selected += 1
                         # Let the interface to continue its main loop
-                        while Gtk.events_pending():
-                            Gtk.main_iteration()
+                        process_events()
             # Update the ProgressBar
             resource_index += 1
             self.ui.progLoading.set_fraction(
