@@ -2,7 +2,7 @@
 ##
 #     Project: gExtractWinIcons
 # Description: Extract cursors and icons from MS Windows compatible resource files.
-#      Author: Fabio Castelli (Muflone) <muflone@vbsimple.net>
+#      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2014 Fabio Castelli
 #     License: GPL-2+
 #  This program is free software; you can redistribute it and/or modify it

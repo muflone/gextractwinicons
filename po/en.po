@@ -1,19 +1,19 @@
 # gExtractWinIcons
 # Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: http://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
 # English translation for gExtractWinIcons.
 #
 # Translators:
-# Fabio Castelli (Muflone) <muflone(at)vbsimple.net>, 2010
+# Fabio Castelli (Muflone) <muflone(at)muflone.com>, 2010
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
 "POT-Creation-Date: 2010-01-03 16:41+0100\n"
 "PO-Revision-Date: 2010-11-30 07:51+0000\n"
-"Last-Translator: Fabio Castelli (Muflone) <muflone(at)vbsimple.net>\n"
+"Last-Translator: Fabio Castelli (Muflone) <muflone(at)muflone.com>\n"
 "Language-Team: English (United States) (http://www.transifex.com/projects/p/gextractwinicons/language/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

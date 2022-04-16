@@ -1,6 +1,6 @@
 # gExtractWinIcons
 # Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
+# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: http://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
 # Russian translation for gExtractWinIcons.
