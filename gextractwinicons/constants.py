@@ -18,9 +18,11 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-import sys
 import os.path
+import sys
+
 from xdg import BaseDirectory
+
 
 # Application constants
 APP_NAME = 'gExtractWinIcons'
@@ -61,13 +63,13 @@ RESOURCE_TYPE_ANIICON = 22
 # If there's a file data/gextractwinicons.png then the shared data are searched
 # in relative paths, else the standard paths are used
 if os.path.isfile(os.path.join('data', 'gextractwinicons.png')):
-  DIR_PREFIX = '.'
-  DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
-  DIR_DOCS = os.path.join(DIR_PREFIX, 'doc')
+    DIR_PREFIX = '.'
+    DIR_LOCALE = os.path.join(DIR_PREFIX, 'locale')
+    DIR_DOCS = os.path.join(DIR_PREFIX, 'doc')
 else:
-  DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gextractwinicons')
-  DIR_LOCALE = os.path.join(sys.prefix, 'share', 'locale')
-  DIR_DOCS = os.path.join(sys.prefix, 'share', 'doc', 'gextractwinicons')
+    DIR_PREFIX = os.path.join(sys.prefix, 'share', 'gextractwinicons')
+    DIR_LOCALE = os.path.join(sys.prefix, 'share', 'locale')
+    DIR_DOCS = os.path.join(sys.prefix, 'share', 'doc', 'gextractwinicons')
 # Set the paths for the folders
 DIR_DATA = os.path.join(DIR_PREFIX, 'data')
 DIR_UI = os.path.join(DIR_PREFIX, 'ui')

@@ -18,21 +18,25 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gettext import gettext as _
+import gettext
+
+import locale
+
+from gextractwinicons.app import Application
+from gextractwinicons.constants import DIR_LOCALE, DOMAIN_NAME
+from gextractwinicons.settings import Settings
 
 
-def readlines(filename, empty_lines=False):
-    result = []
-    with open(filename) as f:
-        for line in f.readlines():
-            line = line.strip()
-            if line or empty_lines:
-                result.append(line)
-        f.close()
-    return result
+def main():
+    # Load domain for translation
+    for module in (gettext, locale):
+        module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
+        module.textdomain(DOMAIN_NAME)
 
+    # Load the settings from the configuration file
+    settings = Settings()
+    settings.load()
 
-__all__ = [
-    'readlines',
-    '_'
-]
+    # Start the application
+    app = Application(settings)
+    app.run(None)

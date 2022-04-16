@@ -18,21 +18,9 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gettext import gettext as _
+import gi
 
-
-def readlines(filename, empty_lines=False):
-    result = []
-    with open(filename) as f:
-        for line in f.readlines():
-            line = line.strip()
-            if line or empty_lines:
-                result.append(line)
-        f.close()
-    return result
-
-
-__all__ = [
-    'readlines',
-    '_'
-]
+if gi.require_version('Gtk', '3.0') is None:
+    from gi.repository import Gtk                                  # noqa: F401
+if gi.require_version('GdkPixbuf', '2.0') is None:
+    from gi.repository import GdkPixbuf                            # noqa: F401

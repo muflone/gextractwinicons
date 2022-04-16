@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 ##
 #     Project: gExtractWinIcons
 # Description: Extract cursors and icons from MS Windows resource files.
@@ -20,22 +19,7 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-import gettext
-import locale
-from gextractwinicons.settings import Settings
-from gextractwinicons.app import Application
-from gextractwinicons.constants import *
+from gextractwinicons.main import main
 
 if __name__ == '__main__':
-  # Load domain for translation
-  for module in (gettext, locale):
-    module.bindtextdomain(DOMAIN_NAME, DIR_LOCALE)
-    module.textdomain(DOMAIN_NAME)
-
-  # Load the settings from the configuration file
-  settings = Settings()
-  settings.load()
-
-  # Start the application
-  app = Application(settings)
-  app.run(None)
+    main()
