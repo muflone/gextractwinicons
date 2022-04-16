@@ -79,6 +79,8 @@ class UIMain(UIBase):
         # Obtain widget references
         self.model = ModelResources(model=self.ui.store_resources,
                                     settings=self.settings)
+        # Initialize titles and tooltips
+        self.set_titles()
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
@@ -100,13 +102,18 @@ class UIMain(UIBase):
 
     def on_window_delete_event(self, widget, event):
         "Close the application"
+        """Close the application by closing the main window"""
+        self.ui.action_quit.emit('activate')
+
+    def on_action_quit_activate(self, widget):
+        """Quit the application"""
         self.extractor.destroy()
         self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
         self.settings.save()
         self.ui.window.destroy()
         self.application.quit()
 
-    def on_button_about_clicked(self, widget):
+    def on_action_about_activate(self, widget):
         """Show the about dialog"""
         about = UIAbout(parent=self.ui.window,
                         settings=self.settings,
