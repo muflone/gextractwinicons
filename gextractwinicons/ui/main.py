@@ -53,15 +53,15 @@ class UIMain(UIBase):
         self.extractor = Extractor(self.settings)
         # Set initial resources file
         if self.options.filename:
-            self.ui.btnFilePath.select_filename(self.options.filename)
+            self.ui.button_filename.select_filename(self.options.filename)
             # Enable the refresh button if the filename was specified
-            self.ui.btnRefresh.set_sensitive(True)
+            self.ui.button_refresh.set_sensitive(True)
         # Set initial destination folder
         if self.options.destination:
-            self.ui.btnDestination.set_filename(
+            self.ui.button_destination.set_filename(
                 self.options.destination)
         else:
-            self.ui.btnDestination.set_filename(os.path.expanduser('~'))
+            self.ui.button_destination.set_filename(os.path.expanduser('~'))
         # Save the resources totals
         self.total_resources = 0
         self.total_images = 0
@@ -72,31 +72,29 @@ class UIMain(UIBase):
         self.ui.window.show_all()
         # Automatically refresh if the refresh setting was passed
         if self.options.refresh:
-            self.on_btnFilePath_file_set(self.ui.btnFilePath)
+            self.on_button_filename_file_set(self.ui.button_filename)
 
     def load_ui(self):
         "Load the interface UI"
         # Obtain widget references
-        self.model = ModelResources(self.ui.modelResources,
-                                    self.settings)
-        fileFilterMS = self.ui.fileFilterMS
-        fileFilterAll = self.ui.fileFilterAll
+        self.model = ModelResources(model=self.ui.store_resources,
+                                    settings=self.settings)
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
         self.ui.window.set_application(self.application)
         # Add the filters for file selection button
-        fileFilterMS.set_name(_('MS Windows compatible files'))
-        self.ui.btnFilePath.add_filter(fileFilterMS)
-        fileFilterAll.set_name(_('All files'))
-        self.ui.btnFilePath.add_filter(fileFilterAll)
-        self.ui.btnFilePath.set_filter(fileFilterMS)
+        self.ui.file_filter_ms.set_name(_('MS Windows compatible files'))
+        self.ui.button_filename.add_filter(self.ui.file_filter_ms)
+        self.ui.file_filter_all.set_name(_('All files'))
+        self.ui.button_filename.add_filter(self.ui.file_filter_all)
+        self.ui.button_filename.set_filter(self.ui.file_filter_ms)
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
     def update_totals(self):
         "Update totals on the label"
-        self.ui.lblTotals.set_label(
+        self.ui.label_totals.set_label(
             _('%d resources found (%d resources selected)') % (
                 self.total_resources + self.total_images, self.total_selected))
 
@@ -108,7 +106,7 @@ class UIMain(UIBase):
         self.ui.window.destroy()
         self.application.quit()
 
-    def on_btnAbout_clicked(self, widget):
+    def on_button_about_clicked(self, widget):
         """Show the about dialog"""
         about = UIAbout(parent=self.ui.window,
                         settings=self.settings,
@@ -124,15 +122,15 @@ class UIMain(UIBase):
         self.total_selected += status and -1 or 1
         self.update_totals()
 
-    def on_btnFilePath_file_set(self, widget):
+    def on_button_filename_file_set(self, widget):
         "Activates or deactivates Refresh button if a file was set"
-        if self.ui.btnFilePath.get_filename():
-            self.ui.btnRefresh.set_property(
+        if self.ui.button_filename.get_filename():
+            self.ui.button_refresh.set_property(
                 'sensitive',
-                bool(self.ui.btnFilePath.get_filename()))
-            self.ui.btnRefresh.clicked()
+                bool(self.ui.button_filename.get_filename()))
+            self.ui.button_refresh.clicked()
 
-    def on_btnRefresh_clicked(self, widget):
+    def on_button_refresh_clicked(self, widget):
         "Extract the cursors and icons from the chosen filename"
         # Hide save button and show the ProgressBar
         if self.is_refreshing:
@@ -140,17 +138,17 @@ class UIMain(UIBase):
             self.is_refreshing = False
             return
         # Hide controls during the extraction
-        self.ui.btnRefresh.set_label('gtk-stop')
-        self.ui.btnFilePath.set_sensitive(False)
-        self.ui.btnSelectAll.set_sensitive(False)
-        self.ui.btnDeselectAll.set_sensitive(False)
-        self.ui.btnSelectPNG.set_sensitive(False)
-        self.ui.btnSaveResources.set_sensitive(False)
+        self.ui.button_refresh.set_label('gtk-stop')
+        self.ui.button_filename.set_sensitive(False)
+        self.ui.button_select_all.set_sensitive(False)
+        self.ui.button_deselect_all.set_sensitive(False)
+        self.ui.button_select_png.set_sensitive(False)
+        self.ui.button_save_resources.set_sensitive(False)
         logging.debug('Extraction started')
         self.is_refreshing = True
-        self.ui.btnSaveResources.hide()
-        self.ui.progLoading.set_fraction(0.0)
-        self.ui.progLoading.show()
+        self.ui.button_save_resources.hide()
+        self.ui.progress_loader.set_fraction(0.0)
+        self.ui.progress_loader.show()
         if not self.options.nofreeze:
             # Freeze updates and disconnect model to load faster
             self.ui.tvwResources.freeze_child_notify()
@@ -163,7 +161,8 @@ class UIMain(UIBase):
         self.total_images = 0
         self.total_selected = 0
         # List all the resources from the chosen filename
-        all_resources = self.extractor.list(self.ui.btnFilePath.get_filename())
+        all_resources = self.extractor.list(
+            filename=self.ui.button_filename.get_filename())
         resource_index = 0
         for resource in all_resources:
             # Cancel running extraction
@@ -175,7 +174,7 @@ class UIMain(UIBase):
                 logging.debug(f'Resource found: {resource}')
                 # Extract the resource from the chosen filename
                 resource_filename = self.extractor.extract(
-                    self.ui.btnFilePath.get_filename(), resource)
+                    self.ui.button_filename.get_filename(), resource)
                 if resource_filename:
                     # Add resource to the tree and save iter to append children
                     iter_resource = self.model.add_resource(
@@ -220,17 +219,17 @@ class UIMain(UIBase):
                         process_events()
             # Update the ProgressBar
             resource_index += 1
-            self.ui.progLoading.set_fraction(
+            self.ui.progress_loader.set_fraction(
                 float(resource_index) / len(all_resources))
         # End of resources loading
-        self.ui.progLoading.hide()
-        self.ui.btnFilePath.set_sensitive(True)
-        self.ui.btnSelectAll.set_sensitive(True)
-        self.ui.btnDeselectAll.set_sensitive(True)
-        self.ui.btnSelectPNG.set_sensitive(True)
-        self.ui.btnSaveResources.set_sensitive(True)
-        self.ui.btnSaveResources.show()
-        self.ui.btnRefresh.set_label('gtk-refresh')
+        self.ui.progress_loader.hide()
+        self.ui.button_filename.set_sensitive(True)
+        self.ui.button_select_all.set_sensitive(True)
+        self.ui.button_deselect_all.set_sensitive(True)
+        self.ui.button_select_png.set_sensitive(True)
+        self.ui.button_save_resources.set_sensitive(True)
+        self.ui.button_save_resources.show()
+        self.ui.button_refresh.set_label('gtk-refresh')
         if not self.options.nofreeze:
             # Unfreeze the treeview from refresh
             self.ui.tvwResources.set_model(self.model.get_model())
@@ -243,9 +242,9 @@ class UIMain(UIBase):
         self.is_refreshing = False
         self.update_totals()
 
-    def on_btnSaveResources_clicked(self, widget):
+    def on_button_save_resources_clicked(self, widget):
         "Save the selected resources"
-        destination_path = self.ui.btnDestination.get_filename()
+        destination_path = self.ui.button_destination.get_filename()
         saved_count = 0
         # Iter the first level
         for iter in self.model.get_model():
@@ -276,23 +275,23 @@ class UIMain(UIBase):
         dialog.run()
         dialog.destroy()
 
-    def on_btnSelect_clicked(self, widget):
+    def on_button_select_clicked(self, widget):
         "Deselect or select all the resources or only the images"
         self.total_selected = 0
         for iter in self.model.get_model():
             # Iter the resources
-            if widget is self.ui.btnSelectAll:
+            if widget is self.ui.button_select_all:
                 self.model.set_selected(iter.path, True)
                 self.total_selected += 1
-            elif (widget is self.ui.btnDeselectAll or
-                  widget is self.ui.btnSelectPNG):
+            elif (widget is self.ui.button_deselect_all or
+                  widget is self.ui.button_select_png):
                 self.model.set_selected(iter.path, False)
             # Iter the images
             for iter in iter.iterchildren():
-                if (widget is self.ui.btnSelectAll) or (
-                        widget is self.ui.btnSelectPNG):
+                if (widget is self.ui.button_select_all) or (
+                        widget is self.ui.button_select_png):
                     self.model.set_selected(iter.path, True)
                     self.total_selected += 1
-                elif widget is self.ui.btnDeselectAll:
+                elif widget is self.ui.button_deselect_all:
                     self.model.set_selected(iter.path, False)
         self.update_totals()

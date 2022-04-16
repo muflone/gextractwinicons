@@ -2,12 +2,12 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.16"/>
-  <object class="GtkFileFilter" id="fileFilterAll">
+  <object class="GtkFileFilter" id="file_filter_all">
     <patterns>
       <pattern>*</pattern>
     </patterns>
   </object>
-  <object class="GtkFileFilter" id="fileFilterMS">
+  <object class="GtkFileFilter" id="file_filter_ms">
     <patterns>
       <pattern>*.exe</pattern>
       <pattern>*.dll</pattern>
@@ -16,7 +16,7 @@
       <pattern>*.scr</pattern>
     </patterns>
   </object>
-  <object class="GtkTreeStore" id="modelResources">
+  <object class="GtkTreeStore" id="store_resources">
     <columns>
       <!-- column-name colSelected -->
       <column type="gboolean"/>
@@ -54,7 +54,7 @@
         <property name="row-spacing">3</property>
         <property name="column-spacing">4</property>
         <child>
-          <object class="GtkLabel" id="lblFilePath">
+          <object class="GtkLabel" id="label_filename">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">File to open:</property>
@@ -66,11 +66,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFileChooserButton" id="btnFilePath">
+          <object class="GtkFileChooserButton" id="button_filename">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="hexpand">True</property>
-            <signal name="file-set" handler="on_btnFilePath_file_set" swapped="no"/>
+            <signal name="file-set" handler="on_button_filename_file_set" swapped="no"/>
           </object>
           <packing>
             <property name="left-attach">1</property>
@@ -78,14 +78,14 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="btnRefresh">
+          <object class="GtkButton" id="button_refresh">
             <property name="label">gtk-refresh</property>
             <property name="visible">True</property>
             <property name="sensitive">False</property>
             <property name="can-focus">True</property>
             <property name="receives-default">True</property>
             <property name="use-stock">True</property>
-            <signal name="clicked" handler="on_btnRefresh_clicked" swapped="no"/>
+            <signal name="clicked" handler="on_button_refresh_clicked" swapped="no"/>
             <accelerator key="F5" signal="clicked"/>
           </object>
           <packing>
@@ -94,7 +94,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="lblDestination">
+          <object class="GtkLabel" id="label_destination">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Destination folder:</property>
@@ -106,7 +106,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFileChooserButton" id="btnDestination">
+          <object class="GtkFileChooserButton" id="button_destination">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="hexpand">True</property>
@@ -120,7 +120,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="lblResources">
+          <object class="GtkLabel" id="label_resources">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">&lt;b&gt;Available resources:&lt;/b&gt;</property>
@@ -134,7 +134,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkScrolledWindow" id="scrollResources">
+          <object class="GtkScrolledWindow" id="scroll_resources">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="hexpand">True</property>
@@ -144,7 +144,7 @@
               <object class="GtkTreeView" id="tvwResources">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
-                <property name="model">modelResources</property>
+                <property name="model">store_resources</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
                 </child>
@@ -259,7 +259,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="lblTotals">
+          <object class="GtkLabel" id="label_totals">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Please select a file to list the available resources</property>
@@ -271,19 +271,19 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="boxSelect">
+          <object class="GtkBox" id="box_select">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">4</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="btnSelectAll">
+              <object class="GtkButton" id="button_select_all">
                 <property name="label" translatable="yes">Select all</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -292,13 +292,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnDeselectAll">
+              <object class="GtkButton" id="button_deselect_all">
                 <property name="label" translatable="yes">Deselect all</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -307,13 +307,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnSelectPNG">
+              <object class="GtkButton" id="button_select_png">
                 <property name="label" translatable="yes">Select only PNGs</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_btnSelect_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_button_select_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -329,12 +329,12 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="boxButtons">
+          <object class="GtkBox" id="box_results">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">4</property>
             <child>
-              <object class="GtkProgressBar" id="progLoading">
+              <object class="GtkProgressBar" id="progress_loader">
                 <property name="can-focus">False</property>
                 <property name="no-show-all">True</property>
                 <property name="hexpand">True</property>
@@ -347,7 +347,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnSaveResources">
+              <object class="GtkButton" id="button_save_resources">
                 <property name="label">gtk-save</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
@@ -355,7 +355,7 @@
                 <property name="receives-default">True</property>
                 <property name="hexpand">True</property>
                 <property name="use-stock">True</property>
-                <signal name="clicked" handler="on_btnSaveResources_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_button_save_resources_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -364,11 +364,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="btnAbout">
+              <object class="GtkButton" id="button_about">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
-                <signal name="clicked" handler="on_btnAbout_clicked" swapped="no"/>
+                <signal name="clicked" handler="on_button_about_clicked" swapped="no"/>
                 <child>
                   <object class="GtkImage" id="imgAbout">
                     <property name="visible">True</property>
