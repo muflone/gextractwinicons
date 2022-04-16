@@ -1,5 +1,18 @@
-/locale/
-/build/
-/root/
+# Ignore Python compiled files
 *.pyc
+__pycache__/
+
+# Ignore build and dist folders for PyPI
+/build/
+/dist/
+
+# Ignore compiled translation files
+/locale/
+
+# Ignore backup files
+*.ui~
 *.glade~
+\#*.glade#
+
+# Ignore PyCharm project folder
+/.idea/
