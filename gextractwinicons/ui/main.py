@@ -30,11 +30,12 @@ from gextractwinicons.constants import (APP_NAME,
                                         RESOURCE_TYPE_GROUP_CURSOR,
                                         RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
-from gextractwinicons.functions import process_events, _
+from gextractwinicons.functions import process_events, text_gtk30, _
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
 from gextractwinicons.ui.about import UIAbout
 from gextractwinicons.ui.base import UIBase
+from gextractwinicons.ui.shortcuts import UIShortcuts
 
 SECTION_WINDOW_NAME = 'main window'
 
@@ -79,6 +80,8 @@ class UIMain(UIBase):
         # Obtain widget references
         self.model = ModelResources(model=self.ui.store_resources,
                                     settings=self.settings)
+        # Initialize translations
+        self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
         # Initialize titles and tooltips
         self.set_titles()
         # Set various properties
@@ -104,6 +107,11 @@ class UIMain(UIBase):
         "Close the application"
         """Close the application by closing the main window"""
         self.ui.action_quit.emit('activate')
+
+    def on_action_shortcuts_activate(self, action):
+        """Show the shortcuts dialog"""
+        dialog = UIShortcuts(self.ui.window)
+        dialog.show()
 
     def on_action_quit_activate(self, widget):
         """Quit the application"""
