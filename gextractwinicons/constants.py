@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows compatible resource files.
+# Description: Extract cursors and icons from MS Windows resource files.
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -25,7 +25,7 @@ from xdg import BaseDirectory
 # Application constants
 APP_NAME = 'gExtractWinIcons'
 APP_VERSION = '0.5.0'
-APP_DESCRIPTION = 'Extract cursors and icons from MS Windows compatible resource files.'
+APP_DESCRIPTION = 'Extract cursors and icons from MS Windows resource files.'
 APP_ID = 'gextractwinicons.muflone.com'
 APP_URL = 'https://www.muflone.com/gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'

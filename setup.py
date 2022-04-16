@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows compatible resource files.
+# Description: Extract cursors and icons from MS Windows resource files.
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
