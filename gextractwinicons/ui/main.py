@@ -55,8 +55,8 @@ class UIMain(UIBase):
         # Set initial resources file
         if self.options.filename:
             self.ui.button_filename.select_filename(self.options.filename)
-            # Enable the refresh button if the filename was specified
-            self.ui.button_refresh.set_sensitive(True)
+            # Enable the refresh action if the filename was specified
+            self.ui.action_refresh.set_sensitive(True)
         # Set initial destination folder
         if self.options.destination:
             self.ui.button_destination.set_filename(
@@ -140,20 +140,20 @@ class UIMain(UIBase):
     def on_button_filename_file_set(self, widget):
         "Activates or deactivates Refresh button if a file was set"
         if self.ui.button_filename.get_filename():
-            self.ui.button_refresh.set_property(
-                'sensitive',
+            self.ui.action_refresh.set_sensitive(
                 bool(self.ui.button_filename.get_filename()))
-            self.ui.button_refresh.clicked()
+            self.ui.action_refresh.activatee()
 
-    def on_button_refresh_clicked(self, widget):
+    def on_action_stop_activate(self, widget):
+        """Stop the extraction"""
+        self.is_refreshing = False
+
+    def on_action_refresh_activate(self, widget):
         "Extract the cursors and icons from the chosen filename"
-        # Hide save button and show the ProgressBar
-        if self.is_refreshing:
-            logging.debug('Running extraction cancelled')
-            self.is_refreshing = False
-            return
         # Hide controls during the extraction
-        self.ui.button_refresh.set_label('gtk-stop')
+        self.ui.action_refresh.set_sensitive(False)
+        self.ui.action_stop.set_sensitive(True)
+        self.ui.button_refresh.set_related_action(self.ui.action_stop)
         self.ui.button_filename.set_sensitive(False)
         self.ui.button_select_all.set_sensitive(False)
         self.ui.button_deselect_all.set_sensitive(False)
@@ -244,7 +244,7 @@ class UIMain(UIBase):
         self.ui.button_select_png.set_sensitive(True)
         self.ui.button_save_resources.set_sensitive(True)
         self.ui.button_save_resources.show()
-        self.ui.button_refresh.set_label('gtk-refresh')
+        self.ui.button_refresh.set_related_action(self.ui.action_refresh)
         if not self.options.nofreeze:
             # Unfreeze the treeview from refresh
             self.ui.tvwResources.set_model(self.model.get_model())
@@ -255,6 +255,8 @@ class UIMain(UIBase):
                      f'({self.total_resources} resources found, '
                      f'{self.total_images} images found)')
         self.is_refreshing = False
+        self.ui.action_refresh.set_sensitive(True)
+        self.ui.action_stop.set_sensitive(False)
         self.update_totals()
 
     def on_button_save_resources_clicked(self, widget):
