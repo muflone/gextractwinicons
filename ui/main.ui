@@ -35,6 +35,7 @@
       <object class="GtkAction" id="action_refresh">
         <property name="label" translatable="yes">Refresh</property>
         <property name="icon-name">view-refresh-symbolic</property>
+        <property name="sensitive">False</property>
         <signal name="activate" handler="on_action_refresh_activate" swapped="no"/>
       </object>
       <accelerator key="r" modifiers="GDK_CONTROL_MASK"/>
@@ -43,6 +44,7 @@
       <object class="GtkAction" id="action_stop">
         <property name="label" context="gtk30">Stop</property>
         <property name="icon-name">process-stop-symbolic</property>
+        <property name="sensitive">False</property>
         <signal name="activate" handler="on_action_stop_activate" swapped="no"/>
       </object>
       <accelerator key="Escape"/>

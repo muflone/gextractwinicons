@@ -143,14 +143,16 @@ class UIMain(UIBase):
         if self.ui.button_filename.get_filename():
             self.ui.action_refresh.set_sensitive(
                 bool(self.ui.button_filename.get_filename()))
-            self.ui.action_refresh.activatee()
+            self.ui.action_refresh.activate()
 
     def on_action_stop_activate(self, widget):
         """Stop the extraction"""
+        logging.debug('Stopping...')
         self.is_refreshing = False
 
     def on_action_refresh_activate(self, widget):
         "Extract the cursors and icons from the chosen filename"
+        logging.debug('Refreshing...')
         # Hide controls during the extraction
         self.ui.action_refresh.set_sensitive(False)
         self.ui.action_stop.set_sensitive(True)
