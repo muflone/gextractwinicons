@@ -22,6 +22,7 @@ import logging
 import os.path
 import shutil
 
+from gi.repository import Gdk
 from gi.repository import Gtk
 
 from gextractwinicons.constants import (APP_NAME,
@@ -54,6 +55,20 @@ class UIMain(UIBase):
         self.load_ui()
         self.model = ModelResources(model=self.ui.store_resources,
                                     settings=self.settings)
+        # Initialize Gtk.HeaderBar
+        self.set_buttons_icons(buttons=[self.ui.button_select_all,
+                                        self.ui.button_select_png,
+                                        self.ui.button_deselect_all,
+                                        self.ui.button_save,
+                                        self.ui.button_refresh,
+                                        self.ui.button_stop,
+                                        self.ui.button_about,
+                                        self.ui.button_options])
+        # Set buttons with always show image
+        for button in (self.ui.button_save, ):
+            button.set_always_show_image(True)
+        self.ui.header_bar.props.title = self.ui.window.get_title()
+        self.ui.window.set_titlebar(self.ui.header_bar)
         # Set initial resources file
         if self.options.filename:
             self.ui.button_filename.select_filename(self.options.filename)
@@ -110,6 +125,10 @@ class UIMain(UIBase):
         about.show()
         about.destroy()
 
+    def on_action_options_menu_activate(self, widget):
+        """Open the options menu"""
+        self.ui.button_options.emit('clicked')
+
     def on_action_shortcuts_activate(self, action):
         """Show the shortcuts dialog"""
         dialog = UIShortcuts(self.ui.window)
@@ -134,12 +153,12 @@ class UIMain(UIBase):
         self.ui.action_refresh.set_sensitive(False)
         self.ui.action_stop.set_sensitive(True)
         self.ui.action_save.set_sensitive(False)
-        self.ui.action_save.set_visible(False)
-        self.ui.button_filename.set_sensitive(False)
-        self.ui.button_refresh.set_related_action(self.ui.action_stop)
         self.ui.action_select_all.set_sensitive(False)
         self.ui.action_select_none.set_sensitive(False)
         self.ui.action_select_png.set_sensitive(False)
+        self.ui.button_filename.set_sensitive(False)
+        self.ui.button_refresh.set_visible(False)
+        self.ui.button_stop.set_visible(True)
         self.ui.progress_loader.set_fraction(0.0)
         self.ui.progress_loader.show()
         if not self.options.nofreeze:
@@ -212,12 +231,12 @@ class UIMain(UIBase):
         # Resources loading completed or canceled
         self.ui.action_refresh.set_sensitive(True)
         self.ui.action_stop.set_sensitive(False)
-        self.ui.action_save.set_visible(True)
-        self.ui.button_refresh.set_related_action(self.ui.action_refresh)
-        self.ui.button_filename.set_sensitive(True)
         self.ui.action_select_all.set_sensitive(True)
         self.ui.action_select_none.set_sensitive(True)
         self.ui.action_select_png.set_sensitive(True)
+        self.ui.button_filename.set_sensitive(True)
+        self.ui.button_refresh.set_visible(True)
+        self.ui.button_stop.set_visible(False)
         self.ui.progress_loader.hide()
         if not self.options.nofreeze:
             # Unfreeze the treeview from refresh
@@ -304,3 +323,7 @@ class UIMain(UIBase):
         """Activate refresh if a file was set"""
         self.ui.action_refresh.set_sensitive(True)
         self.ui.action_refresh.activate()
+
+    def on_treeview_resources_button_release_event(self, widget, event):
+        if event.button == Gdk.BUTTON_SECONDARY:
+            self.ui.menu_select_resources.popup_at_pointer(event)
