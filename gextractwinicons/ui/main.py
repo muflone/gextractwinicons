@@ -187,8 +187,9 @@ class UIMain(UIBase):
                     # Add resource to the tree and save iter to append children
                     iter_resource = self.model.add_resource(
                         None,
-                        resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR and _(
-                            'cursors') or _('icons'),
+                        _('cursors')
+                        if resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR
+                        else _('icons'),
                         resource['--name'],
                         resource['--language'],
                         None,
@@ -303,8 +304,8 @@ class UIMain(UIBase):
                 self.model.set_selected(treeiter.path, False)
             # Iter the images
             for treeiter in treeiter.iterchildren():
-                if (action is self.ui.action_select_all) or (
-                        action is self.ui.action_select_png):
+                if action in (self.ui.action_select_all,
+                              self.ui.action_select_png):
                     self.model.set_selected(treeiter.path, True)
                     self.total_selected += 1
                 elif action is self.ui.action_select_none:
@@ -316,7 +317,7 @@ class UIMain(UIBase):
         status = self.model.get_selected(path)
         self.model.set_selected(path, not status)
         # Add or subtract 1 from the total selected items count
-        self.total_selected += status and -1 or 1
+        self.total_selected += -1 if status else 1
         self.do_update_totals()
 
     def on_button_filename_file_set(self, widget):

@@ -82,7 +82,9 @@ class Extractor(object):
             resource['--type'],
             resource['--name'],
             resource['--language'],
-            resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR and 'cur' or 'ico'
+            ('cur'
+             if resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR
+             else 'ico')
         ))
         proc = subprocess.Popen(
             [
