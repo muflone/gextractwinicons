@@ -108,9 +108,10 @@ class UIMain(UIBase):
 
     def do_update_totals(self):
         """Update totals on the label"""
-        self.ui.label_totals.set_label(
-            _('%d resources found (%d resources selected)') % (
-                self.total_resources + self.total_images, self.total_selected))
+        self.ui.label_totals.set_label(_(
+            '{TOTAL} resources found ({SELECTED} resources selected)').format(
+            TOTAL=self.total_resources + self.total_images,
+            SELECTED=self.total_selected))
         self.ui.action_save.set_sensitive(self.total_selected > 0)
 
     def on_window_delete_event(self, widget, event):

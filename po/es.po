@@ -3,7 +3,7 @@
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
-# Spanish translation for gExtractWinIcons.
+# Spanish translation for gExtractWinIcons
 #
 # Translators:
 # pepeleproso <joserostagno(at)hotmail.com>
@@ -12,114 +12,159 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
-"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues \n"
-"POT-Creation-Date: 2010-01-03 16:41+0100\n"
-"PO-Revision-Date: 2013-11-20 09:50+0000\n"
+"Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues\n"
+"POT-Creation-Date: 2022-04-18 00:55+0200\n"
+"PO-Revision-Date: 2022-04-18 01:45+0200\n"
 "Last-Translator: Adolfo Jayme-Barrientos <fitoschido(at)ubuntu.com>\n"
 "Language-Team: Spanish (https://www.transifex.com/projects/p/gextractwinicons/language/es/)\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gextractwinicons.glade.h:1
-msgid "<b>Available resources:</b>"
-msgstr "<b>Recursos disponibles:</b>"
+#: gextractwinicons/ui/about.py:53
+#, python-brace-format
+msgid "Version {VERSION}"
+msgstr "Versión {VERSION}"
 
-#: ../data/gextractwinicons.glade.h:2
-msgid "Deselect all"
-msgstr "Deseleccionar todos"
+#: gextractwinicons/ui/about.py:55
+msgid "Extract cursors and icons from MS Windows resource files."
+msgstr "Extraer cursores, iconos de archivos de recursos de Windows."
 
-#: ../data/gextractwinicons.glade.h:3
-msgid "Destination folder:"
-msgstr "Carpeta de destino:"
-
-#: ../data/gextractwinicons.glade.h:4
-msgid "File to open:"
-msgstr "Archivo a abrir:"
-
-#: ../data/gextractwinicons.glade.h:5
-msgid "Please select a file to list the available resources"
-msgstr "Seleccione un archivo para listar los recursos disponibles"
-
-#: ../data/gextractwinicons.glade.h:6
-msgid "Select all"
-msgstr "Seleccionar todo"
-
-#: ../data/gextractwinicons.glade.h:7
-msgid "Select only PNGs"
-msgstr "Seleccionar solo PNG"
-
-#: ../data/gextractwinicons.glade.h:8
-msgid "Select path for saving"
-msgstr "Seleccione una ruta donde guardar"
-
-#: ../gextractwinicons:117
-msgid "icon"
-msgstr "icono"
-
-#: ../gextractwinicons:119
-msgid "cursor"
-msgstr "cursor"
-
-#: ../gextractwinicons:139
-msgid "Preview"
-msgstr "Previsualización"
-
-#: ../gextractwinicons:144
-msgid "Type"
-msgstr "Tipo"
-
-#: ../gextractwinicons:149
-msgid "Name"
-msgstr "Nombre"
-
-#: ../gextractwinicons:156
-msgid "Width"
-msgstr "Anchura"
-
-#: ../gextractwinicons:162
-msgid "Height"
-msgstr "Altura"
-
-#: ../gextractwinicons:168
-msgid "Bits"
-msgstr "Bits"
-
-#: ../gextractwinicons:174
-msgid "Size"
-msgstr "Tamaño"
-
-#: ../gextractwinicons:179
-msgid "Extract"
-msgstr "Extraer"
-
-#: ../gextractwinicons:206
-msgid "cursors"
-msgstr "cursores"
-
-#: ../gextractwinicons:206
-msgid "icons"
-msgstr "iconos"
-
-#: ../gextractwinicons:327
-msgid "Extraction completed."
-msgstr "Extracción terminada."
-
-#: ../gextractwinicons:375
-msgid "A GTK utility to extract cursors, icons and png image previews from MS Windows resource files (like .exe, .dll, .ocx, .cpl)."
-msgstr "Una utilidad GTK para extraer cursores, iconos e imágenes PNG de archivos de recursos de Windows (como .exe, .dll, .ocx, cpl)."
-
-#: ../gextractwinicons:452
+#: gextractwinicons/ui/main.py:101
 msgid "MS Windows compatible files"
 msgstr "Archivos compatibles con MS Windows"
 
-#: ../gextractwinicons:454
+#: gextractwinicons/ui/main.py:103
 msgid "All files"
 msgstr "Todos los archivos"
 
-#: ../gextractwinicons:456
-#, python-format
-msgid "%d resources found (%d resources selected)"
-msgstr "%d recursos encontrados (%d recursos seleccionados)"
+#: gextractwinicons/ui/main.py:112
+#, python-brace-format
+msgid "{TOTAL} resources found ({SELECTED} resources selected)"
+msgstr "{TOTAL} recursos encontrados ({SELECTED} recursos seleccionados)"
+
+#: gextractwinicons/ui/main.py:191
+msgid "cursors"
+msgstr "cursores"
+
+#: gextractwinicons/ui/main.py:193
+msgid "icons"
+msgstr "iconos"
+
+#: gextractwinicons/ui/main.py:210
+msgid "icon"
+msgstr "icono"
+
+#: gextractwinicons/ui/main.py:212
+msgid "cursor"
+msgstr "cursor"
+
+#: gextractwinicons/ui/main.py:286
+msgid "Extraction completed."
+msgstr "Extracción terminada."
+
+#: ui/main.ui:33 ui/main.ui:39
+msgid "Open the options menu"
+msgstr ""
+
+#: ui/main.ui:49 ui/main.ui:109 ui/main.ui:316 ui/shortcuts.ui:50
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: ui/main.ui:67 ui/main.ui:195
+msgid "Save resources"
+msgstr "Guardar recursos"
+
+#: ui/main.ui:77 ui/main.ui:224 ui/shortcuts.ui:71
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: ui/main.ui:85 ui/main.ui:154 ui/main.ui:254 ui/shortcuts.ui:78
+msgid "Deselect all"
+msgstr "Deseleccionar todos"
+
+#: ui/main.ui:93 ui/main.ui:145 ui/main.ui:239 ui/shortcuts.ui:85
+msgid "Select only PNGs"
+msgstr "Seleccionar solo PNG"
+
+#: ui/main.ui:118 ui/main.ui:301 ui/shortcuts.ui:57
+msgid "Stop"
+msgstr "Detener"
+
+#: ui/main.ui:126 ui/main.ui:216
+msgid "Select resources"
+msgstr "Seleccionar recursos"
+
+#: ui/main.ui:388
+msgid "File to open:"
+msgstr "Archivo a abrir:"
+
+#: ui/main.ui:412
+msgid "Destination folder:"
+msgstr "Carpeta de destino:"
+
+#: ui/main.ui:426
+msgid "Select path for saving"
+msgstr "Seleccione una ruta donde guardar"
+
+#: ui/main.ui:437
+msgid "<b>Available resources:</b>"
+msgstr "<b>Recursos disponibles:</b>"
+
+#: ui/main.ui:465
+msgid "Preview"
+msgstr "Previsualización"
+
+#: ui/main.ui:476
+msgid "Type"
+msgstr "Tipo"
+
+#: ui/main.ui:487
+msgid "Name"
+msgstr "Nombre"
+
+#: ui/main.ui:500
+msgid "Width"
+msgstr "Anchura"
+
+#: ui/main.ui:514
+msgid "Height"
+msgstr "Altura"
+
+#: ui/main.ui:526
+msgid "Bits"
+msgstr "Bits"
+
+#: ui/main.ui:540
+msgid "Size"
+msgstr "Tamaño"
+
+#: ui/main.ui:553
+msgid "Extract"
+msgstr "Extraer"
+
+#: ui/main.ui:577
+msgid "Please select a file to list the available resources"
+msgstr "Seleccione un archivo para listar los recursos disponibles"
+
+#: ui/shortcuts.ui:21
+msgid "Show the about dialog"
+msgstr ""
+
+#: ui/shortcuts.ui:28
+msgid "Show the shortcuts dialog"
+msgstr ""
+
+#: ui/shortcuts.ui:35
+msgid "Quit"
+msgstr "Salir"
+
+#: ui/shortcuts.ui:45
+msgid "Resources"
+msgstr "Recursos"
+
+#: ui/shortcuts.ui:64
+msgid "Save"
+msgstr "Guardar"

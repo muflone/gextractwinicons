@@ -18,7 +18,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_about">
                 <property name="visible">1</property>
                 <property name="accelerator">F1</property>
-                <property name="title" translatable="yes">About gExtractWinIcons</property>
+                <property name="title" translatable="yes">Show the about dialog</property>
               </object>
             </child>
             <child>
