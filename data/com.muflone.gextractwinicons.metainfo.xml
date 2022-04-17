@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.muflone.gextractwinicons</id>
+
+  <name>gExtractWinIcons</name>
+  <summary>Extract cursors and icons from MS Windows resource files</summary>
+  <description>
+    <p>
+      gExtractWinIcons can be used to extract icons, cursors and images from
+      MS Windows resource files (exe, dll, ocx, cpl).
+    </p>
+  </description>
+
+  <metadata_license>FSFAP</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <content_rating type="oars-1.0" />
+  <categories>
+    <category>Office</category>
+  </categories>
+  <url type="homepage">https://github.com/muflone/gextractwinicons</url>
+  <url type="help">https://www.muflone.com/gextractwinicons</url>
+  <url type="translate">https://www.transifex.com/projects/p/gextractwinicons/</url>
+  <url type="bugtracker">https://github.com/muflone/gextractwinicons/issues</url>
+  <url type="contact">http://www.muflone.com/contacts/</url>
+
+  <launchable type="desktop-id">gextractwinicons.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png</image>
+    </screenshot>
+    <screenshot>
+      <image>http://www.muflone.com/resources/gextractwinicons/archive/latest/english/about.png</image>
+    </screenshot>
+  </screenshots>
+</component>
