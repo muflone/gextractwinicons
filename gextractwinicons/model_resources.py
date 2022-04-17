@@ -17,10 +17,11 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
-
+import logging
 import os.path
 
 from gi.repository import GdkPixbuf
+from gi.repository import GLib
 
 
 class ModelResources(object):
@@ -45,10 +46,17 @@ class ModelResources(object):
 
     def add_resource(self, parent, sType, name, language, width, height, depth,
                      path):
+        try:
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
+        except GLib.GError as error:
+            # Empty image for invalid resources
+            logging.error(f'Unable to get image for "{path}"')
+            logging.error(str(error))
+            pixbuf = None
         return self.model.append(parent, [True, sType, name, language,
                                           width, height, depth,
                                           os.path.getsize(path),
-                                          GdkPixbuf.Pixbuf.new_from_file(path),
+                                          pixbuf,
                                           path
                                           ])
 
