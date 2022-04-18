@@ -1,0 +1,21 @@
+dist: bionic
+language: python
+python:
+  - "3.6"
+virtualenv:
+  system_site_packages: false
+sudo: false
+addons:
+  apt:
+    packages:
+    - gir1.2-gtk-3.0
+    - gobject-introspection
+    - libgirepository1.0-dev
+    - gettext
+install:
+  - pip install -r requirements_travis.txt
+script:
+  - python -m compileall .
+  - flake8 .
+  - python setup.py install --optimize=1 --root=build
+  - ls -laR build
