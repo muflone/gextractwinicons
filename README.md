@@ -1,5 +1,5 @@
-gExtractWinIcons
-================
+# gExtractWinIcons
+
 **Description:** Extract cursors and icons from MS Windows resource files
 
 **Copyright:** 2009-2022 Fabio Castelli <muflone(at)muflone.com>
@@ -10,37 +10,44 @@ gExtractWinIcons
 
 **Documentation:** https://www.muflone.com/gextractwinicons
 
-System Requirements
--------------------
+**Translations:** https://www.transifex.com/projects/p/gextractwinicons/
 
-* Python 2.x (developed and tested for Python 2.7.5)
-* XDG library for Python 2
-* GTK+3.0 libraries for Python 2
-* GObject libraries for Python 2
-* Distutils library for Python 2 (usually shipped with Python distribution)
+# Usage
+
+From the *gExtractWinIcons* main window you select a MS Windows resources file
+(like an exe, dll, cpl, ocx and so on) and you will list its contained resources
+like cursors, icons and you can extract them, including exporting the icons in
+PNG format.
+
+![Main window](https://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png)
+
+# System Requirements
+
+* Python >= 3.6 (developed and tested for Python 3.9 and 3.10)
+* XDG library for Python 3 ( https://pypi.org/project/pyxdg/ )
+* GTK+ 3.0 libraries for Python 3
+* GObject libraries for Python 3 ( https://pypi.org/project/PyGObject/ )
 * IcoUtils package (wrestool and icotool commands)
 
-Installation
-------------
+# Installation
 
 A distutils installation script is available to install from the sources.
 
 To install in your system please use:
 
     cd /path/to/folder
-    python2 setup.py install
+    python3 setup.py install
 
 To install the files in another path instead of the standard /usr prefix use:
 
     cd /path/to/folder
-    python2 setup.py install --root NEW_PATH
+    python3 setup.py install --root NEW_PATH
 
-Usage
------
+# Usage
 
 If the application is not installed please use:
 
     cd /path/to/folder
-    python2 gextractwinicons.py
+    python3 gextractwinicons.py
 
 If the application was installed simply use the gextractwinicons command.
