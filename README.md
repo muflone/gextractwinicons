@@ -1,6 +1,7 @@
 # gExtractWinIcons
 
 [![Travis CI Build Status](https://img.shields.io/travis/com/muflone/gextractwinicons/master.svg)](https://www.travis-ci.com/github/muflone/gextractwinicons)
+[![CircleCI Build Status](https://img.shields.io/circleci/project/github/muflone/gextractwinicons/master.svg)](https://circleci.com/gh/muflone/gextractwinicons)
 
 **Description:** Extract cursors and icons from MS Windows resource files
 
