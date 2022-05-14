@@ -65,7 +65,7 @@ msgstr "Извлечение завершеною"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr ""
+msgstr "Открыть настройки"
 
 #: ui/main.ui:49 ui/main.ui:109 ui/main.ui:316 ui/shortcuts.ui:50
 msgid "Refresh"
@@ -153,7 +153,7 @@ msgstr "Показать диалог \"О программе\""
 
 #: ui/shortcuts.ui:28
 msgid "Show the shortcuts dialog"
-msgstr ""
+msgstr "Комбинации клавиш"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"
