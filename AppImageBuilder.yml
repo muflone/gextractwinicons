@@ -27,7 +27,7 @@ AppDir:
     id: com.muflone.gextractwinicons
     name: gextractwinicons
     icon: gextractwinicons
-    version: 0.5.0
+    version: 0.5.1
     exec: usr/bin/python3
     exec_args: "$APPDIR/usr/share/gextractwinicons/gextractwinicons.py $@"
 
