@@ -31,7 +31,8 @@ from gextractwinicons.constants import (APP_NAME,
                                         RESOURCE_TYPE_GROUP_CURSOR,
                                         RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
-from gextractwinicons.functions import process_events, text_gtk30, _
+from gextractwinicons.functions import process_events
+from gextractwinicons.localize import text_gtk30, _
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
 from gextractwinicons.ui.about import UIAbout

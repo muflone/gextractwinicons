@@ -20,7 +20,7 @@
 
 from gi.repository import Gtk
 
-from gextractwinicons.functions import text, text_gtk30
+from gextractwinicons.localize import text, text_gtk30
 from gextractwinicons.ui.base import UIBase
 
 

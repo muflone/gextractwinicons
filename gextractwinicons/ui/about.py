@@ -30,7 +30,8 @@ from gextractwinicons.constants import (APP_AUTHOR,
                                         FILE_LICENSE,
                                         FILE_RESOURCES,
                                         FILE_TRANSLATORS)
-from gextractwinicons.functions import readlines, _
+from gextractwinicons.functions import readlines
+from gextractwinicons.localize import _
 from gextractwinicons.ui.base import UIBase
 
 

@@ -23,7 +23,8 @@ from typing import Iterable
 from gi.repository import Gtk
 
 from gextractwinicons.gtkbuilder_loader import GtkBuilderLoader
-from gextractwinicons.functions import get_ui_file, text
+from gextractwinicons.functions import get_ui_file
+from gextractwinicons.localize import text
 
 
 class UIBase(object):
