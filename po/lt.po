@@ -6,14 +6,14 @@
 # Lithuanian translation for gExtractWinIcons
 #
 # Translators:
-# Moo, 2016
+# Moo, 2016-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues\n"
 "POT-Creation-Date: 2022-04-18 00:55+0200\n"
 "PO-Revision-Date: 2022-04-18 02:14+0200\n"
-"Last-Translator: Moo, 2016\n"
+"Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/muflone/gextractwinicons/language/lt/)\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Versija {VERSION}"
 
 #: gextractwinicons/ui/about.py:55
 msgid "Extract cursors and icons from MS Windows resource files."
-msgstr ""
+msgstr "Išskleisti žymeklius ir piktogramas iš MS Windows išteklių failų."
 
 #: gextractwinicons/ui/main.py:101
 msgid "MS Windows compatible files"
@@ -65,7 +65,7 @@ msgstr "Išskleidimas užbaigtas."
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr ""
+msgstr "Atverti parinkčių meniu"
 
 #: ui/main.ui:49 ui/main.ui:109 ui/main.ui:316 ui/shortcuts.ui:50
 msgid "Refresh"
@@ -149,7 +149,7 @@ msgstr "Pasirinkite failą, kad būtų išvardyti visi prieinami ištekliai"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
-msgstr ""
+msgstr "Rodyti dialogą su informacija apie programą"
 
 #: ui/shortcuts.ui:28
 msgid "Show the shortcuts dialog"
