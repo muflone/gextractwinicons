@@ -13,7 +13,7 @@
 
 **Documentation:** https://www.muflone.com/gextractwinicons
 
-**Translations:** https://www.transifex.com/projects/p/gextractwinicons/
+**Translations:** https://explore.transifex.com/muflone/gextractwinicons/
 
 # Usage
 
