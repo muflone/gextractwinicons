@@ -97,6 +97,7 @@ except Exception:
     DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / DOMAIN_NAME
 # Set the paths for the data files
 FILE_ICON = DIR_DATA / 'gextractwinicons.png'
+FILE_CONTRIBUTORS = DIR_DOCS / 'contributors'
 FILE_TRANSLATORS = DIR_DOCS / 'translators'
 FILE_LICENSE = DIR_DOCS / 'license'
 FILE_RESOURCES = DIR_DOCS / 'resources'
