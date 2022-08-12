@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -18,12 +18,10 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-
 import gettext
 import locale
 
 import gextractwinicons.requires                                   # noqa: F401
-
 from gextractwinicons.constants import DOMAIN_NAME, DIR_LOCALE
 
 

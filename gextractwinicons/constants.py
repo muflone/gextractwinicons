@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -27,7 +27,7 @@ from xdg import BaseDirectory
 # Application constants
 APP_NAME = 'gExtractWinIcons'
 APP_VERSION = '0.5.1'
-APP_DESCRIPTION = 'Extract cursors and icons from MS Windows resource files.'
+APP_DESCRIPTION = 'Extract cursors and icons from MS Windows resource files'
 APP_ID = 'gextractwinicons.muflone.com'
 APP_URL = 'https://www.muflone.com/gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'
@@ -62,19 +62,19 @@ RESOURCE_TYPE_ANIICON = 22
 
 # Paths constants
 path_xdg_data_home = pathlib.Path(BaseDirectory.xdg_data_home)
-if ((pathlib.Path('data') / 'gextractwinicons.png')).is_file():
+icon_name = f'{DOMAIN_NAME}.png'
+if (pathlib.Path('data') / icon_name).is_file():
     # Use relative paths
     DIR_PREFIX = pathlib.Path('data').parent.absolute()
     DIR_LOCALE = DIR_PREFIX / 'locale'
     DIR_DOCS = DIR_PREFIX / 'doc'
-elif (path_xdg_data_home / DOMAIN_NAME / 'data' /
-      'gextractwinicons.png').is_file():
+elif (path_xdg_data_home / DOMAIN_NAME / 'data' / icon_name).is_file():
     # Use local user path
     DIR_PREFIX = path_xdg_data_home / DOMAIN_NAME
     DIR_LOCALE = path_xdg_data_home / 'locale'
     DIR_DOCS = path_xdg_data_home / 'doc' / DOMAIN_NAME
 elif (pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME / 'data' /
-      'gextractwinicons.png').is_file():
+      icon_name).is_file():
     # Use local user path in the local Python directory
     DIR_PREFIX = pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME
     DIR_LOCALE = DIR_PREFIX.parent / 'locale'
@@ -87,16 +87,17 @@ else:
     DIR_DOCS = path_prefix / 'share' / 'doc' / DOMAIN_NAME
 # Set the paths for the folders
 DIR_DATA = DIR_PREFIX / 'data'
+DIR_ICONS = DIR_DATA / 'icons'
 DIR_UI = DIR_PREFIX / 'ui'
 try:
     # In read-only environments, the settings folder cannot be created
-    # (eg in a Debian pbuilder fakeroot)
+    # (e.g. in a Debian pbuilder fakeroot)
     DIR_SETTINGS = pathlib.Path(BaseDirectory.save_config_path(DOMAIN_NAME))
-except Exception:
+except PermissionError:
     # Get the settings path without actually creating it
     DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / DOMAIN_NAME
 # Set the paths for the data files
-FILE_ICON = DIR_DATA / 'gextractwinicons.png'
+FILE_ICON = DIR_DATA / icon_name
 FILE_CONTRIBUTORS = DIR_DOCS / 'contributors'
 FILE_TRANSLATORS = DIR_DOCS / 'translators'
 FILE_LICENSE = DIR_DOCS / 'license'

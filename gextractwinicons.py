@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -20,6 +20,7 @@
 ##
 
 from gextractwinicons.main import main
+
 
 if __name__ == '__main__':
     main()

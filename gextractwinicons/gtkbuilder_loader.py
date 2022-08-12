@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -40,9 +40,9 @@ class GtkBuilderLoader(object):
         """Get the widgets list from GtkBuilder"""
         return self.builder.get_objects()
 
-    def get_objects_by_type(self, type):
+    def get_objects_by_type(self, object_type):
         """Get the widgets list with a specific type from GtkBuilder"""
-        return [w for w in self.get_objects() if isinstance(w, type)]
+        return [w for w in self.get_objects() if isinstance(w, object_type)]
 
     def get_object(self, key):
         """Get a widget from GtkBuilder using a method"""

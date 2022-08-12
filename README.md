@@ -17,7 +17,7 @@
 
 # Usage
 
-From the *gExtractWinIcons* main window you select a MS Windows resources file
+From the *gExtractWinIcons* main window you select an MS Windows resources file
 (like an exe, dll, cpl, ocx and so on) and you will list its contained resources
 like cursors, icons and you can extract them, including exporting the icons in
 PNG format.

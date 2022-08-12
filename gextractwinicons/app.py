@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -29,13 +29,17 @@ class Application(Gtk.Application):
         """Prepare the GtkApplication"""
         super(self.__class__, self).__init__(application_id=APP_ID)
         self.options = options
-        self.connect("activate", self.activate)
+        self.ui = None
+        self.connect('activate', self.activate)
         self.connect('startup', self.startup)
 
+    # noinspection PyUnusedLocal
     def startup(self, application):
-        "Configure the application during the startup"
-        self.ui = UIMain(self, self.options)
+        """Configure the application during the startup"""
+        self.ui = UIMain(application=self,
+                         options=self.options)
 
+    # noinspection PyMethodOverriding
     def activate(self, application):
-        "Execute the application"
+        """Execute the application"""
         self.ui.run()

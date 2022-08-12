@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -21,6 +21,21 @@
 from gettext import gettext, dgettext
 
 localized_messages = {}
+
+
+def store_message(message, translated):
+    """Store a translated message in the localized_messages list"""
+    localized_messages[message] = translated
+
+
+def strip_colon(message):
+    """Remove the colons from the message"""
+    return message.replace(':', '')
+
+
+def strip_underline(message):
+    """Remove the underlines from the message"""
+    return message.replace('_', '')
 
 
 def text(message, gtk30=False, context=None):

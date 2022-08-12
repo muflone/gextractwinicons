@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -32,7 +32,7 @@ from gextractwinicons.constants import (APP_NAME,
                                         RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
 from gextractwinicons.functions import process_events
-from gextractwinicons.localize import text_gtk30, _
+from gextractwinicons.localize import _, text_gtk30
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
 from gextractwinicons.ui.about import UIAbout
@@ -44,19 +44,41 @@ SECTION_WINDOW_NAME = 'main window'
 
 class UIMain(UIBase):
     def __init__(self, application, options):
+        """Prepare the main window"""
+        logging.debug(f'{self.__class__.__name__} init')
         super().__init__(filename='main.ui')
+        # Initialize members
+        self.application = application
+        self.options = options
         self.is_refreshing = False
         self.total_resources = 0
         self.total_images = 0
         self.total_selected = 0
-        self.application = application
-        self.options = options
-        self.settings = Settings(FILE_SETTINGS, True)
-        self.extractor = Extractor(self.settings)
+        # Load settings
+        self.settings = Settings(filename=FILE_SETTINGS,
+                                 case_sensitive=True)
+        self.settings.load_preferences()
+        self.settings_map = {}
+        # Load UI
         self.load_ui()
+        # Prepare the models
         self.model = ModelResources(model=self.ui.store_resources,
                                     settings=self.settings)
+        # Prepare the extractor
+        self.extractor = Extractor(settings=self.settings)
+        # Complete initialization
+        self.startup()
+
+    def load_ui(self):
+        """Load the interface UI"""
+        logging.debug(f'{self.__class__.__name__} load UI')
+        # Initialize translations
+        self.ui.action_about.set_label(text_gtk30('About'))
+        # Initialize titles and tooltips
+        self.set_titles()
         # Initialize Gtk.HeaderBar
+        self.ui.header_bar.props.title = self.ui.window.get_title()
+        self.ui.window.set_titlebar(self.ui.header_bar)
         self.set_buttons_icons(buttons=[self.ui.button_select_all,
                                         self.ui.button_select_png,
                                         self.ui.button_deselect_all,
@@ -66,34 +88,8 @@ class UIMain(UIBase):
                                         self.ui.button_about,
                                         self.ui.button_options])
         # Set buttons with always show image
-        for button in (self.ui.button_save, ):
+        for button in [self.ui.button_save]:
             button.set_always_show_image(True)
-        self.ui.header_bar.props.title = self.ui.window.get_title()
-        self.ui.window.set_titlebar(self.ui.header_bar)
-        # Set initial resources file
-        if self.options.filename:
-            self.ui.button_filename.select_filename(self.options.filename)
-            self.ui.action_refresh.set_sensitive(True)
-        # Set initial destination folder
-        self.ui.button_destination.set_filename(
-            self.options.destination or os.path.expanduser('~'))
-        self.settings.restore_window_position(window=self.ui.window,
-                                              section=SECTION_WINDOW_NAME)
-        self.ui.window.show()
-
-    def run(self):
-        """Show the UI"""
-        # Automatically refresh if the refresh setting was passed
-        if self.options.refresh:
-            self.on_button_filename_file_set(self.ui.button_filename)
-
-    def load_ui(self):
-        """Load the interface UI"""
-        # Initialize translations
-        self.ui.action_about.set_label(text_gtk30('About'))
-        self.ui.action_shortcuts.set_label(text_gtk30('Shortcuts'))
-        # Initialize titles and tooltips
-        self.set_titles()
         # Set various properties
         self.ui.window.set_title(APP_NAME)
         self.ui.window.set_icon_from_file(str(FILE_ICON))
@@ -107,6 +103,32 @@ class UIMain(UIBase):
         # Connect signals from the UI file to the functions with the same name
         self.ui.connect_signals(self)
 
+    def startup(self):
+        """Complete initialization"""
+        logging.debug(f'{self.__class__.__name__} startup')
+        # Load settings
+        for setting_name, action in self.settings_map.items():
+            action.set_active(self.settings.get_preference(
+                option=setting_name))
+        # Set initial resources file
+        if self.options.filename:
+            self.ui.button_filename.select_filename(self.options.filename)
+            self.ui.action_refresh.set_sensitive(True)
+        # Set initial destination folder
+        self.ui.button_destination.set_filename(
+            self.options.destination or os.path.expanduser('~'))
+        # Restore the saved size and position
+        self.settings.restore_window_position(window=self.ui.window,
+                                              section=SECTION_WINDOW_NAME)
+
+    def run(self):
+        """Show the UI"""
+        logging.debug(f'{self.__class__.__name__} run')
+        self.ui.window.show_all()
+        # Automatically refresh if the refresh setting was passed
+        if self.options.refresh:
+            self.on_button_filename_file_set(self.ui.button_filename)
+
     def do_update_totals(self):
         """Update totals on the label"""
         self.ui.label_totals.set_label(_(
@@ -115,36 +137,36 @@ class UIMain(UIBase):
             SELECTED=self.total_selected))
         self.ui.action_save.set_sensitive(self.total_selected > 0)
 
-    def on_window_delete_event(self, widget, event):
-        """Close the application by closing the main window"""
-        self.ui.action_quit.emit('activate')
+    def on_action_about_activate(self, widget):
+        """Show the information dialog"""
+        dialog = UIAbout(parent=self.ui.window,
+                         settings=self.settings,
+                         options=self.options)
+        dialog.show()
+        dialog.destroy()
 
-    def on_action_about_activate(self, action):
-        """Show the about dialog"""
-        about = UIAbout(parent=self.ui.window,
-                        settings=self.settings,
-                        options=self.options)
-        about.show()
-        about.destroy()
+    def on_action_shortcuts_activate(self, widget):
+        """Show the shortcuts dialog"""
+        dialog = UIShortcuts(parent=self.ui.window,
+                             settings=self.settings,
+                             options=self.options)
+        dialog.show()
+
+    def on_action_quit_activate(self, widget):
+        """Save the settings and close the application"""
+        logging.debug(f'{self.__class__.__name__} quit')
+        self.settings.save_window_position(window=self.ui.window,
+                                           section=SECTION_WINDOW_NAME)
+        self.settings.save()
+        self.ui.window.destroy()
+        self.extractor.destroy()
+        self.application.quit()
 
     def on_action_options_menu_activate(self, widget):
         """Open the options menu"""
-        self.ui.button_options.emit('clicked')
+        self.ui.button_options.clicked()
 
-    def on_action_shortcuts_activate(self, action):
-        """Show the shortcuts dialog"""
-        dialog = UIShortcuts(self.ui.window)
-        dialog.show()
-
-    def on_action_quit_activate(self, action):
-        """Quit the application"""
-        self.extractor.destroy()
-        self.settings.save_window_position(self.ui.window, SECTION_WINDOW_NAME)
-        self.settings.save()
-        self.ui.window.destroy()
-        self.application.quit()
-
-    def on_action_refresh_activate(self, action):
+    def on_action_refresh_activate(self, widget):
         """Extract the cursors and icons from the chosen filename"""
         logging.debug('Extraction started')
         self.is_refreshing = True
@@ -291,28 +313,33 @@ class UIMain(UIBase):
         dialog.run()
         dialog.destroy()
 
-    def on_action_select_activate(self, action):
+    def on_action_select_activate(self, widget):
         """Deselect or select all the resources or only the images"""
         self.total_selected = 0
         for treeiter in self.model.get_model():
             # Iter the resources
-            if action is self.ui.action_select_all:
+            if widget is self.ui.action_select_all:
                 # Select all
                 self.model.set_selected(treeiter.path, True)
                 self.total_selected += 1
-            elif (action is self.ui.action_select_none or
-                  action is self.ui.action_select_png):
+            elif (widget is self.ui.action_select_none or
+                  widget is self.ui.action_select_png):
                 # Deselect all
                 self.model.set_selected(treeiter.path, False)
             # Iter the images
             for treeiter in treeiter.iterchildren():
-                if action in (self.ui.action_select_all,
+                if widget in (self.ui.action_select_all,
                               self.ui.action_select_png):
                     self.model.set_selected(treeiter.path, True)
                     self.total_selected += 1
-                elif action is self.ui.action_select_none:
+                elif widget is self.ui.action_select_none:
                     self.model.set_selected(treeiter.path, False)
         self.do_update_totals()
+
+    def on_button_filename_file_set(self, widget):
+        """Activate refresh if a file was set"""
+        self.ui.action_refresh.set_sensitive(True)
+        self.ui.action_refresh.activate()
 
     def on_cell_select_toggled(self, renderer, path):
         """Select and deselect an item"""
@@ -322,11 +349,10 @@ class UIMain(UIBase):
         self.total_selected += -1 if status else 1
         self.do_update_totals()
 
-    def on_button_filename_file_set(self, widget):
-        """Activate refresh if a file was set"""
-        self.ui.action_refresh.set_sensitive(True)
-        self.ui.action_refresh.activate()
-
     def on_treeview_resources_button_release_event(self, widget, event):
         if event.button == Gdk.BUTTON_SECONDARY:
             self.ui.menu_select_resources.popup_at_pointer(event)
+
+    def on_window_delete_event(self, widget, event):
+        """Close the application by closing the main window"""
+        self.ui.action_quit.activate()

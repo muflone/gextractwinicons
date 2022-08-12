@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -23,12 +23,12 @@ from gi.repository import Gtk
 from gextractwinicons.constants import DIR_UI
 
 
-def bin_string_ascii(text: str) -> str:
+def bin_string_ascii(text: bytes) -> str:
     """Convert a binary string to string using ASCII codec"""
     return text.decode('ascii')
 
 
-def bin_string_utf8(text: str) -> str:
+def bin_string_utf8(text: bytes) -> str:
     """Convert a binary string to string using UTF-8 codec"""
     return text.decode('utf-8')
 

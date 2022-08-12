@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -54,5 +54,5 @@ def main():
     logging.debug(f'DIR_UI={str(DIR_UI)}')
     logging.debug(f'DIR_SETTINGS={str(DIR_SETTINGS)}')
     # Start the application
-    app = Application(options)
+    app = Application(options=options)
     app.run(None)

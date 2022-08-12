@@ -1,7 +1,7 @@
 # gExtractWinIcons
-# Extract cursors and icons from MS Windows compatible resource files.
-# Copyright (C) 2009-2014 Fabio Castelli (Muflone) <muflone(at)vbsimple.net>
-# Website: http://www.muflone.com/gextractwinicons/
+# Extract cursors and icons from MS Windows resource files
+# Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
+# Website: https://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
 # Lithuanian translation for gExtractWinIcons
 #
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues\n"
-"POT-Creation-Date: 2022-04-18 00:55+0200\n"
+"POT-Creation-Date: 2022-08-15 18:33+0200\n"
 "PO-Revision-Date: 2022-04-18 02:14+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian\n"
@@ -21,139 +21,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: gextractwinicons/ui/about.py:53
+#: gextractwinicons/ui/about.py:59
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versija {VERSION}"
 
-#: gextractwinicons/ui/about.py:55
-msgid "Extract cursors and icons from MS Windows resource files."
-msgstr "Išskleisti žymeklius ir piktogramas iš MS Windows išteklių failų."
+#: gextractwinicons/ui/about.py:62
+msgid "Extract cursors and icons from MS Windows resource files"
+msgstr "Išskleisti žymeklius ir piktogramas iš MS Windows išteklių failų"
 
-#: gextractwinicons/ui/main.py:101
+#: gextractwinicons/ui/about.py:71
+msgid "Contributors:"
+msgstr "Talkininkai:"
+
+#: gextractwinicons/ui/main.py:98
 msgid "MS Windows compatible files"
 msgstr "MS Windows suderinami failai"
 
-#: gextractwinicons/ui/main.py:103
+#: gextractwinicons/ui/main.py:100
 msgid "All files"
 msgstr "Visi failai"
 
-#: gextractwinicons/ui/main.py:112
+#: gextractwinicons/ui/main.py:135
 #, python-brace-format
 msgid "{TOTAL} resources found ({SELECTED} resources selected)"
 msgstr "{TOTAL} išteklių rasta ({SELECTED} išteklių pažymėta)"
 
-#: gextractwinicons/ui/main.py:191
+#: gextractwinicons/ui/main.py:214
 msgid "cursors"
 msgstr "žymekliai"
 
-#: gextractwinicons/ui/main.py:193
+#: gextractwinicons/ui/main.py:216
 msgid "icons"
 msgstr "piktogramos"
 
-#: gextractwinicons/ui/main.py:210
+#: gextractwinicons/ui/main.py:233
 msgid "icon"
 msgstr "piktograma"
 
-#: gextractwinicons/ui/main.py:212
+#: gextractwinicons/ui/main.py:235
 msgid "cursor"
 msgstr "žymeklis"
 
-#: gextractwinicons/ui/main.py:286
+#: gextractwinicons/ui/main.py:309
 msgid "Extraction completed."
 msgstr "Išskleidimas užbaigtas."
+
+#: ui/main.ui:25 ui/shortcuts.ui:28
+msgid "Keyboard shortcuts"
+msgstr "Klaviatūros trumpiniai"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
 msgstr "Atverti parinkčių meniu"
 
-#: ui/main.ui:49 ui/main.ui:109 ui/main.ui:316 ui/shortcuts.ui:50
+#: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
 msgid "Refresh"
 msgstr "Atnaujinti"
 
-#: ui/main.ui:67 ui/main.ui:195
+#: ui/main.ui:67 ui/main.ui:188
 msgid "Save resources"
 msgstr "Įrašyti ištekliai"
 
-#: ui/main.ui:77 ui/main.ui:224 ui/shortcuts.ui:71
+#: ui/main.ui:77 ui/main.ui:217 ui/shortcuts.ui:71
 msgid "Select all"
 msgstr "Pažymėti visus"
 
-#: ui/main.ui:85 ui/main.ui:154 ui/main.ui:254 ui/shortcuts.ui:78
+#: ui/main.ui:85 ui/main.ui:247 ui/shortcuts.ui:78
 msgid "Deselect all"
 msgstr "Nuimti žymėjimą nuo visų"
 
-#: ui/main.ui:93 ui/main.ui:145 ui/main.ui:239 ui/shortcuts.ui:85
+#: ui/main.ui:93 ui/main.ui:232 ui/shortcuts.ui:85
 msgid "Select only PNGs"
 msgstr "Pažymėti tik PNG failus"
 
-#: ui/main.ui:118 ui/main.ui:301 ui/shortcuts.ui:57
-msgid "Stop"
-msgstr "Sustabdyti"
-
-#: ui/main.ui:126 ui/main.ui:216
+#: ui/main.ui:124 ui/main.ui:209
 msgid "Select resources"
 msgstr "Pažymėti ištekliai"
 
-#: ui/main.ui:388
+#: ui/main.ui:294 ui/shortcuts.ui:57
+msgid "Stop"
+msgstr "Sustabdyti"
+
+#: ui/main.ui:381
 msgid "File to open:"
 msgstr "Failas, kurį atverti:"
 
-#: ui/main.ui:412
+#: ui/main.ui:405
 msgid "Destination folder:"
 msgstr "Paskirties aplankas:"
 
-#: ui/main.ui:426
+#: ui/main.ui:419
 msgid "Select path for saving"
 msgstr "Pasirinkti įrašymo kelią"
 
-#: ui/main.ui:437
+#: ui/main.ui:430
 msgid "<b>Available resources:</b>"
 msgstr "<b>Prieinami ištekliai:</b>"
 
-#: ui/main.ui:465
+#: ui/main.ui:458
 msgid "Preview"
 msgstr "Peržiūra"
 
-#: ui/main.ui:476
+#: ui/main.ui:469
 msgid "Type"
 msgstr "Tipas"
 
-#: ui/main.ui:487
+#: ui/main.ui:480
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: ui/main.ui:500
+#: ui/main.ui:493
 msgid "Width"
 msgstr "Plotis"
 
-#: ui/main.ui:514
+#: ui/main.ui:507
 msgid "Height"
 msgstr "Aukštis"
 
-#: ui/main.ui:526
+#: ui/main.ui:519
 msgid "Bits"
 msgstr "Bitų"
 
-#: ui/main.ui:540
+#: ui/main.ui:533
 msgid "Size"
 msgstr "Dydis"
 
-#: ui/main.ui:553
+#: ui/main.ui:546
 msgid "Extract"
 msgstr "Išskleisti"
 
-#: ui/main.ui:577
+#: ui/main.ui:570
 msgid "Please select a file to list the available resources"
 msgstr "Pasirinkite failą, kad būtų išvardyti visi prieinami ištekliai"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Rodyti dialogą su informacija apie programą"
-
-#: ui/shortcuts.ui:28
-msgid "Show the shortcuts dialog"
-msgstr "Rodyti sparčiųjų klavišų dialogą"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"

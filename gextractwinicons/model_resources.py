@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -17,6 +17,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
+
 import logging
 import os.path
 
@@ -41,11 +42,11 @@ class ModelResources(object):
         self.settings = settings
 
     def clear(self):
-        "Clear the model"
+        """Clear the model"""
         return self.model.clear()
 
-    def add_resource(self, parent, sType, name, language, width, height, depth,
-                     path):
+    def add_resource(self, parent, resource_type, name, language,
+                     width, height, depth, path):
         try:
             pixbuf = GdkPixbuf.Pixbuf.new_from_file(path)
         except GLib.GError as error:
@@ -53,7 +54,7 @@ class ModelResources(object):
             logging.error(f'Unable to get image for "{path}"')
             logging.error(str(error))
             pixbuf = None
-        return self.model.append(parent, [True, sType, name, language,
+        return self.model.append(parent, [True, resource_type, name, language,
                                           width, height, depth,
                                           os.path.getsize(path),
                                           pixbuf,

@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -41,13 +41,13 @@ class Extractor(object):
             os.remove(os.path.join(self.tempdir, f))
 
     def destroy(self):
-        "Clear and delete the temporary directory"
+        """Clear and delete the temporary directory"""
         self.clear()
         os.rmdir(self.tempdir)
         self.tempdir = None
 
     def list(self, filename):
-        "Extract the resources list from the filename"
+        """Extract the resources list from the filename"""
         resources = []
         proc = subprocess.Popen(
             ['wrestool', '--list', filename],
@@ -76,16 +76,17 @@ class Extractor(object):
         return resources
 
     def extract(self, filename, resource):
-        "Extract a resource to the temporary directory"
-        outFilename = os.path.join(self.tempdir, '%s_%d_%s_%s.%s' % (
-            os.path.basename(filename),
-            resource['--type'],
-            resource['--name'],
-            resource['--language'],
-            ('cur'
-             if resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR
-             else 'ico')
-        ))
+        """Extract a resource to the temporary directory"""
+        output_filename = os.path.join(
+            self.tempdir, '%s_%d_%s_%s.%s' % (
+                os.path.basename(filename),
+                resource['--type'],
+                resource['--name'],
+                resource['--language'],
+                ('cur'
+                 if resource['--type'] == RESOURCE_TYPE_GROUP_CURSOR
+                 else 'ico')
+            ))
         proc = subprocess.Popen(
             [
                 'wrestool',
@@ -93,7 +94,7 @@ class Extractor(object):
                 '--type', str(resource['--type']),
                 '--name', resource['--name'],
                 '--language', resource['--language'],
-                '--output', outFilename,
+                '--output', output_filename,
                 filename
             ],
             stdout=subprocess.PIPE,
@@ -103,11 +104,11 @@ class Extractor(object):
             logging.debug('wrestool --extract '
                           f'error: {bin_string_utf8(stderr).strip()}')
         # Check if the resource was extracted successfully (cannot be sure)
-        if os.path.isfile(outFilename):
-            return outFilename
+        if os.path.isfile(output_filename):
+            return output_filename
 
     def extract_images(self, filename):
-        "Extract the images from a cursor or icon file"
+        """Extract the images from a cursor or icon file"""
         images = []
         # Retrieve the images inside the cursor/icon file
         proc = subprocess.Popen(
@@ -133,13 +134,13 @@ class Extractor(object):
             if resource:
                 # Determine the temporary output filename
                 # like 'name_index_WxHxD.png'
-                outFilename = os.path.join(self.tempdir,
-                                           '%s_%s_%sx%sx%s.png' % (
-                                               filename[:-4],
-                                               resource['--index'],
-                                               resource['--width'],
-                                               resource['--height'],
-                                               resource['--bit-depth']))
+                output_filename = os.path.join(
+                    self.tempdir, '%s_%s_%sx%sx%s.png' % (
+                        filename[:-4],
+                        resource['--index'],
+                        resource['--width'],
+                        resource['--height'],
+                        resource['--bit-depth']))
                 # Extract the image from the resource into the file
                 proc = subprocess.Popen(
                     [
@@ -149,7 +150,7 @@ class Extractor(object):
                         '--width', resource['--width'],
                         '--height', resource['--height'],
                         '--bit-depth', resource['--bit-depth'],
-                        '--output', outFilename,
+                        '--output', output_filename,
                         filename
                     ],
                     stdout=subprocess.PIPE,
@@ -159,7 +160,7 @@ class Extractor(object):
                     logging.debug('icotool --extract '
                                   f'error: {bin_string_utf8(stderr).strip()}')
                 # Check if the image was extracted successfully
-                if os.path.isfile(outFilename):
-                    resource['path'] = outFilename
+                if os.path.isfile(output_filename):
+                    resource['path'] = output_filename
                     images.append(resource)
         return images

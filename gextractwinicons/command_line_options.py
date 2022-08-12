@@ -1,6 +1,6 @@
 ##
 #     Project: gExtractWinIcons
-# Description: Extract cursors and icons from MS Windows resource files.
+# Description: Extract cursors and icons from MS Windows resource files
 #      Author: Fabio Castelli (Muflone) <muflone@muflone.com>
 #   Copyright: 2009-2022 Fabio Castelli
 #     License: GPL-3+
@@ -64,6 +64,7 @@ class CommandLineOptions(object):
                                       'the refresh (slower)')
         self.options = None
 
+    # noinspection PyProtectedMember,PyUnresolvedReferences
     def add_group(self, name: str) -> argparse._ArgumentGroup:
         """
         Add a command-line options group

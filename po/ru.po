@@ -1,5 +1,5 @@
 # gExtractWinIcons
-# Extract cursors and icons from MS Windows resource files.
+# Extract cursors and icons from MS Windows resource files
 # Copyright (C) 2009-2022 Fabio Castelli (Muflone) <muflone(at)muflone.com>
 # Website: https://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues\n"
-"POT-Creation-Date: 2022-04-18 00:55+0200\n"
+"POT-Creation-Date: 2022-08-15 18:33+0200\n"
 "PO-Revision-Date: 2022-04-18 02:43+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian\n"
@@ -21,139 +21,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: gextractwinicons/ui/about.py:53
+#: gextractwinicons/ui/about.py:59
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Версия {VERSION}"
 
-#: gextractwinicons/ui/about.py:55
-msgid "Extract cursors and icons from MS Windows resource files."
+#: gextractwinicons/ui/about.py:62
+msgid "Extract cursors and icons from MS Windows resource files"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:101
+#: gextractwinicons/ui/about.py:71
+msgid "Contributors:"
+msgstr "Контрибьюторы:"
+
+#: gextractwinicons/ui/main.py:98
 msgid "MS Windows compatible files"
 msgstr "Файлы ресурсов MS Windows"
 
-#: gextractwinicons/ui/main.py:103
+#: gextractwinicons/ui/main.py:100
 msgid "All files"
 msgstr "Все файлы"
 
-#: gextractwinicons/ui/main.py:112
+#: gextractwinicons/ui/main.py:135
 #, python-brace-format
 msgid "{TOTAL} resources found ({SELECTED} resources selected)"
 msgstr "{TOTAL} ресурсов найдено ({SELECTED} ресурсов выбрано)"
 
-#: gextractwinicons/ui/main.py:191
+#: gextractwinicons/ui/main.py:214
 msgid "cursors"
 msgstr "Курсоры"
 
-#: gextractwinicons/ui/main.py:193
+#: gextractwinicons/ui/main.py:216
 msgid "icons"
 msgstr "Значки"
 
-#: gextractwinicons/ui/main.py:210
+#: gextractwinicons/ui/main.py:233
 msgid "icon"
 msgstr "значок"
 
-#: gextractwinicons/ui/main.py:212
+#: gextractwinicons/ui/main.py:235
 msgid "cursor"
 msgstr "курсор"
 
-#: gextractwinicons/ui/main.py:286
+#: gextractwinicons/ui/main.py:309
 msgid "Extraction completed."
 msgstr "Извлечение завершеною"
+
+#: ui/main.ui:25 ui/shortcuts.ui:28
+msgid "Keyboard shortcuts"
+msgstr "Комбинации клавиш"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
 msgstr "Открыть настройки"
 
-#: ui/main.ui:49 ui/main.ui:109 ui/main.ui:316 ui/shortcuts.ui:50
+#: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
 msgid "Refresh"
 msgstr ""
 
-#: ui/main.ui:67 ui/main.ui:195
+#: ui/main.ui:67 ui/main.ui:188
 msgid "Save resources"
 msgstr "Сохранить rесурсы"
 
-#: ui/main.ui:77 ui/main.ui:224 ui/shortcuts.ui:71
+#: ui/main.ui:77 ui/main.ui:217 ui/shortcuts.ui:71
 msgid "Select all"
 msgstr "Выбрать всё"
 
-#: ui/main.ui:85 ui/main.ui:154 ui/main.ui:254 ui/shortcuts.ui:78
+#: ui/main.ui:85 ui/main.ui:247 ui/shortcuts.ui:78
 msgid "Deselect all"
 msgstr "Отменить выбор"
 
-#: ui/main.ui:93 ui/main.ui:145 ui/main.ui:239 ui/shortcuts.ui:85
+#: ui/main.ui:93 ui/main.ui:232 ui/shortcuts.ui:85
 msgid "Select only PNGs"
 msgstr "Выбрать только PNG"
 
-#: ui/main.ui:118 ui/main.ui:301 ui/shortcuts.ui:57
-msgid "Stop"
-msgstr "Остановить"
-
-#: ui/main.ui:126 ui/main.ui:216
+#: ui/main.ui:124 ui/main.ui:209
 msgid "Select resources"
 msgstr "Выбрать rесурсы"
 
-#: ui/main.ui:388
+#: ui/main.ui:294 ui/shortcuts.ui:57
+msgid "Stop"
+msgstr "Остановить"
+
+#: ui/main.ui:381
 msgid "File to open:"
 msgstr "Открыть файл:"
 
-#: ui/main.ui:412
+#: ui/main.ui:405
 msgid "Destination folder:"
 msgstr "Каталог назначения:"
 
-#: ui/main.ui:426
+#: ui/main.ui:419
 msgid "Select path for saving"
 msgstr "Выбрать каталог назначения"
 
-#: ui/main.ui:437
+#: ui/main.ui:430
 msgid "<b>Available resources:</b>"
 msgstr "<b>Найденные ресурсы:</b>"
 
-#: ui/main.ui:465
+#: ui/main.ui:458
 msgid "Preview"
 msgstr "Просмотр"
 
-#: ui/main.ui:476
+#: ui/main.ui:469
 msgid "Type"
 msgstr "Тип"
 
-#: ui/main.ui:487
+#: ui/main.ui:480
 msgid "Name"
 msgstr "Имя"
 
-#: ui/main.ui:500
+#: ui/main.ui:493
 msgid "Width"
 msgstr "Ширина"
 
-#: ui/main.ui:514
+#: ui/main.ui:507
 msgid "Height"
 msgstr "Высота"
 
-#: ui/main.ui:526
+#: ui/main.ui:519
 msgid "Bits"
 msgstr "Бит"
 
-#: ui/main.ui:540
+#: ui/main.ui:533
 msgid "Size"
 msgstr "Размер"
 
-#: ui/main.ui:553
+#: ui/main.ui:546
 msgid "Extract"
 msgstr "Извлечь"
 
-#: ui/main.ui:577
+#: ui/main.ui:570
 msgid "Please select a file to list the available resources"
 msgstr "Выберите файл для просмотра доступных ресурсов"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Показать диалог \"О программе\""
-
-#: ui/shortcuts.ui:28
-msgid "Show the shortcuts dialog"
-msgstr "Комбинации клавиш"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"
