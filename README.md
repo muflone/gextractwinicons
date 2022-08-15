@@ -9,9 +9,9 @@
 
 **License:** GPL-3+
 
-**Source code:** https://github.com/muflone/gextractwinicons
+**Source code:** https://github.com/muflone/gextractwinicons/
 
-**Documentation:** https://www.muflone.com/gextractwinicons
+**Documentation:** https://www.muflone.com/gextractwinicons/
 
 **Translations:** https://explore.transifex.com/muflone/gextractwinicons/
 
