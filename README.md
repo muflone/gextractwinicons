@@ -5,7 +5,7 @@
 
 **Description:** Extract cursors and icons from MS Windows resource files
 
-**Copyright:** 2009-2022 Fabio Castelli <muflone(at)muflone.com>
+**Copyright:** 2009-2022 Fabio Castelli <muflone@muflone.com>
 
 **License:** GPL-3+
 
