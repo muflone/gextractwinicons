@@ -6,7 +6,7 @@
 # English translation for gExtractWinIcons
 #
 # Translators:
-# Fabio Castelli (Muflone) <muflone(at)muflone.com>, 2010
+# Fabio Castelli (Muflone) <muflone(at)muflone.com>, 2010-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"

@@ -15,7 +15,7 @@
 
 **Translations:** https://explore.transifex.com/muflone/gextractwinicons/
 
-# Usage
+# Description
 
 From the *gExtractWinIcons* main window you select an MS Windows resources file
 (like an exe, dll, cpl, ocx and so on) and you will list its contained resources
