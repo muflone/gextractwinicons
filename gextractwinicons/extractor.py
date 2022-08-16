@@ -32,7 +32,7 @@ class Extractor(object):
     def __init__(self, settings):
         # Create a temporary directory for the extracted icons
         self.settings = settings
-        self.tempdir = tempfile.mkdtemp(prefix='%s-' % APP_NAME)
+        self.tempdir = tempfile.mkdtemp(prefix=f'{APP_NAME}-')
         logging.debug('The temporary files will be extracted '
                       f'under {self.tempdir}')
 

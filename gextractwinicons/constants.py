@@ -32,7 +32,7 @@ APP_ID = 'gextractwinicons.muflone.com'
 APP_URL = 'https://www.muflone.com/gextractwinicons/'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
-APP_COPYRIGHT = 'Copyright 2009-2022 %s' % APP_AUTHOR
+APP_COPYRIGHT = f'Copyright 2009-2022 {APP_AUTHOR}'
 URL_SOURCES = 'https://github.com/muflone/gextractwinicons/'
 # Other constants
 DOMAIN_NAME = 'gextractwinicons'
