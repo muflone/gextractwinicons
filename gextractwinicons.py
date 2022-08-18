@@ -19,8 +19,8 @@
 #  along with this program.  If not, see <https://www.gnu.org/licenses/>.
 ##
 
-from gextractwinicons.main import main
+import gextractwinicons.main
 
 
 if __name__ == '__main__':
-    main()
+    gextractwinicons.main.main()
