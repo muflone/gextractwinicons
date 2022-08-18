@@ -28,14 +28,16 @@ from xdg import BaseDirectory
 APP_NAME = 'gExtractWinIcons'
 APP_VERSION = '0.5.1'
 APP_DESCRIPTION = 'Extract cursors and icons from MS Windows resource files'
-APP_ID = 'gextractwinicons.muflone.com'
-APP_URL = 'https://www.muflone.com/gextractwinicons/'
+APP_DOMAIN = 'gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'
 APP_AUTHOR_EMAIL = 'muflone@muflone.com'
 APP_COPYRIGHT = f'Copyright 2009-2022 {APP_AUTHOR}'
-URL_SOURCES = 'https://github.com/muflone/gextractwinicons/'
+APP_ID = f'{APP_DOMAIN}.muflone.com'
+URL_AUTHOR = 'https://www.muflone.com/'
+URL_APPLICATION = f'{URL_AUTHOR}{APP_DOMAIN}/'
+URL_SOURCES = f'https://github.com/muflone/{APP_DOMAIN}/'
+URL_TRANSLATIONS = f'https://explore.transifex.com/muflone/{APP_DOMAIN}/'
 # Other constants
-DOMAIN_NAME = 'gextractwinicons'
 VERBOSE_LEVEL_QUIET = 0
 VERBOSE_LEVEL_NORMAL = 1
 VERBOSE_LEVEL_MAX = 2
@@ -62,29 +64,29 @@ RESOURCE_TYPE_ANIICON = 22
 
 # Paths constants
 path_xdg_data_home = pathlib.Path(BaseDirectory.xdg_data_home)
-icon_name = f'{DOMAIN_NAME}.png'
+icon_name = f'{APP_DOMAIN}.png'
 if (pathlib.Path('data') / icon_name).is_file():
     # Use relative paths
     DIR_PREFIX = pathlib.Path('data').parent.absolute()
     DIR_LOCALE = DIR_PREFIX / 'locale'
     DIR_DOCS = DIR_PREFIX / 'doc'
-elif (path_xdg_data_home / DOMAIN_NAME / 'data' / icon_name).is_file():
+elif (path_xdg_data_home / APP_DOMAIN / 'data' / icon_name).is_file():
     # Use local user path
-    DIR_PREFIX = path_xdg_data_home / DOMAIN_NAME
+    DIR_PREFIX = path_xdg_data_home / APP_DOMAIN
     DIR_LOCALE = path_xdg_data_home / 'locale'
-    DIR_DOCS = path_xdg_data_home / 'doc' / DOMAIN_NAME
-elif (pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME / 'data' /
+    DIR_DOCS = path_xdg_data_home / 'doc' / APP_DOMAIN
+elif (pathlib.Path(__file__).parent.parent / 'share' / APP_DOMAIN / 'data' /
       icon_name).is_file():
     # Use local user path in the local Python directory
-    DIR_PREFIX = pathlib.Path(__file__).parent.parent / 'share' / DOMAIN_NAME
+    DIR_PREFIX = pathlib.Path(__file__).parent.parent / 'share' / APP_DOMAIN
     DIR_LOCALE = DIR_PREFIX.parent / 'locale'
-    DIR_DOCS = DIR_PREFIX.parent / 'doc' / DOMAIN_NAME
+    DIR_DOCS = DIR_PREFIX.parent / 'doc' / APP_DOMAIN
 else:
     # Use system path
     path_prefix = pathlib.Path(sys.prefix)
-    DIR_PREFIX = path_prefix / 'share' / DOMAIN_NAME
+    DIR_PREFIX = path_prefix / 'share' / APP_DOMAIN
     DIR_LOCALE = path_prefix / 'share' / 'locale'
-    DIR_DOCS = path_prefix / 'share' / 'doc' / DOMAIN_NAME
+    DIR_DOCS = path_prefix / 'share' / 'doc' / APP_DOMAIN
 # Set the paths for the folders
 DIR_DATA = DIR_PREFIX / 'data'
 DIR_ICONS = DIR_DATA / 'icons'
@@ -92,10 +94,10 @@ DIR_UI = DIR_PREFIX / 'ui'
 try:
     # In read-only environments, the settings folder cannot be created
     # (e.g. in a Debian pbuilder fakeroot)
-    DIR_SETTINGS = pathlib.Path(BaseDirectory.save_config_path(DOMAIN_NAME))
+    DIR_SETTINGS = pathlib.Path(BaseDirectory.save_config_path(APP_DOMAIN))
 except PermissionError:
     # Get the settings path without actually creating it
-    DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / DOMAIN_NAME
+    DIR_SETTINGS = pathlib.Path(BaseDirectory.xdg_config_home) / APP_DOMAIN
 # Set the paths for the data files
 FILE_ICON = DIR_DATA / icon_name
 FILE_CONTRIBUTORS = DIR_DOCS / 'contributors'
