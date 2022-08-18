@@ -20,6 +20,7 @@
 
 import logging
 
+import gextractwinicons.requires                                   # noqa: F401
 from gextractwinicons.app import Application
 from gextractwinicons.command_line_options import CommandLineOptions
 from gextractwinicons.constants import (DIR_DATA,
@@ -28,6 +29,7 @@ from gextractwinicons.constants import (DIR_DATA,
                                         DIR_PREFIX,
                                         DIR_SETTINGS,
                                         DIR_UI)
+import gextractwinicons.translations                               # noqa: F401
 
 
 def main():
