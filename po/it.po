@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
-"POT-Creation-Date: 2022-08-15 18:33+0200\n"
+"POT-Creation-Date: 2022-08-19 01:29+0200\n"
 "PO-Revision-Date: 2022-04-18 02:06+0200\n"
 "Last-Translator: Fabio Castelli (Muflone) <muflone@muflone.com>\n"
 "Language-Team: Italian\n"
@@ -21,18 +21,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: gextractwinicons/ui/about.py:59
+#: gextractwinicons/ui/about.py:65
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Versione {VERSION}"
 
-#: gextractwinicons/ui/about.py:62
+#: gextractwinicons/ui/about.py:68
 msgid "Extract cursors and icons from MS Windows resource files"
 msgstr "Estrae cursori e icone da file di risorse per MS Windows"
 
-#: gextractwinicons/ui/about.py:71
+#: gextractwinicons/ui/about.py:77
 msgid "Contributors:"
 msgstr "Contributori"
+
+#: gextractwinicons/ui/about.py:84
+msgid "Project home page"
+msgstr "Home page del progetto"
+
+#: gextractwinicons/ui/about.py:85
+msgid "Source code"
+msgstr "Codice sorgente"
+
+#: gextractwinicons/ui/about.py:86
+msgid "Author information"
+msgstr "Informazioni sull'autore"
+
+#: gextractwinicons/ui/about.py:87
+msgid "Issues and bugs tracking"
+msgstr "Tracciamento di problemi e bug"
+
+#: gextractwinicons/ui/about.py:88
+msgid "Translations"
+msgstr "Traduzioni"
 
 #: gextractwinicons/ui/main.py:98
 msgid "MS Windows compatible files"
@@ -73,7 +93,7 @@ msgstr "Scorciatoie da tastiera"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr "Apre il menu opzioni"
+msgstr "Apri il menu opzioni"
 
 #: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
 msgid "Refresh"

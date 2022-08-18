@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
-"POT-Creation-Date: 2022-08-15 18:33+0200\n"
+"POT-Creation-Date: 2022-08-19 01:29+0200\n"
 "PO-Revision-Date: 2022-04-18 02:43+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian\n"
@@ -21,18 +21,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: gextractwinicons/ui/about.py:59
+#: gextractwinicons/ui/about.py:65
 #, python-brace-format
 msgid "Version {VERSION}"
 msgstr "Версия {VERSION}"
 
-#: gextractwinicons/ui/about.py:62
+#: gextractwinicons/ui/about.py:68
 msgid "Extract cursors and icons from MS Windows resource files"
 msgstr ""
 
-#: gextractwinicons/ui/about.py:71
+#: gextractwinicons/ui/about.py:77
 msgid "Contributors:"
 msgstr "Контрибьюторы:"
+
+#: gextractwinicons/ui/about.py:84
+msgid "Project home page"
+msgstr ""
+
+#: gextractwinicons/ui/about.py:85
+msgid "Source code"
+msgstr ""
+
+#: gextractwinicons/ui/about.py:86
+msgid "Author information"
+msgstr ""
+
+#: gextractwinicons/ui/about.py:87
+msgid "Issues and bugs tracking"
+msgstr ""
+
+#: gextractwinicons/ui/about.py:88
+msgid "Translations"
+msgstr ""
 
 #: gextractwinicons/ui/main.py:98
 msgid "MS Windows compatible files"
