@@ -7,13 +7,14 @@
 #
 # Translators:
 # Danielson Tavares <caosdan(at)gmail.com>, 2017
+# Paguiar735 <github.translation(at)paguiar.dev>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
 "POT-Creation-Date: 2022-08-19 01:29+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
-"Last-Translator: Danielson Tavares <caosdan(at)gmail.com>, 2017\n"
+"Last-Translator: Paguiar735 <github.translation(at)paguiar.dev>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +94,7 @@ msgstr "Atalhos de teclado"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr ""
+msgstr "Abrir o menu de opções"
 
 #: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
 msgid "Refresh"
@@ -177,7 +178,7 @@ msgstr "Por favor, selecione um arquivo para listar os recursos disponíveis"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
-msgstr "Mostrar diálogo sobre"
+msgstr "Exibir caixa de diálogo sobre"
 
 #: ui/shortcuts.ui:35
 msgid "Quit"
