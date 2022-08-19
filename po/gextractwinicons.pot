@@ -4,8 +4,6 @@
 # Website: https://www.muflone.com/gextractwinicons/
 # This file is distributed under the same license of gExtractWinIcons.
 # X translation for gExtractWinIcons
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
