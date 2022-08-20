@@ -21,15 +21,15 @@
   <url type="help">https://www.muflone.com/gextractwinicons/</url>
   <url type="translate">https://explore.transifex.com/muflone/gextractwinicons/</url>
   <url type="bugtracker">https://github.com/muflone/gextractwinicons/issues/</url>
-  <url type="contact">http://www.muflone.com/contacts/</url>
+  <url type="contact">https://www.muflone.com/contacts/</url>
 
   <launchable type="desktop-id">gextractwinicons.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>http://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png</image>
+      <image>https://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png</image>
     </screenshot>
     <screenshot>
-      <image>http://www.muflone.com/resources/gextractwinicons/archive/latest/english/about.png</image>
+      <image>https://www.muflone.com/resources/gextractwinicons/archive/latest/english/about.png</image>
     </screenshot>
   </screenshots>
 </component>
