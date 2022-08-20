@@ -6,14 +6,14 @@
 # Portuguese translation for gExtractWinIcons
 #
 # Translators:
-# Danielson Tavares <caosdan(at)gmail.com>, 2017
+# Danielson Tavares <caosdan(at)gmail.com>, 2017-2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
 "POT-Creation-Date: 2022-08-20 17:08+0200\n"
 "PO-Revision-Date: 2022-04-18 02:36+0200\n"
-"Last-Translator: Danielson Tavares <caosdan(at)gmail.com>, 2017\n"
+"Last-Translator: Danielson Tavares <caosdan(at)gmail.com>\n"
 "Language-Team: Portuguese\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
@@ -93,7 +93,7 @@ msgstr "Atalhos de teclado"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr ""
+msgstr "Abrir o menu de opções"
 
 #: ui/main.ui:67 ui/main.ui:204 ui/shortcuts.ui:64
 msgid "Save resources"
