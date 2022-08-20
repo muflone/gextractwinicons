@@ -32,7 +32,7 @@ from gextractwinicons.constants import (APP_NAME,
                                         RESOURCE_TYPE_GROUP_ICON)
 from gextractwinicons.extractor import Extractor
 from gextractwinicons.functions import process_events
-from gextractwinicons.localize import _, text_gtk30
+from gextractwinicons.localize import _
 from gextractwinicons.model_resources import ModelResources
 from gextractwinicons.settings import Settings
 from gextractwinicons.ui.about import UIAbout
@@ -72,8 +72,6 @@ class UIMain(UIBase):
     def load_ui(self):
         """Load the interface UI"""
         logging.debug(f'{self.__class__.__name__} load UI')
-        # Initialize translations
-        self.ui.action_about.set_label(text_gtk30('About'))
         # Initialize titles and tooltips
         self.set_titles()
         # Initialize Gtk.HeaderBar

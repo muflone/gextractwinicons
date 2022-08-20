@@ -32,7 +32,7 @@
               <object class="GtkShortcutsShortcut" id="shortcut_quit">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;Q</property>
-                <property name="title" translatable="yes">Quit</property>
+                <property name="title">Quit</property>
               </object>
             </child>
           </object>
@@ -47,28 +47,28 @@
               <object class="GtkShortcutsShortcut" id="shortcut_refresh">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;R</property>
-                <property name="title" translatable="yes">Refresh</property>
+                <property name="title">Refresh</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut" id="shortcut_sop">
                 <property name="visible">1</property>
                 <property name="accelerator">Escape</property>
-                <property name="title" translatable="yes">Stop</property>
+                <property name="title">Stop</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut" id="shortcut_save">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;S</property>
-                <property name="title" translatable="yes">Save</property>
+                <property name="title" translatable="true">Save resources</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut" id="shortcut_select_all">
                 <property name="visible">1</property>
                 <property name="accelerator">&lt;ctrl&gt;A</property>
-                <property name="title" translatable="yes">Select all</property>
+                <property name="title">Select all</property>
               </object>
             </child>
             <child>

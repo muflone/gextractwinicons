@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:29+0200\n"
+"POT-Creation-Date: 2022-08-20 17:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,36 +50,36 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:98
+#: gextractwinicons/ui/main.py:96
 msgid "MS Windows compatible files"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:100
+#: gextractwinicons/ui/main.py:98
 msgid "All files"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:135
+#: gextractwinicons/ui/main.py:133
 #, python-brace-format
 msgid "{TOTAL} resources found ({SELECTED} resources selected)"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:214
+#: gextractwinicons/ui/main.py:212
 msgid "cursors"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:216
+#: gextractwinicons/ui/main.py:214
 msgid "icons"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:233
+#: gextractwinicons/ui/main.py:231
 msgid "icon"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:235
+#: gextractwinicons/ui/main.py:233
 msgid "cursor"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:309
+#: gextractwinicons/ui/main.py:307
 msgid "Extraction completed."
 msgstr ""
 
@@ -91,83 +91,55 @@ msgstr ""
 msgid "Open the options menu"
 msgstr ""
 
-#: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
-msgid "Refresh"
-msgstr ""
-
-#: ui/main.ui:67 ui/main.ui:188
+#: ui/main.ui:67 ui/main.ui:204 ui/shortcuts.ui:64
 msgid "Save resources"
 msgstr ""
 
-#: ui/main.ui:77 ui/main.ui:217 ui/shortcuts.ui:71
-msgid "Select all"
-msgstr ""
-
-#: ui/main.ui:85 ui/main.ui:247 ui/shortcuts.ui:78
+#: ui/main.ui:85 ui/main.ui:263 ui/shortcuts.ui:78
 msgid "Deselect all"
 msgstr ""
 
-#: ui/main.ui:93 ui/main.ui:232 ui/shortcuts.ui:85
+#: ui/main.ui:93 ui/main.ui:248 ui/shortcuts.ui:85
 msgid "Select only PNGs"
 msgstr ""
 
-#: ui/main.ui:124 ui/main.ui:209
+#: ui/main.ui:135 ui/main.ui:225
 msgid "Select resources"
 msgstr ""
 
-#: ui/main.ui:294 ui/shortcuts.ui:57
-msgid "Stop"
-msgstr ""
-
-#: ui/main.ui:381
+#: ui/main.ui:397
 msgid "File to open:"
 msgstr ""
 
-#: ui/main.ui:405
+#: ui/main.ui:421
 msgid "Destination folder:"
 msgstr ""
 
-#: ui/main.ui:419
+#: ui/main.ui:435
 msgid "Select path for saving"
 msgstr ""
 
-#: ui/main.ui:430
+#: ui/main.ui:446
 msgid "<b>Available resources:</b>"
 msgstr ""
 
-#: ui/main.ui:458
+#: ui/main.ui:474
 msgid "Preview"
 msgstr ""
 
-#: ui/main.ui:469
-msgid "Type"
-msgstr ""
-
-#: ui/main.ui:480
-msgid "Name"
-msgstr ""
-
-#: ui/main.ui:493
-msgid "Width"
-msgstr ""
-
-#: ui/main.ui:507
+#: ui/main.ui:523
 msgid "Height"
 msgstr ""
 
-#: ui/main.ui:519
+#: ui/main.ui:535
 msgid "Bits"
 msgstr ""
 
-#: ui/main.ui:533
-msgid "Size"
-msgstr ""
-
-#: ui/main.ui:546
+#: ui/main.ui:562
 msgid "Extract"
 msgstr ""
 
-#: ui/main.ui:570
+#: ui/main.ui:586
 msgid "Please select a file to list the available resources"
 msgstr ""
 
@@ -175,14 +147,6 @@ msgstr ""
 msgid "Show the about dialog"
 msgstr ""
 
-#: ui/shortcuts.ui:35
-msgid "Quit"
-msgstr ""
-
 #: ui/shortcuts.ui:45
 msgid "Resources"
-msgstr ""
-
-#: ui/shortcuts.ui:64
-msgid "Save"
 msgstr ""

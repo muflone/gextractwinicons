@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:29+0200\n"
+"POT-Creation-Date: 2022-08-20 17:08+0200\n"
 "PO-Revision-Date: 2022-04-18 02:43+0200\n"
 "Last-Translator: Сергей Богатов <hsh(at)runtu.org>\n"
 "Language-Team: Russian\n"
@@ -19,7 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: gextractwinicons/ui/about.py:65
 #, python-brace-format
@@ -54,36 +55,36 @@ msgstr ""
 msgid "Translations"
 msgstr ""
 
-#: gextractwinicons/ui/main.py:98
+#: gextractwinicons/ui/main.py:96
 msgid "MS Windows compatible files"
 msgstr "Файлы ресурсов MS Windows"
 
-#: gextractwinicons/ui/main.py:100
+#: gextractwinicons/ui/main.py:98
 msgid "All files"
 msgstr "Все файлы"
 
-#: gextractwinicons/ui/main.py:135
+#: gextractwinicons/ui/main.py:133
 #, python-brace-format
 msgid "{TOTAL} resources found ({SELECTED} resources selected)"
 msgstr "{TOTAL} ресурсов найдено ({SELECTED} ресурсов выбрано)"
 
-#: gextractwinicons/ui/main.py:214
+#: gextractwinicons/ui/main.py:212
 msgid "cursors"
 msgstr "Курсоры"
 
-#: gextractwinicons/ui/main.py:216
+#: gextractwinicons/ui/main.py:214
 msgid "icons"
 msgstr "Значки"
 
-#: gextractwinicons/ui/main.py:233
+#: gextractwinicons/ui/main.py:231
 msgid "icon"
 msgstr "значок"
 
-#: gextractwinicons/ui/main.py:235
+#: gextractwinicons/ui/main.py:233
 msgid "cursor"
 msgstr "курсор"
 
-#: gextractwinicons/ui/main.py:309
+#: gextractwinicons/ui/main.py:307
 msgid "Extraction completed."
 msgstr "Извлечение завершеною"
 
@@ -95,83 +96,55 @@ msgstr "Комбинации клавиш"
 msgid "Open the options menu"
 msgstr "Открыть настройки"
 
-#: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
-msgid "Refresh"
-msgstr ""
-
-#: ui/main.ui:67 ui/main.ui:188
+#: ui/main.ui:67 ui/main.ui:204 ui/shortcuts.ui:64
 msgid "Save resources"
 msgstr "Сохранить rесурсы"
 
-#: ui/main.ui:77 ui/main.ui:217 ui/shortcuts.ui:71
-msgid "Select all"
-msgstr "Выбрать всё"
-
-#: ui/main.ui:85 ui/main.ui:247 ui/shortcuts.ui:78
+#: ui/main.ui:85 ui/main.ui:263 ui/shortcuts.ui:78
 msgid "Deselect all"
 msgstr "Отменить выбор"
 
-#: ui/main.ui:93 ui/main.ui:232 ui/shortcuts.ui:85
+#: ui/main.ui:93 ui/main.ui:248 ui/shortcuts.ui:85
 msgid "Select only PNGs"
 msgstr "Выбрать только PNG"
 
-#: ui/main.ui:124 ui/main.ui:209
+#: ui/main.ui:135 ui/main.ui:225
 msgid "Select resources"
 msgstr "Выбрать rесурсы"
 
-#: ui/main.ui:294 ui/shortcuts.ui:57
-msgid "Stop"
-msgstr "Остановить"
-
-#: ui/main.ui:381
+#: ui/main.ui:397
 msgid "File to open:"
 msgstr "Открыть файл:"
 
-#: ui/main.ui:405
+#: ui/main.ui:421
 msgid "Destination folder:"
 msgstr "Каталог назначения:"
 
-#: ui/main.ui:419
+#: ui/main.ui:435
 msgid "Select path for saving"
 msgstr "Выбрать каталог назначения"
 
-#: ui/main.ui:430
+#: ui/main.ui:446
 msgid "<b>Available resources:</b>"
 msgstr "<b>Найденные ресурсы:</b>"
 
-#: ui/main.ui:458
+#: ui/main.ui:474
 msgid "Preview"
 msgstr "Просмотр"
 
-#: ui/main.ui:469
-msgid "Type"
-msgstr "Тип"
-
-#: ui/main.ui:480
-msgid "Name"
-msgstr "Имя"
-
-#: ui/main.ui:493
-msgid "Width"
-msgstr "Ширина"
-
-#: ui/main.ui:507
+#: ui/main.ui:523
 msgid "Height"
 msgstr "Высота"
 
-#: ui/main.ui:519
+#: ui/main.ui:535
 msgid "Bits"
 msgstr "Бит"
 
-#: ui/main.ui:533
-msgid "Size"
-msgstr "Размер"
-
-#: ui/main.ui:546
+#: ui/main.ui:562
 msgid "Extract"
 msgstr "Извлечь"
 
-#: ui/main.ui:570
+#: ui/main.ui:586
 msgid "Please select a file to list the available resources"
 msgstr "Выберите файл для просмотра доступных ресурсов"
 
@@ -179,14 +152,6 @@ msgstr "Выберите файл для просмотра доступных �
 msgid "Show the about dialog"
 msgstr "Показать диалог \"О программе\""
 
-#: ui/shortcuts.ui:35
-msgid "Quit"
-msgstr "Завершить"
-
 #: ui/shortcuts.ui:45
 msgid "Resources"
 msgstr "Ресурсы"
-
-#: ui/shortcuts.ui:64
-msgid "Save"
-msgstr "Сохранить"

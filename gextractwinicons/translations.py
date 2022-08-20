@@ -22,9 +22,31 @@ import gettext
 import locale
 
 from gextractwinicons.constants import APP_DOMAIN, DIR_LOCALE
+from gextractwinicons.localize import (store_message,
+                                       strip_colon,
+                                       strip_underline,
+                                       text)
 
 
 # Load domain for translation
 for module in (gettext, locale):
     module.bindtextdomain(APP_DOMAIN, DIR_LOCALE)
     module.textdomain(APP_DOMAIN)
+
+# Import some translated messages from GTK+ domain
+for message in ('About', 'General', 'Name', 'Size', '_Stop', 'Type', 'Width'):
+    store_message(strip_colon(strip_underline(message)),
+                  strip_colon(strip_underline(text(message=message,
+                                                   gtk30=True))))
+
+# Import some translated messages from GTK+ domain and context
+for message in ('_Quit', '_Refresh'):
+    store_message(strip_colon(strip_underline(message)),
+                  strip_colon(strip_underline(text(message=message,
+                                                   gtk30=True,
+                                                   context='Stock label'))))
+
+# Import some variations
+store_message('Select all',
+              strip_underline(text(message='Select _All',
+                                   gtk30=True)))

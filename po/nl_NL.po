@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
-"POT-Creation-Date: 2022-08-19 01:29+0200\n"
+"POT-Creation-Date: 2022-08-20 17:08+0200\n"
 "PO-Revision-Date: 2010-11-30 07:51+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss(at)fastmail.com>\n"
 "Language-Team: Dutch (Netherlands)\n"
@@ -54,36 +54,36 @@ msgstr "Problemen en bugs"
 msgid "Translations"
 msgstr "Vertalingen"
 
-#: gextractwinicons/ui/main.py:98
+#: gextractwinicons/ui/main.py:96
 msgid "MS Windows compatible files"
 msgstr "MS Windows-compatibele bestanden"
 
-#: gextractwinicons/ui/main.py:100
+#: gextractwinicons/ui/main.py:98
 msgid "All files"
 msgstr "Alle bestanden"
 
-#: gextractwinicons/ui/main.py:135
+#: gextractwinicons/ui/main.py:133
 #, python-brace-format
 msgid "{TOTAL} resources found ({SELECTED} resources selected)"
 msgstr "{TOTAL} bronnen gevonden - ({SELECTED} bronnen geselecteerd)"
 
-#: gextractwinicons/ui/main.py:214
+#: gextractwinicons/ui/main.py:212
 msgid "cursors"
 msgstr "cursors"
 
-#: gextractwinicons/ui/main.py:216
+#: gextractwinicons/ui/main.py:214
 msgid "icons"
 msgstr "pictogrammen"
 
-#: gextractwinicons/ui/main.py:233
+#: gextractwinicons/ui/main.py:231
 msgid "icon"
 msgstr "pictogram"
 
-#: gextractwinicons/ui/main.py:235
+#: gextractwinicons/ui/main.py:233
 msgid "cursor"
 msgstr "cursor"
 
-#: gextractwinicons/ui/main.py:309
+#: gextractwinicons/ui/main.py:307
 msgid "Extraction completed."
 msgstr "Het extraheren is voltooid."
 
@@ -95,98 +95,63 @@ msgstr "Sneltoetsen"
 msgid "Open the options menu"
 msgstr "Open het optiesmenu"
 
-#: ui/main.ui:49 ui/main.ui:309 ui/shortcuts.ui:50
-msgid "Refresh"
-msgstr "Herladen"
-
-#: ui/main.ui:67 ui/main.ui:188
+#: ui/main.ui:67 ui/main.ui:204 ui/shortcuts.ui:64
 msgid "Save resources"
 msgstr "Bronnen opslaan"
 
-#: ui/main.ui:77 ui/main.ui:217 ui/shortcuts.ui:71
-msgid "Select all"
-msgstr "Alles selecteren"
-
-#: ui/main.ui:85 ui/main.ui:247 ui/shortcuts.ui:78
+#: ui/main.ui:85 ui/main.ui:263 ui/shortcuts.ui:78
 msgid "Deselect all"
 msgstr "Niets selecteren"
 
-#: ui/main.ui:93 ui/main.ui:232 ui/shortcuts.ui:85
+#: ui/main.ui:93 ui/main.ui:248 ui/shortcuts.ui:85
 msgid "Select only PNGs"
 msgstr "Alleen png-bestanden selecteren"
 
-#: ui/main.ui:124 ui/main.ui:209
+#: ui/main.ui:135 ui/main.ui:225
 msgid "Select resources"
 msgstr "Bronnen selecteren"
 
-#: ui/main.ui:294 ui/shortcuts.ui:57
-msgid "Stop"
-msgstr "Stoppen"
-
-#: ui/main.ui:381
+#: ui/main.ui:397
 msgid "File to open:"
 msgstr "Het te openen bestand:"
 
-#: ui/main.ui:405
+#: ui/main.ui:421
 msgid "Destination folder:"
 msgstr "Doelmap:"
 
-#: ui/main.ui:419
+#: ui/main.ui:435
 msgid "Select path for saving"
 msgstr "Kies een opslaglocatie"
 
-#: ui/main.ui:430
+#: ui/main.ui:446
 msgid "<b>Available resources:</b>"
 msgstr "<b>Beschikbare bronnen:</b>"
 
-#: ui/main.ui:458
+#: ui/main.ui:474
 msgid "Preview"
 msgstr "Voorvertoning"
 
-#: ui/main.ui:469
-msgid "Type"
-msgstr "Type"
-
-#: ui/main.ui:480
-msgid "Name"
-msgstr "Naam"
-
-#: ui/main.ui:493
-msgid "Width"
-msgstr "Breedte"
-
-#: ui/main.ui:507
+#: ui/main.ui:523
 msgid "Height"
 msgstr "Hoogte"
 
-#: ui/main.ui:519
+#: ui/main.ui:535
 msgid "Bits"
 msgstr "Bits"
 
-#: ui/main.ui:533
-msgid "Size"
-msgstr "Grootte"
-
-#: ui/main.ui:546
+#: ui/main.ui:562
 msgid "Extract"
 msgstr "Extraheren"
 
-#: ui/main.ui:570
+#: ui/main.ui:586
 msgid "Please select a file to list the available resources"
-msgstr "Selecteer een bestand om een lijst op te maken met de beschikbare bronnen"
+msgstr ""
+"Selecteer een bestand om een lijst op te maken met de beschikbare bronnen"
 
 #: ui/shortcuts.ui:21
 msgid "Show the about dialog"
 msgstr "Toon het venster ‘Over’"
 
-#: ui/shortcuts.ui:35
-msgid "Quit"
-msgstr "Afsluiten"
-
 #: ui/shortcuts.ui:45
 msgid "Resources"
 msgstr "Bronnen"
-
-#: ui/shortcuts.ui:64
-msgid "Save"
-msgstr "Opslaan"

@@ -46,7 +46,7 @@
     <property name="accel-group">accelerators</property>
     <child>
       <object class="GtkAction" id="action_refresh">
-        <property name="label" translatable="yes">Refresh</property>
+        <property name="label" context="gtk30">Refresh</property>
         <property name="icon-name">view-refresh-symbolic</property>
         <property name="sensitive">False</property>
         <signal name="activate" handler="on_action_refresh_activate" swapped="no"/>
@@ -74,7 +74,7 @@
     </child>
     <child>
       <object class="GtkAction" id="action_select_all">
-        <property name="label" translatable="yes">Select all</property>
+        <property name="label">Select all</property>
         <property name="icon-name">edit-select-all-symbolic</property>
         <signal name="activate" handler="on_action_select_activate" swapped="no"/>
       </object>
@@ -106,6 +106,7 @@
         <property name="related-action">action_refresh</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label">Refresh</property>
         <property name="use-underline">True</property>
       </object>
     </child>
@@ -114,6 +115,16 @@
         <property name="related-action">action_stop</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label">Stop</property>
+        <property name="use-underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="menuitem_save">
+        <property name="related-action">action_save</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="label">Save resources</property>
         <property name="use-underline">True</property>
       </object>
     </child>
@@ -131,6 +142,7 @@
                 <property name="related-action">action_select_all</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="label">Select all</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -139,6 +151,7 @@
                 <property name="related-action">action_select_png</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="label">Select only PNGs</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -147,6 +160,7 @@
                 <property name="related-action">action_select_none</property>
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="label">Deselect all</property>
                 <property name="use-underline">True</property>
               </object>
             </child>
@@ -165,6 +179,7 @@
         <property name="related-action">action_shortcuts</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label">Keyboard shortcuts</property>
         <property name="use-underline">True</property>
       </object>
     </child>
@@ -173,6 +188,7 @@
         <property name="related-action">action_about</property>
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="label">About</property>
         <property name="use-underline">True</property>
       </object>
     </child>
@@ -214,7 +230,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_select_all">
-        <property name="label" translatable="yes">Select all</property>
+        <property name="label" context="gtk30">Select all</property>
         <property name="related-action">action_select_all</property>
         <property name="visible">True</property>
         <property name="sensitive">False</property>
@@ -291,7 +307,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_stop">
-        <property name="label" translatable="yes">Stop</property>
+        <property name="label">Stop</property>
         <property name="related-action">action_stop</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -306,7 +322,7 @@
     </child>
     <child>
       <object class="GtkButton" id="button_refresh">
-        <property name="label" translatable="yes">Refresh</property>
+        <property name="label">Refresh</property>
         <property name="related-action">action_refresh</property>
         <property name="visible">True</property>
         <property name="can-focus">True</property>
@@ -466,7 +482,7 @@
                 </child>
                 <child>
                   <object class="GtkTreeViewColumn" id="column_type">
-                    <property name="title" translatable="yes">Type</property>
+                    <property name="title" context="gtk30">Type</property>
                     <child>
                       <object class="GtkCellRendererText" id="cell_type"/>
                       <attributes>
@@ -477,7 +493,7 @@
                 </child>
                 <child>
                   <object class="GtkTreeViewColumn" id="column_name">
-                    <property name="title" translatable="yes">Name</property>
+                    <property name="title" context="gtk30">Name</property>
                     <property name="expand">True</property>
                     <child>
                       <object class="GtkCellRendererText" id="cell_name"/>
@@ -490,7 +506,7 @@
                 <child>
                   <object class="GtkTreeViewColumn" id="column_width">
                     <property name="resizable">True</property>
-                    <property name="title" translatable="yes">Width</property>
+                    <property name="title" context="gtk30">Width</property>
                     <child>
                       <object class="GtkCellRendererText" id="cell_width">
                         <property name="xalign">1</property>
@@ -530,7 +546,7 @@
                 <child>
                   <object class="GtkTreeViewColumn" id="column_size">
                     <property name="resizable">True</property>
-                    <property name="title" translatable="yes">Size</property>
+                    <property name="title" context="gtk30">Size</property>
                     <child>
                       <object class="GtkCellRendererText" id="cell_size">
                         <property name="xalign">1</property>

@@ -20,9 +20,6 @@
 
 import logging
 
-from gi.repository import Gtk
-
-from gextractwinicons.localize import text, text_gtk30
 from gextractwinicons.ui.base import UIBase
 
 
@@ -36,15 +33,8 @@ class UIShortcuts(UIBase):
         self.options = options
         # Load the user interface
         self.ui.shortcuts.set_transient_for(parent)
-        # Initialize translations
-        self.ui.shortcut_select_all.props.title = (
-            text_gtk30('Select _All').replace('_', ''))
-        # Initialize groups
-        for widget in self.ui.get_objects_by_type(Gtk.ShortcutsGroup):
-            widget.props.title = text(widget.props.title)
-        # Initialize shortcuts
-        for widget in self.ui.get_objects_by_type(Gtk.ShortcutsShortcut):
-            widget.props.title = text(widget.props.title)
+        # Initialize titles and tooltips
+        self.set_titles()
 
     def show(self):
         """Show the dialog"""
