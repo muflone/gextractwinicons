@@ -38,23 +38,23 @@ msgstr "Talkininkai:"
 
 #: gextractwinicons/ui/about.py:84
 msgid "Project home page"
-msgstr ""
+msgstr "Projekto internetinė svetainė"
 
 #: gextractwinicons/ui/about.py:85
 msgid "Source code"
-msgstr ""
+msgstr "Pirminis kodas"
 
 #: gextractwinicons/ui/about.py:86
 msgid "Author information"
-msgstr ""
+msgstr "Informacija apie autorių"
 
 #: gextractwinicons/ui/about.py:87
 msgid "Issues and bugs tracking"
-msgstr ""
+msgstr "Klaidos ir klaidų sekiklis"
 
 #: gextractwinicons/ui/about.py:88
 msgid "Translations"
-msgstr ""
+msgstr "Vertimai"
 
 #: gextractwinicons/ui/main.py:96
 msgid "MS Windows compatible files"

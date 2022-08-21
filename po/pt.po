@@ -101,7 +101,7 @@ msgstr "Gravar recursos"
 
 #: ui/main.ui:85 ui/main.ui:263 ui/shortcuts.ui:78
 msgid "Deselect all"
-msgstr "Des-selecionar tudo"
+msgstr "Deselecionar todos"
 
 #: ui/main.ui:93 ui/main.ui:248 ui/shortcuts.ui:85
 msgid "Select only PNGs"

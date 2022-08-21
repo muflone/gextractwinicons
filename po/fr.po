@@ -93,7 +93,7 @@ msgstr "Raccourcis clavier"
 
 #: ui/main.ui:33 ui/main.ui:39
 msgid "Open the options menu"
-msgstr ""
+msgstr "Ouvrir le menu options"
 
 #: ui/main.ui:67 ui/main.ui:204 ui/shortcuts.ui:64
 msgid "Save resources"
