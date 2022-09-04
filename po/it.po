@@ -32,7 +32,7 @@ msgstr "Estrae cursori e icone da file di risorse per MS Windows"
 
 #: gextractwinicons/ui/about.py:77
 msgid "Contributors:"
-msgstr "Contributori"
+msgstr "Contributori:"
 
 #: gextractwinicons/ui/about.py:84
 msgid "Project home page"
