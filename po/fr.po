@@ -7,13 +7,14 @@
 #
 # Translators:
 # Emmanuel <emmanuel(at)simple-linux.com>, 2010
+# Albano Battistella <albano_battistella(at)hotmail.com>, 2022
 msgid ""
 msgstr ""
 "Project-Id-Version: gExtractWinIcons\n"
 "Report-Msgid-Bugs-To: https://github.com/muflone/gextractwinicons/issues/\n"
 "POT-Creation-Date: 2022-08-20 17:08+0200\n"
 "PO-Revision-Date: 2010-11-30 07:51+0000\n"
-"Last-Translator: Emmanuel <emmanuel(at)simple-linux.com>\n"
+"Last-Translator: Albano Battistella <albano_battistella(at)hotmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -36,23 +37,23 @@ msgstr "Contributeurs:"
 
 #: gextractwinicons/ui/about.py:84
 msgid "Project home page"
-msgstr ""
+msgstr "Page d'accueil du projet"
 
 #: gextractwinicons/ui/about.py:85
 msgid "Source code"
-msgstr ""
+msgstr "Code source"
 
 #: gextractwinicons/ui/about.py:86
 msgid "Author information"
-msgstr ""
+msgstr "Informations sur l'auteur"
 
 #: gextractwinicons/ui/about.py:87
 msgid "Issues and bugs tracking"
-msgstr ""
+msgstr "Suivi des problèmes et des bugs"
 
 #: gextractwinicons/ui/about.py:88
 msgid "Translations"
-msgstr ""
+msgstr "Traductions"
 
 #: gextractwinicons/ui/main.py:96
 msgid "MS Windows compatible files"
