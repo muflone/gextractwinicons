@@ -26,7 +26,7 @@ from xdg import BaseDirectory
 
 # Application constants
 APP_NAME = 'gExtractWinIcons'
-APP_VERSION = '0.5.1'
+APP_VERSION = '0.5.2'
 APP_DESCRIPTION = 'Extract cursors and icons from MS Windows resource files'
 APP_DOMAIN = 'gextractwinicons'
 APP_AUTHOR = 'Fabio Castelli'
