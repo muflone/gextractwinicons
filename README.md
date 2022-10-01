@@ -11,7 +11,7 @@
 
 **Source code:** https://github.com/muflone/gextractwinicons/
 
-**Documentation:** https://www.muflone.com/gextractwinicons/
+**Documentation:** http://www.muflone.com/gextractwinicons/
 
 **Translations:** https://explore.transifex.com/muflone/gextractwinicons/
 
@@ -22,7 +22,7 @@ From the *gExtractWinIcons* main window you select an MS Windows resources file
 like cursors, icons and you can extract them, including exporting the icons in
 PNG format.
 
-![Main window](https://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png)
+![Main window](http://www.muflone.com/resources/gextractwinicons/archive/latest/english/main.png)
 
 # System Requirements
 
